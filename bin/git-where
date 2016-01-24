@@ -12,7 +12,7 @@ echo
 echo Commits:
 
 # Show commits on top of master
-base=`git merge-base upstream/master HEAD`
+base=`git merge-base upstream/master HEAD 2>/dev/null || git merge-base origin/master HEAD`
 git log --color --graph --oneline --decorate $base..HEAD
 echo '*' `git log --color --oneline --decorate -1 $base`
 
