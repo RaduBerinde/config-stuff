@@ -1,0 +1,19 @@
+
+[input-def]
+0=*
+
+[input2]
+0=/old-slack/
+
+[Dir Hist New Right Panel]
+0=/old-slack
+
+[cmdline]
+0=
+
+[Dir Hist New Left Panel]
+0=/old-slack/slack.tar.gz#utar
+1=/old-slack
+2=/bin
+3=/
+4=/root

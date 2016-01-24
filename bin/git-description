@@ -1,0 +1,96 @@
+#!/bin/bash
+
+. git-common-stuff.sh
+
+#TEMPLATE="<put a good 1-line overview here!>
+
+TEMPLATE="<put your Advil-compliant review request here!>
+
+QA Notes:
+Testing Done:
+Documentation Notes:
+Bug Number:
+Reviewed by:
+Approved by:
+Mailto:"
+# SVS opt-out rationale:"
+
+TEMPLATE_vsan_2016_merge="$TEMPLATE
+Merge to: storage-main: YES"
+
+TEMPLATE_main_merge="$TEMPLATE
+Merge to: vmkernel-main: NO
+Merge to: vmcore-main: NO
+Merge to: bfg-main: NO
+Merge to: networking-main: NO
+Merge to: storage-main: SVS"
+
+set -e
+# set -x
+
+if [ "$1" == "--help" ]; then
+   echo "Usage: git description [--show] [<upstream>] [<head>]"
+   echo "Does a 'git notes edit' on the first commit in this branch but not in <upstream> (default master)"
+   exit 1
+fi
+
+if [ "$1" == "--show" ]; then
+   SHOW=1
+   shift;
+fi
+
+if [ -n "$1" ]; then
+   BRANCH="$1"
+else
+   BRANCH=`get_upstream_branch`
+fi
+
+if [ -n "$2" ]; then
+   HEAD="$2"
+else
+   HEAD="HEAD"
+fi
+
+if [ "$SHOW" != "" ]; then
+   for c in `git log --format=%H master..$HEAD`; do
+      if git notes show $c >/dev/null 2>/dev/null; then
+         git log --format=%s -1 $c
+         echo
+         git notes show $c
+         exit 0
+      fi
+   done
+   exit 0
+fi
+
+set +x
+HASH=`git log --format=%H $BRANCH..$HEAD | tail -1`
+
+if [ "$HASH" == "" ]; then
+   echo No commit found. You must first commit something, and the note will be attached to that first commit.
+   exit 1
+fi
+
+echo Found commit ${HASH}
+
+if git notes show $HASH >/dev/null 2>/dev/null; then
+   echo Editing existing note
+else
+   echo Creating initial note
+   git config notes.rewriteRef refs/notes/commits | cat
+   BRANCH=`git log | sed -n '0,/.*\[git-p4:.*\/\/depot\/bora\/\([^\/]*\)\/.*/s//\\1/p; /\[git-p4/ q'`
+   echo Detected branch $BRANCH
+
+   if [ "$BRANCH" == "vsan-2016" ]; then
+      T="$TEMPLATE_vsan_2016_merge"
+   else
+      T="$TEMPLATE"
+   fi
+
+   echo "$T" | git notes edit -F - $HASH
+
+fi
+
+git notes edit $HASH
+
+#eof

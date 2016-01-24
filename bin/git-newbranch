@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ "$1" == "--help" || "$1" == "" ]]; then
+   echo "Usage: git newbranch <branch-name> [upstream]"
+   echo "Alias for git checkout -b <branch-name> --track upstream. Upstream is master if not specified"
+   exit 1
+fi
+
+UPSTREAM="$2"
+[ "$UPSTREAM" == "" ] && UPSTREAM=master
+
+set -e
+set -x
+git checkout -b $1 --track $UPSTREAM

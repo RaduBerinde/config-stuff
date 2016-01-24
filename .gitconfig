@@ -1,0 +1,17 @@
+[user]
+	name = Radu Berinde
+	email = radu.berinde@gmail.com
+[push]
+	default = matching
+[diff]
+	tool = vimdiff
+	external = git-diff-wrapper.sh
+[alias]
+	amend = commit -a --amend --no-edit
+	reword = commit --amend
+	pushall = push origin --all -f
+[merge]
+	tool = p4merge
+[pager]
+	diff = 
+   

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+. git-common-stuff.sh
+
+
+echo Branches:
+#git branch -v -a
+git branch -v
+echo
+echo -e "Upstream branch: ${COLGR}`get_upstream_branch`${COLn}"
+echo
+echo Commits:
+
+# Show commits on top of master
+base=`git merge-base upstream/master HEAD`
+git log --color --graph --oneline --decorate $base..HEAD
+echo '*' `git log --color --oneline --decorate -1 $base`
+
+echo
+echo Changes:
+git diff --stat $base..HEAD
+
+echo
+echo Status:
+git status

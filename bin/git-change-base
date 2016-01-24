@@ -1,0 +1,13 @@
+#!/bin/bash
+
+ . git-common-stuff.sh
+ set -e
+
+UP="$1"
+[ -z "$1" ] && UP="master"
+
+BASE=`get_upstream_branch`
+
+echo Rebasing from $BASE to $UP
+git branch --set-upstream-to=$UP
+git rebase --onto $UP $BASE

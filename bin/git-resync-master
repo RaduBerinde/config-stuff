@@ -1,0 +1,8 @@
+#!/bin/bash
+
+. git-common-stuff.sh
+
+git fetch upstream
+git branch -f master upstream/master
+
+echo '*' `git log --color --oneline --decorate -1 master`

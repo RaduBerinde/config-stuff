@@ -1,0 +1,43 @@
+#!/bin/bash
+
+. git-common-stuff.sh
+
+set -e
+
+if [ "$1" == "--help" ]; then
+   echo "Usage: git resync [<CL>]"
+   echo "Resyncs master to the given perforce CL (or the latest)"
+   echo "    warning: throws away any commits in master, including old cherry-picks"
+   exit 1
+fi
+
+ORIG_BRANCH=`get_current_branch`
+ORIG_BASE=`git merge-base $ORIG_BRANCH master`
+
+if [[ `git status --porcelain --untracked-files=no | wc -l` != 0 ]]; then
+   echo "Current branch not clean! (can use git stash)"
+   exit 2
+fi
+
+git fetch upstream || echo "WARNING: could not fetch upstream!"
+
+commit="upstream/master"
+
+if [[ `git rev-parse master` == `git rev-parse $commit` ]]; then
+   echo Nothing to do.
+   exit 0
+fi
+
+if [[ "$ORIG_BRANCH" != "master" ]]; then
+   git checkout master
+   trap "git checkout $ORIG_BRANCH" ERR
+fi
+
+echo "Setting master to $commit"
+git reset --hard $commit
+
+if [[ "$ORIG_BRANCH" != "master" ]]; then
+   git checkout "$ORIG_BRANCH"
+   echo "Rebasing branch $ORIG_BRANCH onto master."
+   git rebase --onto master $ORIG_BASE
+fi
