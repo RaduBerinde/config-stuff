@@ -1,10 +1,16 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+
 # Note: PS1 and umask are already set in /etc/profile. You should not
 # need this unless you want different defaults for root.
 # PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
 # umask 022
-
 
 # Radu's stuff
 #   export PS1='\[\033[01;31m\]\u@\H\[\033[01;34m\] \w \$\[\033[00m\] '
@@ -21,7 +27,9 @@ if [ -z "$BASH_VERSION" ]; then
 fi
 
 
-export HISTCONTROL=erasedups
+# don't put duplicate lines or lines starting with space in the history.
+HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth
 export HISTSIZE=10000
 export HISTFILESIZE=800000
 
@@ -54,6 +62,13 @@ alias ll='ls $LS_OPTIONS -l'
 # alias cp='cp -i'
 # alias mv='mv -i'
 
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
 function xcopy() { command xclip -i "$@"; }
 function xpaste() { command xclip -o "$@"; }
@@ -98,3 +113,8 @@ function devask() {
 
 export PATH=$PATH:~/bin
 alias gopath=". ~/bin/gopath.sh"
+
+source ~/liquidprompt/liquidprompt
+
+# Null command to reset any error code
+:

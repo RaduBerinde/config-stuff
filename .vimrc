@@ -11,7 +11,7 @@ set notitle
 autocmd BufNewFile,BufRead *.tex set filetype=tex
 autocmd FileType c,cpp set cindent tw=0
 autocmd Filetype tex set makeprg=latex\ %
-set tw=80
+"set tw=80
 set tabstop=4
 set shiftwidth=4
 set cino=:0,g0,u0,(0
