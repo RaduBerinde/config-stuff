@@ -257,8 +257,8 @@ defbindings("WFrame.toplevel", {
         kpress("0", "WFrame.switch_nth(_, 9)"),
         
         bdoc("Move current object within the frame left/right."),
-        kpress(META.."H", "WFrame.dec_index(_, _sub)", "_sub:non-nil"),
-        kpress(META.."L", "WFrame.inc_index(_, _sub)", "_sub:non-nil"),
+        kpress("Shift+H", "WFrame.dec_index(_, _sub)", "_sub:non-nil"),
+        kpress("Shift+L", "WFrame.inc_index(_, _sub)", "_sub:non-nil"),
                
         bdoc("Maximize the frame horizontally/vertically."),
         kpress("H", "WFrame.maximize_horiz(_)"),
