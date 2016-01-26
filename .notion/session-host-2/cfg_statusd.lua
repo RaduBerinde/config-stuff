@@ -3,9 +3,9 @@ return {
     ["date"] = {
         ["date_format"] = "%a %Y-%m-%d %H:%M",
     },
-    ["load"] = {
-    },
     ["mail"] = {
+    },
+    ["load"] = {
     },
 }
 

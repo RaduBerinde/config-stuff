@@ -14,7 +14,9 @@ if [ ! -d $BASE/bin -o ! -d $BASE/src -o ! -d $BASE/pkg ]; then
 fi
 
 # remove $GOPATH/BIN if it's there
-PATH=$(echo "$PATH" | sed "s#:$GOPATH/bin##g")
+if [ -n "$GOPATH" ]; then
+    PATH=$(echo "$PATH" | sed "s#:$GOPATH/bin##g")
+fi
 
 echo "Setting GOPATH to $BASE"
 export GOPATH=$BASE
