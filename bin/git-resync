@@ -12,7 +12,6 @@ if [ "$1" == "--help" ]; then
 fi
 
 ORIG_BRANCH=`get_current_branch`
-ORIG_BASE=`git merge-base $ORIG_BRANCH master`
 
 if [[ `git status --porcelain --untracked-files=no | wc -l` != 0 ]]; then
    echo "Current branch not clean! (can use git stash)"
@@ -39,5 +38,5 @@ git reset --hard $commit
 if [[ "$ORIG_BRANCH" != "master" ]]; then
    git checkout "$ORIG_BRANCH"
    echo "Rebasing branch $ORIG_BRANCH onto master."
-   git rebase --onto master $ORIG_BASE
+   git rebase master
 fi

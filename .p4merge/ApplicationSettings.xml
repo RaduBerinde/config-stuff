@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--perforce-xml-version=1.0-->
-<PropertyList varName="ApplicationSettings" IsManaged="TRUE">
+<PropertyList IsManaged="TRUE" varName="ApplicationSettings">
  <String varName="CharSet">none</String>
  <String varName="DiffOption">dl</String>
  <Font varName="Font">
@@ -14,19 +14,19 @@
  <Bool varName="ShowTabsSpaces">false</Bool>
  <Bool varName="TabInsertsSpaces">false</Bool>
  <Int varName="TabWidth">8</Int>
- <PropertyList varName="Windows" IsManaged="TRUE">
-  <PropertyList varName="CompareDialog" IsManaged="TRUE">
+ <PropertyList IsManaged="TRUE" varName="Windows">
+  <PropertyList IsManaged="TRUE" varName="CompareDialog">
    <ByteArray varName="WindowGeometry">AdnQywACAAAAAAW3AAACMgAAB6QAAAMdAAAFtwAAAjIAAAekAAADHQAAAAAAAAAADXA=</ByteArray>
   </PropertyList>
-  <PropertyList varName="Diff" IsManaged="TRUE">
+  <PropertyList IsManaged="TRUE" varName="Diff">
    <Bool varName="DiffCombined">false</Bool>
   </PropertyList>
-  <PropertyList varName="Merge" IsManaged="TRUE">
+  <PropertyList IsManaged="TRUE" varName="Merge">
    <Bool varName="ShowBase">true</Bool>
    <ByteArray varName="WindowGeometry">AdnQywACAAAAAADIAAAAaAAACrQAAAThAAAAyAAAAGgAAAq0AAAE4QAAAAAAAAAADXA=</ByteArray>
    <ByteArray varName="WindowState">AAAA/wAAAAD9AAAAAAAACe0AAAQ2AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAiAE0AYQBpAG4AVwBpAG4AZABvAHcAVABvAG8AbABiAGEAcgEAAAAA/////wAAAAAAAAAA</ByteArray>
   </PropertyList>
-  <PropertyList varName="MergeDiff" IsManaged="TRUE">
+  <PropertyList IsManaged="TRUE" varName="MergeDiff">
    <Bool varName="ShowLineNumbers">false</Bool>
   </PropertyList>
  </PropertyList>

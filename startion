@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #read -sp "Keymap bug - first touch a key in each server, then press enter"
-IP=192.168.2.1
-#IP=192.168.1.2
+IP=10.0.2.2
 
 # workaround for keymap bug
 # DISPLAY=10.17.119.64:0 xmodmap -pk &
 # DISPLAY=10.17.119.64:1 xterm &
 
-ion3 -display $IP:0 -session session-host-0 >/tmp/ionlog0 2>&1 &
-ion3 -display $IP:1 -session session-host-1 >/tmp/ionlog1 2>&1 &
-DISPLAY=$IP:2 urxvt &
+notion -display $IP:1 -session session-host-1 >/tmp/ionlog1 2>&1 &
+notion -display $IP:2 -session session-host-2 >/tmp/ionlog2 2>&1 &
+
+# DISPLAY=$IP:0 urxvt &

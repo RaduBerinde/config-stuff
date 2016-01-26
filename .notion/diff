@@ -1,0 +1,374 @@
+--- /usr/local/etc/notion/cfg_notioncore.lua	2014-08-25 07:03:22.095922554 -0400
++++ cfg_notioncore.lua	2014-08-25 12:25:41.000523000 -0400
+@@ -37,9 +37,9 @@
+     kpress(META.."comma", "WScreen.switch_prev(_)"),
+     kpress(META.."period", "WScreen.switch_next(_)"),
+ 
+-    submap(META.."K", {
++    submap(META.."W", {
+         bdoc("Go to first region demanding attention or previously active one."),
+-        kpress("K", "mod_menu.grabmenu(_, _sub, 'focuslist')"),
++        kpress("W", "mod_menu.grabmenu(_, _sub, 'focuslist')"),
+         -- Alternative without (cyclable) menu
+         --kpress("K", "ioncore.goto_activity() or ioncore.goto_previous()"),
+ 
+@@ -71,8 +71,8 @@
+     kpress(META.."F9", "ioncore.create_ws(_)"),
+     
+     bdoc("Display the main menu."),
+-    kpress(ALTMETA.."F12", "mod_query.query_menu(_, _sub, 'mainmenu', 'Main menu:')"),
+-    --kpress(ALTMETA.."F12", "mod_menu.menu(_, _sub, 'mainmenu', {big=true})"),
++    --kpress(ALTMETA.."F12", "mod_query.query_menu(_, _sub, 'mainmenu', 'Main menu:')"),
++    kpress(ALTMETA.."F11", "mod_menu.menu(_, _sub, 'mainmenu', {big=true})"),
+     mpress("Button3", "mod_menu.pmenu(_, _sub, 'mainmenu')"),
+     
+     bdoc("Display the window list menu."),
+@@ -104,7 +104,7 @@
+ -- These bindings affect client windows directly.
+ 
+ defbindings("WClientWin", {
+-    submap(META.."K", {
++    submap(META.."W", {
+        bdoc("Nudge the client window. This might help with some "..
+          "programs' resizing problems."),
+        kpress_wait(META.."L", "WClientWin.nudge(_)"),
+@@ -133,8 +133,15 @@
+ -- contexts/objects always gets to handle the key press. 
+ 
+ defbindings("WMPlex", {
+-    bdoc("Close current object."),
+-    kpress_wait(META.."C", "WRegion.rqclose_propagate(_, _sub)"),
++    kpress(META.."L", "ioncore.exec(\"xte 'mousermove +200 0'\")");
++    kpress(META.."H", "ioncore.exec(\"xte 'mousermove -200 0'\")");
++    kpress(META.."J", "ioncore.exec(\"xte 'mousermove 0 +200'\")");
++    kpress(META.."K", "ioncore.exec(\"xte 'mousermove 0 -200'\")");
++    kpress(META.."P", "ioncore.exec(\"xte 'mouseclick 2'\")");
++    submap(META.."W", {
++        bdoc("Close current object."),
++        kpress_wait("C", "WRegion.rqclose_propagate(_, _sub)"),
++    });
+ })
+ 
+ -- Frames for transient windows ignore this bindmap
+@@ -142,34 +149,25 @@
+     bdoc("Toggle tag of current object."),
+     kpress(META.."T", "WRegion.set_tagged(_sub, 'toggle')", "_sub:non-nil"),
+ 
+-    bdoc("Lock screen"),
+-    kpress(META.."L", "notioncore.exec_on(_, notioncore.lookup_script('notion-lock'))"),
+-    
+-    bdoc("Query for manual page to be displayed."),
+-    kpress(ALTMETA.."F1", "mod_query.query_man(_, ':man')"),
+-
+-    bdoc("Show the Notion manual page."),
+-    kpress(META.."F1", "ioncore.exec_on(_, ':man notion')"),
+-
+     bdoc("Run a terminal emulator."),
+-    kpress(ALTMETA.."F2", "mod_query.exec_on_merr(_, XTERM or 'xterm')"),
++    kpress(ALTMETA.."F1", "mod_query.exec_on_merr(_, XTERM or 'xterm')"),
+     
+-    bdoc("Query for command line to execute."),
+-    kpress(ALTMETA.."F3", "mod_query.query_exec(_)"),
++    -- bdoc("Query for command line to execute."),
++    -- kpress(ALTMETA.."F3", "mod_query.query_exec(_)"),
+ 
+-    bdoc("Query for Lua code to execute."),
+-    kpress(META.."F3", "mod_query.query_lua(_)"),
++    -- bdoc("Query for Lua code to execute."),
++    -- kpress(META.."F3", "mod_query.query_lua(_)"),
+ 
+-    bdoc("Query for host to connect to with SSH."),
+-    kpress(ALTMETA.."F4", "mod_query.query_ssh(_, ':ssh')"),
++    -- bdoc("Query for host to connect to with SSH."),
++    -- kpress(ALTMETA.."F4", "mod_query.query_ssh(_, ':ssh')"),
+ 
+-    bdoc("Query for file to edit."),
+-    kpress(ALTMETA.."F5", 
+-           "mod_query.query_editfile(_, 'run-mailcap --action=edit')"),
++    -- bdoc("Query for file to edit."),
++    -- kpress(ALTMETA.."F5", 
++    --        "mod_query.query_editfile(_, 'run-mailcap --action=edit')"),
+ 
+-    bdoc("Query for file to view."),
+-    kpress(ALTMETA.."F6", 
+-           "mod_query.query_runfile(_, 'run-mailcap --action=view')"),
++    -- bdoc("Query for file to view."),
++    -- kpress(ALTMETA.."F6", 
++    --     "mod_query.query_runfile(_, 'run-mailcap --action=view')"),
+ 
+     bdoc("Query for workspace to go to or create a new one."),
+     kpress(ALTMETA.."F9", "mod_query.query_workspace(_)"),
+@@ -178,10 +176,10 @@
+     kpress(META.."G", "mod_query.query_gotoclient(_)"),
+     
+     bdoc("Display context menu."),
+-    --kpress(META.."M", "mod_menu.menu(_, _sub, 'ctxmenu')"),
+-    kpress(META.."M", "mod_query.query_menu(_, _sub, 'ctxmenu', 'Context menu:')"),
++    kpress(META.."M", "mod_menu.menu(_, _sub, 'ctxmenu')"),
++    --kpress(META.."M", "mod_query.query_menu(_, _sub, 'ctxmenu', 'Context menu:')"),
+     
+-    submap(META.."K", {
++    submap(META.."W", {
+         bdoc("Detach (float) or reattach an object to its previous location."),
+         -- By using _chld instead of _sub, we can detach/reattach queries
+         -- attached to a group. The detach code checks if the parameter 
+@@ -198,10 +196,10 @@
+ -- frame bindings are found in some modules' configuration files.
+ 
+ defbindings("WFrame", {
+-    submap(META.."K", {
++    submap(META.."W", {
+         bdoc("Maximize the frame horizontally/vertically."),
+-        kpress("H", "WFrame.maximize_horiz(_)"),
+-        kpress("V", "WFrame.maximize_vert(_)"),
++        kpress("bar", "WFrame.maximize_horiz(_)"),
++        kpress("underscore", "WFrame.maximize_vert(_)"),
+     }),
+     
+     bdoc("Display context menu."),
+@@ -235,8 +233,12 @@
+ defbindings("WFrame.toplevel", {
+     bdoc("Query for a client window to attach."),
+     kpress(META.."A", "mod_query.query_attachclient(_)"),
++
++    bdoc("Switch to next/previous object within the frame."),
++    kpress(META.."N", "WFrame.switch_next(_)"),
++    kpress(META.."Shift+N", "WFrame.switch_prev(_)"),
+     
+-    submap(META.."K", {
++    submap(META.."W", {
+         -- Display tab numbers when modifiers are released
+         submap_wait("ioncore.tabnum.show(_)"),
+         
+@@ -252,13 +254,9 @@
+         kpress("9", "WFrame.switch_nth(_, 8)"),
+         kpress("0", "WFrame.switch_nth(_, 9)"),
+         
+-        bdoc("Switch to next/previous object within the frame."),
+-        kpress("N", "WFrame.switch_next(_)"),
+-        kpress("P", "WFrame.switch_prev(_)"),
+-        
+         bdoc("Move current object within the frame left/right."),
+-        kpress("comma", "WFrame.dec_index(_, _sub)", "_sub:non-nil"),
+-        kpress("period", "WFrame.inc_index(_, _sub)", "_sub:non-nil"),
++        kpress(META.."H", "WFrame.dec_index(_, _sub)", "_sub:non-nil"),
++        kpress(META.."L", "WFrame.inc_index(_, _sub)", "_sub:non-nil"),
+                
+         bdoc("Maximize the frame horizontally/vertically."),
+         kpress("H", "WFrame.maximize_horiz(_)"),
+@@ -326,10 +324,6 @@
+     kpress(META.."Right", "WMoveresMode.move(_, 1, 0)"),
+     kpress(META.."Up",    "WMoveresMode.move(_, 0,-1)"),
+     kpress(META.."Down",  "WMoveresMode.move(_, 0, 1)"),
+-    kpress(META.."F",     "WMoveresMode.move(_,-1, 0)"),
+-    kpress(META.."B",     "WMoveresMode.move(_, 1, 0)"),
+-    kpress(META.."P",     "WMoveresMode.move(_, 0,-1)"),
+-    kpress(META.."N",     "WMoveresMode.move(_, 0, 1)"),
+ })
+ 
+ 
+--- /usr/local/etc/notion/cfg_notion.lua	2014-08-25 07:03:22.087922138 -0400
++++ cfg_notion.lua	2014-08-25 11:44:16.000083000 -0400
+@@ -18,11 +18,14 @@
+ -- instead. The 'xmodmap' tool can be used to get/set which key codes correspond
+ -- to which modifiers, and the 'xev' tool can be used to see what codes are
+ -- generated by particular keys.
+---META="Mod4+"
++META="Mod1+"
+ --ALTMETA=""
+ 
+ -- Terminal emulator
+ --XTERM="xterm"
++XTERM="urxvt --perl-ext-common default"
++XTERM_VMC_DBC="urxvt --perl-ext-common default -e ssh rberinde@vmc-dbc301"
++XTERM_PA_DBC="urxvt --perl-ext-common default -e ssh rberinde@pa-dbc1109"
+ 
+ -- Some basic settings
+ ioncore.set{
+@@ -94,6 +97,8 @@
+ -- modules with 'mod' replaced by 'cfg'.
+ dopath("cfg_defaults")
+ 
++dopath("statusbar_workspace")
++
+ -- Load configuration of the Notion 'core'. Most bindings are here.
+ --dopath("cfg_notioncore")
+ 
+--- /usr/local/etc/notion/cfg_statusbar.lua	2014-08-25 07:03:22.139924841 -0400
++++ cfg_statusbar.lua	2014-08-25 11:46:40.000096000 -0400
+@@ -36,7 +36,8 @@
+     -- right, respectively, and %systray is a placeholder for system tray
+     -- windows and icons.
+     --
+-    template="[ %date || load: %load ] %filler%systray",
++    template="%workspace_num_name_pager %filler%systray%date",
++    --template="[ %date || load: %load ] %filler%systray",
+     --template="[ %date || load:% %>load || mail:% %>mail_new/%>mail_total ] %filler%systray",
+     --template="[ %date || load: %05load_1min || mail: %02mail_new/%02mail_total ] %filler%systray",
+ }
+--- /usr/local/etc/notion/cfg_tiling.lua	2014-08-25 07:03:22.119923800 -0400
++++ cfg_tiling.lua	2014-08-25 12:00:57.000023000 -0400
+@@ -15,12 +15,18 @@
+     mclick(META.."Shift+Button5", "ioncore.goto_next(_sub, 'down', {no_ascend=_})"),
+     bdoc("Go to frame right/left of current frame."),
+     kpress(META.."Tab", "ioncore.goto_next(_sub, 'right')"),
+-    submap(META.."K", {
+-        kpress("Tab", "ioncore.goto_next(_sub, 'left')"),
++    submap(META.."W", {
++        kpress("K", "ioncore.goto_next(_sub, 'up', {nowrap=true})"),
++        kpress("J", "ioncore.goto_next(_sub, 'down', {nowrap=true})"),
++        kpress("L", "ioncore.goto_next(_sub, 'right', {nowrap=true})"),
++        kpress("H", "ioncore.goto_next(_sub, 'left', {nowrap=true})"),
++
++        bdoc("Split current frame vertically."),
++        kpress("N", "WTiling.split_at(_, _sub, 'bottom', false)"),
+         
+         bdoc("Split current frame horizontally."),
+-        kpress("S", "WTiling.split_at(_, _sub, 'right', true)"),
+-        
++        kpress("S", "WTiling.split_at(_, _sub, 'right', false)"),
++
+         bdoc("Destroy current frame."),
+         kpress("X", "WTiling.unsplit_at(_, _sub)"),
+     }),
+@@ -30,7 +36,7 @@
+ -- Frame bindings
+ 
+ defbindings("WFrame.floating", {
+-    submap(META.."K", {
++    submap(META.."W", {
+         bdoc("Tile frame, if no tiling exists on the workspace"),
+         kpress("B", "mod_tiling.mkbottom(_)"),
+     }),
+--- /usr/local/etc/notion/lookcommon_clean.lua	2014-08-25 07:03:22.247930450 -0400
++++ lookcommon_clean.lua	2014-08-25 12:51:22.000178000 -0400
+@@ -6,6 +6,7 @@
+         -- Something detached from the frame is active
+         padding_colour = "#901010",
+     }),
++    padding_colour = "#AAAAAA",
+     de.substyle("userattr1", {
+         -- For user scripts
+         padding_colour = "#009010",
+--- /usr/local/etc/notion/statusbar_workspace.lua	1969-12-31 19:00:00.000000000 -0500
++++ statusbar_workspace.lua	2014-08-25 11:46:19.000024000 -0400
+@@ -0,0 +1,119 @@
++-- statusbar_workspace.lua
++--
++-- Show current workspace name or number in the statusbar.
++-- 
++-- Put any of these in cfg_statusbar.lua's template-line:
++--  %workspace_name
++--  %workspace_frame
++--  %workspace_pager
++--  %workspace_name_pager
++--  %workspace_num_name_pager
++--
++-- This is an internal statusbar monitor and does NOT require
++-- a dopath statement (effective after a 2006-02-12 build).
++--
++-- version 1
++-- author: Rico Schiekel <fire at paranetic dot de>
++--
++-- version 2
++-- added 2006-02-14 by Canaan Hadley-Voth:
++--  * %workspace_pager shows a list of workspace numbers 
++--    with the current one indicated:
++--
++--    1i  2i  [3f]  4p  5c
++--
++--    i=WIonWS, f=WFloatWS, p=WPaneWS, c=WClientWin/other
++--
++--  * %workspace_frame - name of the active frame.
++--
++--  * Added statusbar_ to the filename (since it *is*
++--    an internal statusbar monitor) so that it works without
++--    a "dopath" call.
++--
++--  * Removed timer.  Only needs to run on hook.
++--    Much faster this way.
++--
++-- version 3
++-- update for ion-3rc-20070506 on 2007-05-09 
++-- by Kevin Granade <kevin dot granade at gmail dot com>
++--
++-- Updated to use new wx_ api
++-- Replaced region_activated_hook with region_notify_hook
++-- Added %workspace_name_pager, which works similarly to %workspace_pager,
++--   but instead displays the name of each workspace
++-- Added display for WGroupWS to %workspace_pager, displayed as 'g'
++-- 
++
++local function update_frame()
++    local fr
++    ioncore.defer( function() 
++	local cur=ioncore.current()
++	if obj_is(cur, "WClientWin") and
++	  obj_is(cur:parent(), "WMPlex") then
++	    cur=cur:parent()
++	end
++	fr=cur:name()
++	mod_statusbar.inform('workspace_frame', fr)
++	mod_statusbar.update()
++    end)
++end
++
++local function update_workspace()
++    local scr=ioncore.find_screen_id(0)
++    local curws = scr:mx_current()
++    local wstype, c
++    local pager=""
++    local name_pager=""
++    local name_pager_plus=""
++    local curindex = scr:get_index(curws)+1
++    n = scr:mx_count(1)
++    for i=1,n do
++        tmpws=scr:mx_nth(i-1)
++        wstype=obj_typename(tmpws)
++	if wstype=="WIonWS" then
++	    c="i"
++	elseif wstype=="WFloatWS" then
++	    c="f"
++	elseif wstype=="WPaneWS" then
++	    c="p"
++	elseif wstype=="WGroupWS" then
++	    c="g"
++	else
++	    c="c"
++	end
++	if i==curindex then
++            name_pager_plus=name_pager_plus.."  ["..(i)..":"..tmpws:name().."]"
++            name_pager=name_pager.." ["..tmpws:name().."]"
++	    pager=pager.." ["..(i)..c.."] "
++	else
++            name_pager_plus=name_pager_plus.."  "..(i)..":"..tmpws:name()
++            name_pager=name_pager.." "..tmpws:name()
++	    pager=pager.." "..(i)..c.." "
++	end
++    end
++
++    local fr,cur
++
++    -- Older versions without an ioncore.current() should
++    -- skip update_frame.
++    update_frame()
++
++    ioncore.defer( function()
++	mod_statusbar.inform('workspace_pager', pager)
++	mod_statusbar.inform('workspace_name', curws:name())
++        mod_statusbar.inform('workspace_name_pager', name_pager)
++        mod_statusbar.inform('workspace_num_name_pager', name_pager_plus)
++	mod_statusbar.update()
++    end)
++end
++
++local function update_workspace_wrap(reg, how)
++    if how ~= "name" then
++        return
++    end
++
++    update_workspace()
++end
++
++ioncore.get_hook("region_notify_hook"):add(update_workspace_wrap)
++ioncore.get_hook("screen_managed_changed_hook"):add(update_workspace)
