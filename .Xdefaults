@@ -64,8 +64,10 @@ XTerm*color15: white
 !URxvt.keysym.C-equal: command:\033]710;-misc-fixed-normal-r-normal--18-*-*-*-*-*-iso8859-1\007
 !URxvt.keysym.C-plus: command:\033]710;-misc-fixed-bold-r-normal--18-*-*-*-*-*-iso8859-1\007
 
-URxvt.font: console8x16
-URxvt.boldFont: console8x16
+URxvt.font: 8x16
+URxvt.boldFont: 8x16
+#URxvt.font: console8x16
+#URxvt.boldFont: console8x16
 URxvt.foreground:   gray
 URxvt.background:   black
 URxvt.color0: #000000

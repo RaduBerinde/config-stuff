@@ -10,4 +10,4 @@ IP=10.0.2.2
 notion -display $IP:1 -session session-host-1 >/tmp/ionlog1 2>&1 &
 notion -display $IP:2 -session session-host-2 >/tmp/ionlog2 2>&1 &
 
-# DISPLAY=$IP:0 urxvt &
+DISPLAY=$IP:0 urxvt &

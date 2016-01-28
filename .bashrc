@@ -118,3 +118,4 @@ source ~/liquidprompt/liquidprompt
 
 # Null command to reset any error code
 :
+export DISPLAY=10.0.2.2:0
