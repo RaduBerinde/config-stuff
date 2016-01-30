@@ -16,7 +16,8 @@ set tabstop=4
 set shiftwidth=4
 set cino=:0,g0,u0,(0
 set expandtab
-set foldmethod=syntax
+" syntax folding is slow with vim-go
+set foldmethod=indent
 set foldlevel=20
 set backspace=indent,eol,start
 set showmatch
@@ -173,3 +174,5 @@ autocmd Filetype sql set makeprg=runsql\ %\ 2>&1
 autocmd FileType go set number fo+=croq tw=100
 autocmd Filetype go set makeprg=go\ build\ .
 autocmd Filetype go nmap <C-]> :exec("GoDef")<CR>
+
+autocmd Filetype gitcommit set tw=80 spell
