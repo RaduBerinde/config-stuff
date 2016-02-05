@@ -101,6 +101,94 @@
       type = Terminal
       order = 4
       parent = child1
+  [[combined2]]
+    [[[child0]]]
+      position = 1218:36
+      type = Window
+      order = 0
+      parent = ""
+      size = 2213, 1395
+    [[[child1]]]
+      labels = 1. roach, 2. roach2, 3. view, 4. sql, 5. misc
+      type = Notebook
+      order = 0
+      parent = child0
+    [[[child10]]]
+      labels = 1. roach, 2. roach2
+      type = Notebook
+      order = 0
+      parent = child9
+    [[[child11]]]
+      position = 686
+      type = VPaned
+      order = 0
+      parent = child10
+    [[[child5]]]
+      position = 1109
+      type = HPaned
+      order = 3
+      parent = child1
+    [[[child14]]]
+      position = 686
+      type = VPaned
+      order = 1
+      parent = child10
+    [[[child9]]]
+      position = 102:36
+      type = Window
+      order = 0
+      parent = ""
+      size = 1098, 1395
+    [[[terminal12]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child11
+    [[[terminal16]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child14
+    [[[terminal13]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child11
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child1
+    [[[terminal2]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child1
+    [[[terminal15]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child14
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 2
+      parent = child1
+    [[[terminal7]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child5
+    [[[terminal6]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child5
+    [[[terminal8]]]
+      profile = default
+      type = Terminal
+      order = 4
+      parent = child1
   [[combined]]
     [[[child0]]]
       position = 1218:36
