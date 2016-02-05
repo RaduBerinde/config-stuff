@@ -1,0 +1,2 @@
+Just copy clacon.ttf to /usr/share/fonts/truetype and it should show up as
+"Classic Console" in terminator.
