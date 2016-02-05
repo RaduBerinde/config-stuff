@@ -1,0 +1,197 @@
+[global_config]
+  handle_size = 2
+  title_hide_sizetext = True
+  focus = mouse
+  enabled_plugins = ,
+  tab_position = bottom
+  inactive_color_offset = 0.92
+[keybindings]
+  close_window = None
+  switch_to_tab_10 = <Alt>0
+  group_all = None
+  toggle_zoom = F11
+  scaled_zoom = <Shift>F11
+  zoom_in = <Primary>equal
+  switch_to_tab_7 = <Alt>7
+  full_screen = None
+  switch_to_tab_6 = <Alt>6
+  group_tab = None
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  split_vert = <Primary><Shift>k
+  ungroup_all = None
+  switch_to_tab_1 = <Alt>1
+  ungroup_tab = None
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_2 = <Alt>2
+  go_prev = None
+  new_terminator = <Primary><Shift>n
+  hide_window = None
+  split_horiz = <Primary><Shift>j
+  edit_window_title = F12
+  go_next = None
+  switch_to_tab_9 = <Alt>9
+  toggle_scrollbar = None
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    font = Classic Console 12
+    background_image = None
+    scrollback_lines = 5000
+    use_system_font = False
+    scroll_on_output = False
+    icon_bell = False
+    copy_on_selection = True
+    allow_bold = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+    [[[window0]]]
+      type = Window
+      parent = ""
+  [[main]]
+    [[[child0]]]
+      position = 768:36
+      type = Window
+      order = 0
+      parent = ""
+      size = 2664, 1395
+    [[[child1]]]
+      labels = 1. roach, 2. roach2, 3. view, 4. sql, 5. misc
+      type = Notebook
+      order = 0
+      parent = child0
+    [[[child5]]]
+      position = 1923
+      type = HPaned
+      order = 3
+      parent = child1
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child1
+    [[[terminal2]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child1
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 2
+      parent = child1
+    [[[terminal7]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child5
+    [[[terminal6]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child5
+    [[[terminal8]]]
+      profile = default
+      type = Terminal
+      order = 4
+      parent = child1
+  [[combined]]
+    [[[child0]]]
+      position = 1218:36
+      type = Window
+      order = 0
+      parent = ""
+      size = 2213, 1395
+    [[[child1]]]
+      labels = 1. roach, 2. roach2, 3. view, 4. sql, 5. misc
+      type = Notebook
+      order = 0
+      parent = child0
+    [[[child10]]]
+      labels = 1. roach, 2. roach2
+      type = Notebook
+      order = 0
+      parent = child9
+    [[[child11]]]
+      position = 686
+      type = VPaned
+      order = 0
+      parent = child10
+    [[[child5]]]
+      position = 1108
+      type = HPaned
+      order = 3
+      parent = child1
+    [[[child14]]]
+      position = 686
+      type = VPaned
+      order = 1
+      parent = child10
+    [[[child9]]]
+      position = 102:36
+      type = Window
+      order = 0
+      parent = ""
+      size = 1098, 1395
+    [[[terminal12]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child11
+    [[[terminal16]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child14
+    [[[terminal13]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child11
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child1
+    [[[terminal2]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child1
+    [[[terminal15]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child14
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 2
+      parent = child1
+    [[[terminal7]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child5
+    [[[terminal6]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child5
+    [[[terminal8]]]
+      profile = default
+      type = Terminal
+      order = 4
+      parent = child1
+[plugins]
+  [[CustomCommandsMenu]]
+    [[[bash]]]
+      command = /bin/bash
+      enabled = True
+      name = bash
