@@ -1,3 +1,5 @@
+colorscheme torte
+set t_ti= t_te=
 
 execute pathogen#infect()
 "set runtimepath-=~/.vim/bundle/tagbar
@@ -7,6 +9,8 @@ syntax on
 filetype plugin indent on
 
 set notitle
+
+set scrolloff=5
 
 autocmd BufNewFile,BufRead *.tex set filetype=tex
 autocmd FileType c,cpp set cindent tw=0
@@ -80,30 +84,17 @@ autocmd BufNewFile,BufRead *.c.BASE set filetype=c
 autocmd BufNewFile,BufRead *.cpp.BASE set filetype=cpp
 autocmd BufNewFile,BufRead *.h.BASE set filetype=cpp
 autocmd BufNewFile,BufRead *.java.BASE set filetype=java
-autocmd BufNewFile,BufRead seriallog* set filetype=messages
-autocmd BufNewFile,BufRead hostd.* set filetype=messages
-autocmd BufNewFile,BufRead vmkernel.* set filetype=messages
-autocmd BufNewFile,BufRead vpxa.* set filetype=messages
-autocmd BufNewFile,BufRead vpxd.* set filetype=messages
-autocmd BufNewFile,BufRead *.log set filetype=messages
-autocmd BufNewFile,BufRead *.vmsg set filetype=conf tw=0
-autocmd BufNewFile,BufRead defaultxml set filetype=xml
 autocmd BufNewFile,BufRead NOTES_EDITMSG set tw=80 ai spell
 
-autocmd BufNewFile,BufRead de:ad:be:ef:00* set filetype=sh nonumber winheight=20
-autocmd BufNewFile,BufRead library set filetype=sh nonumber
-
-autocmd BufNewFile,BufRead vsantraces* set filetype=traces nonumber
-autocmd BufNewFile,BufRead Tvsantraces* set filetype=traces nonumber
-autocmd BufNewFile,BufRead Tvsantraces*.* set filetype=traces nonumber
+autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sql
 
 autocmd FileType c,cpp syn keyword cType vmk_uint8 vmk_int8 vmk_uint16 vmk_int16 vmk_uint32 vmk_int32 vmk_uint64 vmk_int64 vmk_uintptr_t vmk_Bool VMK_ReturnStatus vmk_ListLinks vmk_atomic64
 autocmd FileType c,cpp syn keyword cType uint8 int8 uint16 int16 uint32 int32 uint64 int64 uintptr_t Bool 
 autocmd FileType c,cpp syn keyword cConstant VMK_TRUE VMK_FALSE TRUE FALSE
 
-autocmd FileType c,cpp,java,asm set cindent tw=80 fo+=croq number
+autocmd FileType c,cpp,java,asm,make set cindent tw=100 fo+=croq number
 autocmd FileType c,cpp,java,sh,python,make highlight OverLength ctermbg=darkred ctermfg=white
-autocmd FileType c,cpp,java,sh,python,make match OverLength /\%81v.\+/
+autocmd FileType c,cpp,java,sh,python,make match OverLength /\%101v.\+/
 autocmd FileType c,cpp,java,sh,python,make highlight ExtraWhitespace ctermbg=darkred ctermfg=white
 autocmd FileType c,cpp,java,sh,python,make 2match ExtraWhitespace /\s\+$/
 "autocmd FileType c,cpp,java call matchadd('ExtraWhitespace', '\s\+$')
@@ -139,40 +130,53 @@ let g:go_highlight_build_constraints = 1
 "Show type info under cursor.
 "let g:go_auto_type_info = 1
 
+" Enable goimports to automatically insert import paths instead of gofmt:
+let g:go_fmt_command = "goimports"
 
-"let g:tagbar_type_go = {
-"    \ 'ctagstype' : 'go',
-"    \ 'kinds'     : [
-"        \ 'p:package',
-"        \ 'i:imports:1',
-"        \ 'c:constants',
-"        \ 'v:variables',
-"        \ 't:types',
-"        \ 'n:interfaces',
-"        \ 'w:fields',
-"        \ 'e:embedded',
-"        \ 'm:methods',
-"        \ 'r:constructor',
-"        \ 'f:functions'
-"    \ ],
-"    \ 'sro' : '.',
-"    \ 'kind2scope' : {
-"        \ 't' : 'ctype',
-"        \ 'n' : 'ntype'
-"    \ },
-"    \ 'scope2kind' : {
-"        \ 'ctype' : 't',
-"        \ 'ntype' : 'n'
-"    \ },
-"    \ 'ctagsbin'  : 'gotags',
-"    \ 'ctagsargs' : '-sort -silent'
-"\ }
+
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
 set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 
 autocmd Filetype sql set makeprg=runsql\ %\ 2>&1
+autocmd Filetype sql nmap <F2> :!cat % \| ~/roach2/cockroach sql --dev<CR>
+
 autocmd FileType go set number fo+=croq tw=100
 autocmd Filetype go set makeprg=go\ build\ .
 autocmd Filetype go nmap <C-]> :exec("GoDef")<CR>
 
 autocmd Filetype gitcommit set tw=80 spell
+
+let g:vimshell_vimshrc_path = '/root/.bashrc'
+" TERM=linux fixes
+"set <F2>=OQ
+"set <F3>=OR
+"set <Home>=[H
+"set <End>=[F

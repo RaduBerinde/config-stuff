@@ -1,3 +1,5 @@
 #!/bin/bash
 
-terminator -l combined &
+# terminator -l combined &
+
+/work/terminator/gtk3-terminator/terminator -g /work/terminator/gtk3-terminator/temp-config -u -l combined &

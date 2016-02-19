@@ -38,5 +38,6 @@ git reset --hard $commit
 if [[ "$ORIG_BRANCH" != "master" ]]; then
    git checkout "$ORIG_BRANCH"
    echo "Rebasing branch $ORIG_BRANCH onto master."
-   git rebase master
+   # git rebase master
+   git rebase --ignore-date master
 fi
