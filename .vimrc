@@ -35,8 +35,7 @@ set nohlsearch
 set nobackup
 "set mouse=ir
 set mouse=
-highlight SpellErrors ctermfg=Red guifg=Red
-   \ cterm=underline gui=underline term=underline
+highlight SpellBad ctermbg=Black ctermfg=Red guibg=Black guifg=Red cterm=underline gui=underline term=underline
 let spell_auto_type = "tex,mail,text,html"
 "map <F2> :w<CR>:!latex %<CR>
 map <F2> :w<CR>:make<CR>

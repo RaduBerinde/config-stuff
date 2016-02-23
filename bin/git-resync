@@ -20,7 +20,10 @@ fi
 
 git fetch upstream || echo "WARNING: could not fetch upstream!"
 
-commit="upstream/master"
+commit="$1"
+if [ "$commit" == "" ]; then
+    commit="upstream/master"
+fi
 
 if [[ `git rev-parse master` == `git rev-parse $commit` ]]; then
    echo Nothing to do.
