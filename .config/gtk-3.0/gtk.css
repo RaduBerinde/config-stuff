@@ -1,0 +1,15 @@
+.notebook tab:active{
+    padding: 0;
+    color: #000000;
+    background-color: #707070;
+}
+.notebook tab{
+    padding: 0;
+    color: #000000;
+    border-width: 1px;
+}
+
+GtkScrollbar {
+    -GtkRange-slider-width: 0;
+    -GtkRange-slider-border: 0;
+}
