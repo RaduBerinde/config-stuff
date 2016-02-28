@@ -1,4 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/go/src/github.com/cockroachdb/cockroach/sql/parser'
 let g:netrw_dirhist_2='/go/src/github.com/cockroachdb/cockroach/sql'
+let g:netrw_dirhist_3='/go/src/github.com/cockroachdb/cockroach/sql/partestdata'
+let g:netrw_dirhist_4='/go/src/github.com/cockroachdb/cockroach/sql/partestdata/subquery_retry'
+let g:netrw_dirhist_5='/go2/src/github.com/cockroachdb/cockroach/sql/parser'

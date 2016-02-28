@@ -41,6 +41,7 @@ let spell_auto_type = "tex,mail,text,html"
 map <F2> :w<CR>:make<CR>
 nmap <F3> :TagbarToggle<CR>
 "nmap <F7> :let @/ = "<C-R><C-W>"<CR>:grep <C-R><C-W> *<CR>:cope<CR>
+nmap <F6> :cd %:p:h<CR>
 nmap <F7> :let @/ = "<C-R><C-W>"<CR>:Ag -s -w <C-R><C-W> *<CR>
 "nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!grep <C-R><C-W> *<CR>
 nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!ag -s -w <C-R><C-W> *<CR>
