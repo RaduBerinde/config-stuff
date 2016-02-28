@@ -1,3 +1,3 @@
 #!/bin/sh
 
-diff -qr ~/. . | grep -v "Only in"
+diff -qr ~/. . | grep -v "Only in /root"
