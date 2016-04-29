@@ -8,6 +8,7 @@
 	external = git-diff-wrapper.sh
 [alias]
 	amend = commit -a --amend --no-edit
+	amendmsg = commit --amend
 	reword = commit --amend
 	pushall = push origin --all -f
 [merge]

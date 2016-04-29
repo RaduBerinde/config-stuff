@@ -46,13 +46,11 @@ nmap <F7> :let @/ = "<C-R><C-W>"<CR>:Ag -s -w <C-R><C-W> *<CR>
 "nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!grep <C-R><C-W> *<CR>
 nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!ag -s -w <C-R><C-W> *<CR>
 nmap <F9> :GoReferrers<CR>
-nmap <F11> :qa<CR>
+nmap <F10> :qa<CR>
 nmap <C-N> :cn<CR>
 nmap <C-P> :cp<CR>
-"nmap <C-\> :exec("stselect ".expand("<cword>"))<CR>
-nmap <C-\> <Plug>(go-def-split)
-nmap <Space> <Plug>(go-info)
-
+nmap <C-]> :exec("stselect ".expand("<cword>"))<CR>
+nmap gt :exec("tselect ".expand("<cword>"))<CR>
 
 highlight DiffAdd term=reverse cterm=bold ctermbg=green ctermfg=black guibg=LightGreen
 highlight DiffChange term=reverse cterm=bold ctermbg=cyan ctermfg=black guibg=#FFFF80
@@ -86,17 +84,19 @@ autocmd BufNewFile,BufRead *.h.BASE set filetype=cpp
 autocmd BufNewFile,BufRead *.java.BASE set filetype=java
 autocmd BufNewFile,BufRead NOTES_EDITMSG set tw=80 ai spell
 
-autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sql
+autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sh
+autocmd BufNewFile,BufRead */sql/partestdata/* set filetype=sh
 
 autocmd FileType c,cpp syn keyword cType vmk_uint8 vmk_int8 vmk_uint16 vmk_int16 vmk_uint32 vmk_int32 vmk_uint64 vmk_int64 vmk_uintptr_t vmk_Bool VMK_ReturnStatus vmk_ListLinks vmk_atomic64
 autocmd FileType c,cpp syn keyword cType uint8 int8 uint16 int16 uint32 int32 uint64 int64 uintptr_t Bool 
 autocmd FileType c,cpp syn keyword cConstant VMK_TRUE VMK_FALSE TRUE FALSE
 
-autocmd FileType c,cpp,java,asm,make set cindent tw=100 fo+=croq number
-autocmd FileType c,cpp,java,sh,python,make highlight OverLength ctermbg=darkred ctermfg=white
-autocmd FileType c,cpp,java,sh,python,make match OverLength /\%101v.\+/
-autocmd FileType c,cpp,java,sh,python,make highlight ExtraWhitespace ctermbg=darkred ctermfg=white
-autocmd FileType c,cpp,java,sh,python,make 2match ExtraWhitespace /\s\+$/
+autocmd FileType go set number fo+=croq tw=80
+autocmd FileType c,cpp,java,asm,make,proto set cindent tw=80 fo+=croq number
+autocmd FileType c,cpp,java,sh,python,make,go highlight OverLength ctermbg=darkred ctermfg=white
+autocmd FileType c,cpp,java,sh,python,make,go match OverLength /\%101v.\+/
+autocmd FileType c,cpp,java,sh,python,make,go highlight ExtraWhitespace ctermbg=darkred ctermfg=white
+autocmd FileType c,cpp,java,sh,python,make,go 2match ExtraWhitespace /\s\+$/
 "autocmd FileType c,cpp,java call matchadd('ExtraWhitespace', '\s\+$')
 "autocmd FileType c,cpp,java match ExtraWhitespace /\s\+$/
 autocmd FileType sh,python set nocindent cindent fo+=croq number
@@ -113,6 +113,8 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 "let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+let g:go_def_mapping_enabled = 0
 
 
 " Enable goimports to automatically insert import paths instead of gofmt:
@@ -166,13 +168,21 @@ let g:tagbar_type_go = {
 set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 
 autocmd Filetype sql set makeprg=runsql\ %\ 2>&1
-autocmd Filetype sql nmap <F2> :!cat % \| ~/roach2/cockroach sql --dev<CR>
+autocmd Filetype sql nmap <F2> :!cat % \| ~/roach2/cockroach sql --insecure<CR>
 
-autocmd FileType go set number fo+=croq tw=100
 autocmd Filetype go set makeprg=go\ build\ .
-autocmd Filetype go nmap <C-]> :exec("GoDef")<CR>
+autocmd Filetype go nmap <C-]> :exec("stselect ".expand("<cword>"))<CR>
+autocmd Filetype go nmap gd :GoDef<CR>
+autocmd Filetype go nmap <C-\> <Plug>(go-def-split)
+autocmd Filetype go nmap <Space> <Plug>(go-info)
+autocmd Filetype go nmap <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>
+autocmd Filetype go set spell
 
 autocmd Filetype gitcommit set tw=80 spell
+autocmd Filetype markdown set tw=80 spell ai
+autocmd Filetype markdown nmap <F2> :!git amend; git push-current<CR>
+
+
 
 let g:vimshell_vimshrc_path = '/root/.bashrc'
 " TERM=linux fixes
