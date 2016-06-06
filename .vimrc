@@ -33,6 +33,8 @@ set wildmode=longest,list
 set noincsearch
 set nohlsearch
 set nobackup
+set dir=~/.vimbak
+set backupdir=~/.vimbak
 "set mouse=ir
 set mouse=
 highlight SpellBad ctermbg=Black ctermfg=Red guibg=Black guifg=Red cterm=underline gui=underline term=underline
@@ -173,16 +175,16 @@ autocmd Filetype sql nmap <F2> :!cat % \| ~/roach2/cockroach sql --insecure<CR>
 autocmd Filetype go set makeprg=go\ build\ .
 autocmd Filetype go nmap <C-]> :exec("stselect ".expand("<cword>"))<CR>
 autocmd Filetype go nmap gd :GoDef<CR>
+autocmd Filetype go nmap gD <Plug>(go-doc)
 autocmd Filetype go nmap <C-\> <Plug>(go-def-split)
 autocmd Filetype go nmap <Space> <Plug>(go-info)
 autocmd Filetype go nmap <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>
-autocmd Filetype go set spell
+autocmd Filetype go setlocal spell
 
 autocmd Filetype gitcommit set tw=80 spell
 autocmd Filetype markdown set tw=80 spell ai
 autocmd Filetype markdown nmap <F2> :!git amend; git push-current<CR>
-
-
+autocmd Filetype proto setlocal shiftwidth=2 nospell
 
 let g:vimshell_vimshrc_path = '/root/.bashrc'
 " TERM=linux fixes
