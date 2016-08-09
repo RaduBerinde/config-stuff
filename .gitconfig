@@ -1,6 +1,8 @@
 [user]
 	name = Radu Berinde
 	email = radu.berinde@gmail.com
+[color]
+  status = always
 [push]
 	default = matching
 [diff]
@@ -16,3 +18,7 @@
 [pager]
 	diff = 
    
+[http]
+	cookiefile = /root/.gitcookies
+[mergetool]
+	keepBackup = false

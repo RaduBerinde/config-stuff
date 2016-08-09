@@ -16,8 +16,8 @@ autocmd BufNewFile,BufRead *.tex set filetype=tex
 autocmd FileType c,cpp set cindent tw=0
 autocmd Filetype tex set makeprg=latex\ %
 "set tw=80
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set cino=:0,g0,u0,(0
 set expandtab
 " syntax folding is slow with vim-go
@@ -123,10 +123,11 @@ let g:go_def_mapping_enabled = 0
 "let g:go_fmt_command = "goimports"
 
 " By default vim-go shows errors for the fmt command, to disable it:
-"let g:go_fmt_fail_silently = 1
+let g:go_fmt_fail_silently = 1
 
 " Disable auto fmt on save:
 "let g:go_fmt_autosave = 0
+let g:go_asmfmt_autosave = 0
 
 " Disable opening browser after posting your snippet to play.golang.org:
 "let g:go_play_open_browser = 0

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+tmpfile=`mktemp`
+trap "rm -f $tmpfile" EXIT
+while true; do
+  git where > $tmpfile
+  clear
+  cat $tmpfile
+  sleep 10s
+done

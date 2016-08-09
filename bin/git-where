@@ -6,11 +6,11 @@ base=`git merge-base upstream/master HEAD 2>/dev/null || git merge-base origin/m
 
 echo Branches:
 #git branch -v -a
-git branch -v
+git branch -v --color
 
 echo
 echo Changes:
-git diff --stat $base..HEAD
+git diff --stat $base..HEAD --color
 
 echo
 echo -e "Upstream branch: ${COLGR}`get_upstream_branch`${COLn}"
@@ -23,4 +23,4 @@ echo '*' `git log --color --oneline --decorate -1 $base`
 
 echo
 echo Status:
-git status
+git status -s
