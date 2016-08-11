@@ -279,7 +279,6 @@
 [profiles]
   [[default]]
     allow_bold = False
-    copy_on_selection = True
     cursor_color = "#aaaaaa"
     font = Classic Console 12
     icon_bell = False
