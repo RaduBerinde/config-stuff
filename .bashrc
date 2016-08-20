@@ -48,6 +48,7 @@ fi
 # alias vim='vim -T linux'
 # alias view='view -T linux'
 alias view='vim -R -M'
+alias gw='git where'
 
 
 # You may uncomment the following lines if you want `ls' to be colorized:
