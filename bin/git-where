@@ -2,7 +2,8 @@
 
 . git-common-stuff.sh
 
-base=`git merge-base upstream/master HEAD 2>/dev/null || git merge-base origin/master HEAD`
+base_branch=`get_base_branch`
+base=`git merge-base $base_branch HEAD 2>/dev/null`
 
 echo Branches:
 #git branch -v -a

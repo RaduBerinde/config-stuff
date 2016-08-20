@@ -28,6 +28,20 @@ get_upstream_branch() {
    echo "$UPSTREAM"
 }
 
+# Returns the first branch that exists:
+#   1. upstream/develop
+#   2. upstream/master
+#   3. origin/master
+get_base_branch() {
+    if git rev-parse --verify -q upstream/develop >/dev/null; then
+        echo "upstream/develop"
+    elif git rev-parse --verify -q upstream/master >/dev/null; then
+        echo "upstream/master"
+    else
+        echo "origin/master"
+    fi
+}
+
 SHOWCLFMTARGS="--color --graph --oneline --decorate"
 COL0="\e[0;33m"
 COL1="\e[1;31m"

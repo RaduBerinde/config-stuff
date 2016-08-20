@@ -22,7 +22,7 @@ git fetch --all -p || echo "WARNING: could not fetch!"
 
 commit="$1"
 if [ "$commit" == "" ]; then
-    commit="upstream/master"
+    commit=`get_base_branch`
 fi
 
 if [[ `git rev-parse master` == `git rev-parse $commit` ]]; then

@@ -1,13 +1,15 @@
 #!/bin/bash
 
+. git-common-stuff.sh
+
 if [[ "$1" == "--help" || "$1" == "" ]]; then
    echo "Usage: git newbranch <branch-name> [upstream]"
-   echo "Alias for git checkout -b <branch-name> --track upstream. Upstream is master if not specified"
+   echo "Alias for git checkout -b <branch-name> --track upstream. Upstream is `get_base_branch` if not specified"
    exit 1
 fi
 
 UPSTREAM="$2"
-[ "$UPSTREAM" == "" ] && UPSTREAM=master
+[ "$UPSTREAM" == "" ] && UPSTREAM=`get_base_branch`
 
 set -e
 set -x
