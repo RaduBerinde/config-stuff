@@ -5,8 +5,8 @@
 set -e
 
 if [ "$1" == "--help" ]; then
-   echo "Usage: git resync [<CL>]"
-   echo "Resyncs master to the given perforce CL (or the latest)"
+   echo "Usage: git resync [<commit>]"
+   echo "Resyncs master to the given commit (or the latest)"
    echo "    warning: throws away any commits in master, including old cherry-picks"
    exit 1
 fi
