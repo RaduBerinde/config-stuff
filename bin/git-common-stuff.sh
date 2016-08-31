@@ -34,7 +34,18 @@ get_upstream_branch() {
 #   3. origin/master
 get_base_branch() {
     if git rev-parse --verify -q upstream/develop >/dev/null; then
-        echo "upstream/develop"
+        if git rev-parse --verify -q upstream/master >/dev/null; then
+            # Choose between develop and master
+            NUM_D=`git log --oneline upstream/develop..HEAD | wc -l`
+            NUM_M=`git log --oneline upstream/master..HEAD | wc -l`
+            if [ $NUM_D -le $NUM_M ]; then
+                echo "upstream/develop"
+            else
+                echo "upstream/master"
+            fi
+        else
+            echo "upstream/develop"
+        fi
     elif git rev-parse --verify -q upstream/master >/dev/null; then
         echo "upstream/master"
     else
