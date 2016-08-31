@@ -13,6 +13,7 @@
 	amendmsg = commit --amend
 	reword = commit --amend
 	pushall = push origin --all -f
+  difftxt = diff --no-ext-diff
 [merge]
 	tool = p4merge
 [pager]

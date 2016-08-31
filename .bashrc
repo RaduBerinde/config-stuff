@@ -122,4 +122,5 @@ source ~/liquidprompt/liquidprompt
 if [ -z "$DISPLAY" ]; then
     export DISPLAY=10.0.2.2:0
 fi
+export CHROMIUM_FLAGS="--no-sandbox --user-data-dir"
 #export TERM=linux

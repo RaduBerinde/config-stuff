@@ -28,7 +28,7 @@ set showmatch
 set ruler
 set ignorecase
 set smartcase
-set winheight=45
+set winheight=30
 set wildmode=longest,list
 set noincsearch
 set nohlsearch
@@ -50,9 +50,9 @@ nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!ag -s -w <C-R><C-W> *<CR>
 nmap <F9> :GoReferrers<CR>
 nmap <F10> :qa<CR>
 nmap <C-N> :cn<CR>
-nmap <C-P> :cp<CR>
+nmap <C-S-P> :cp<CR>
 nmap <C-]> :exec("stselect ".expand("<cword>"))<CR>
-nmap gt :exec("tselect ".expand("<cword>"))<CR>
+"nmap gt :exec("tselect ".expand("<cword>"))<CR>
 
 highlight DiffAdd term=reverse cterm=bold ctermbg=green ctermfg=black guibg=LightGreen
 highlight DiffChange term=reverse cterm=bold ctermbg=cyan ctermfg=black guibg=#FFFF80
@@ -105,7 +105,7 @@ autocmd FileType sh,python set nocindent cindent fo+=croq number
 autocmd FileType conf set smartindent fo=croqt number
 autocmd FileType messages set nowrap
 
-autocmd BufNewFile,BufRead /tmp/log set filetype=crlog
+autocmd BufNewFile,BufRead /tmp/log set filetype=crlog nonumber
 
 
 " This fixes the full-pathed files opened by tags
@@ -170,6 +170,8 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+let g:tagbar_width = 50
 
 set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 
