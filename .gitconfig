@@ -15,6 +15,7 @@
 	pushall = push origin --all -f
   difftxt = diff --no-ext-diff
 [merge]
+  conflictstyle = diff3
 	tool = p4merge
 [pager]
 	diff = 
