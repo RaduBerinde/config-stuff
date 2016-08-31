@@ -13,7 +13,9 @@ syn match   messageBeginF       display '^F' nextgroup=messageDate
 
 syn match   messageDate         contained display '\d\d\d\d\d\d ' nextgroup=messageTime
 
-syn match   messageTime         contained display '\d\d:\d\d:\d\d.\d* ' nextgroup=messageFile
+syn match   messageTime         contained display '\d\d:\d\d:\d\d.\d* ' nextgroup=messageGoID
+
+syn match   messageGoID         contained display '[0-9a-fA-F]* ' nextgroup=messageFile
 
 syn match   messageFile         contained display '[_./0-9a-zA-Z]*:\d*  ' nextgroup=messageTags
 
@@ -29,6 +31,7 @@ hi def link messageDate Constant
 hi def link messageTime Type
 hi def link messageFile Comment
 hi def link messageTags Keyword
+hi def link messageGoID Keyword
 hi def link messageNumber Number
 
 let b:current_syntax = "crlog"
