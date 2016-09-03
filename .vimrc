@@ -5,6 +5,10 @@ execute pathogen#infect()
 "set runtimepath-=~/.vim/bundle/tagbar
 "set runtimepath-=~/.vim/bundle/vim-go
 "
+
+let g:neocomplete#enable_at_startup = 1
+set completeopt-=preview
+
 syntax on
 filetype plugin indent on
 
@@ -30,7 +34,8 @@ set ignorecase
 set smartcase
 set winheight=30
 set wildmode=longest,list
-set noincsearch
+"set noincsearch
+set incsearch
 set nohlsearch
 set nobackup
 set dir=~/.vimbak
@@ -186,6 +191,8 @@ autocmd Filetype go nmap <C-\> <Plug>(go-def-split)
 autocmd Filetype go nmap <Space> <Plug>(go-info)
 autocmd Filetype go nmap <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>
 autocmd Filetype go setlocal spell
+
+autocmd Filetype go highlight Comment cterm=italic
 
 autocmd Filetype gitcommit set tw=80 spell
 autocmd Filetype markdown set tw=80 spell ai

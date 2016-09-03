@@ -24,3 +24,5 @@
 	cookiefile = /root/.gitcookies
 [mergetool]
 	keepBackup = false
+[rerere]
+	enabled = true
