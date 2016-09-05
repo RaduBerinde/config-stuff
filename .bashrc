@@ -63,6 +63,8 @@ alias ll='ls $LS_OPTIONS -l'
 # alias cp='cp -i'
 # alias mv='mv -i'
 
+alias vess='/usr/share/vim/vim74/macros/less.sh'
+
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
