@@ -2,6 +2,7 @@ colorscheme torte
 set t_ti= t_te=
 
 execute pathogen#infect()
+call pathogen#helptags()
 "set runtimepath-=~/.vim/bundle/tagbar
 "set runtimepath-=~/.vim/bundle/vim-go
 "
