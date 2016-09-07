@@ -52,6 +52,7 @@ nmap <F6> :cd %:p:h<CR>
 nmap <F7> :let @/ = "<C-R><C-W>"<CR>:Ag -s -w <C-R><C-W> *<CR>
 "nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!grep <C-R><C-W> *<CR>
 nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!ag -s -w <C-R><C-W> *<CR>
+nmap <S-F8> :let @/ = "<C-R><C-W>"<CR>:!ag --ignore "*_test.go" -s -w <C-R><C-W> *<CR>
 nmap <F9> :GoReferrers<CR>
 nmap <F10> :qa<CR>
 nmap <C-N> :cn<CR>
@@ -185,14 +186,17 @@ autocmd Filetype sql nmap <F2> :!cat % \| ~/roach2/cockroach sql --insecure<CR>
 
 autocmd Filetype go set makeprg=go\ build\ .
 autocmd Filetype go nmap <C-]> :exec("stselect ".expand("<cword>"))<CR>
-autocmd Filetype go nmap gd :GoDef<CR>
-autocmd Filetype go nmap gD <Plug>(go-doc)
-autocmd Filetype go nmap <C-\> <Plug>(go-def-split)
+"autocmd Filetype go nmap gd <Plug>(go-def)
+autocmd FileType go nmap gd :YcmCompleter GoTo<CR>
+"autocmd Filetype go nmap gD <Plug>(go-doc)
+"autocmd Filetype go nmap <C-\> <Plug>(go-def-split)
+autocmd Filetype go nmap <C-\> :split<CR>:YcmCompleter GoTo<CR>
 autocmd Filetype go nmap <Space> <Plug>(go-info)
 autocmd Filetype go nmap <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>
 autocmd Filetype go setlocal spell
 
 autocmd Filetype go highlight Comment cterm=italic
+autocmd Filetype go highlight Pmenu ctermbg=black ctermfg=red
 
 autocmd Filetype gitcommit set tw=80 spell
 autocmd Filetype markdown set tw=80 spell ai
