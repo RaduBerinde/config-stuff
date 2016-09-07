@@ -6,7 +6,6 @@ execute pathogen#infect()
 "set runtimepath-=~/.vim/bundle/vim-go
 "
 
-let g:neocomplete#enable_at_startup = 1
 set completeopt-=preview
 
 syntax on
