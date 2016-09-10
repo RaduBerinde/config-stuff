@@ -22,7 +22,13 @@ git fetch --all -p || echo "WARNING: could not fetch!"
 
 commit="$1"
 if [ "$commit" == "" ]; then
-    commit=`get_base_branch`
+   commit=`get_base_branch`
+elif [ "$commit" == "master" ]; then
+   commit=upstream/master
+   set_upstream=1
+elif [ "$commit" == "develop" ]; then
+   commit=upstream/develop
+   set_upstream=1
 fi
 
 if [[ `git rev-parse master` == `git rev-parse $commit` ]]; then
@@ -37,6 +43,11 @@ fi
 
 echo "Setting master to $commit"
 git reset --hard $commit
+
+if [ "$set_upstream" == "1" ]; then
+   git branch --set-upstream-to=$commit
+fi
+
 
 if [[ "$ORIG_BRANCH" != "master" ]]; then
    git checkout "$ORIG_BRANCH"
