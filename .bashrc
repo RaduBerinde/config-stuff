@@ -127,3 +127,4 @@ if [ -z "$DISPLAY" ]; then
 fi
 export CHROMIUM_FLAGS="--no-sandbox --user-data-dir"
 #export TERM=linux
+export GOOGLE_PROJECT=cockroach-radu
