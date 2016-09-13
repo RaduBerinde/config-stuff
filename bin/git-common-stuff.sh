@@ -36,27 +36,27 @@ get_base_branch() {
 
 
 ## Returns the first branch that exists:
-##   1. upstream/develop
-##   2. upstream/master
-##   3. origin/master
+##   1. origin/develop
+##   2. origin/master
+##   3. radu/master
 #get_base_branch() {
-#    if git rev-parse --verify -q upstream/develop >/dev/null; then
-#        if git rev-parse --verify -q upstream/master >/dev/null; then
+#    if git rev-parse --verify -q origin/develop >/dev/null; then
+#        if git rev-parse --verify -q origin/master >/dev/null; then
 #            # Choose between develop and master
-#            NUM_D=`git log --oneline upstream/develop..HEAD | wc -l`
-#            NUM_M=`git log --oneline upstream/master..HEAD | wc -l`
+#            NUM_D=`git log --oneline origin/develop..HEAD | wc -l`
+#            NUM_M=`git log --oneline origin/master..HEAD | wc -l`
 #            if [ $NUM_D -le $NUM_M ]; then
-#                echo "upstream/develop"
+#                echo "origin/develop"
 #            else
-#                echo "upstream/master"
+#                echo "origin/master"
 #            fi
 #        else
-#            echo "upstream/develop"
+#            echo "origin/develop"
 #        fi
-#    elif git rev-parse --verify -q upstream/master >/dev/null; then
-#        echo "upstream/master"
-#    else
+#    elif git rev-parse --verify -q origin/master >/dev/null; then
 #        echo "origin/master"
+#    else
+#        echo "radu/master"
 #    fi
 #}
 

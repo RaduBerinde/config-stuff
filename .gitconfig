@@ -12,7 +12,7 @@
 	amend = commit -a --amend --no-edit
 	amendmsg = commit --amend
 	reword = commit --amend
-	pushall = push origin --all -f
+	pushall = push radu --all -f
   difftxt = diff --no-ext-diff
 [merge]
   conflictstyle = diff3

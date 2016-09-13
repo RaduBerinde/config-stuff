@@ -4,5 +4,5 @@
 
 BRANCH=`get_current_branch`
 
-echo Pushing $BRANCH to origin
-git push origin $BRANCH -f
+echo Pushing $BRANCH to radu
+git push radu $BRANCH -f
