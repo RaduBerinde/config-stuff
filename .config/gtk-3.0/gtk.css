@@ -1,15 +1,17 @@
-.notebook tab:active{
-    padding: 0;
+.notebook {
     color: #000000;
-    background-color: #707070;
+}
+.notebook tab:active{
+    padding: 2px;
+    background-color: #007acc;
+    border-width: 2px;
 }
 .notebook tab{
-    padding: 0;
-    color: #000000;
-    border-width: 1px;
+    padding: 2px;
+    border-width: 2px;
 }
 
 GtkScrollbar {
-    -GtkRange-slider-width: 0;
-    -GtkRange-slider-border: 0;
+    -GtkRange-slider-width: 0px;
+    -GtkRange-slider-border: 0px;
 }
