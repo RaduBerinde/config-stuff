@@ -2,4 +2,4 @@
 
 # terminator -l combined &
 
-/work/terminator/gtk3-terminator/terminator -g /work/terminator/gtk3-terminator/temp-config -u -l combined &
+/work/gtk3-terminator/terminator -g ~/gtk3-terminator-config -u -l combined2 &
