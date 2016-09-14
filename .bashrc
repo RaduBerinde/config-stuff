@@ -115,7 +115,7 @@ function devask() {
    dev $name
 }
 
-export PATH=$PATH:~/bin
+export PATH=$PATH:/usr/local/go/bin:~/bin
 alias gopath=". ~/bin/gopath.sh"
 
 source ~/liquidprompt/liquidprompt
