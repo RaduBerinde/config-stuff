@@ -1,4 +1,5 @@
 [global_config]
+  close_button_on_tab = False
   dbus = False
   enabled_plugins = ,
   focus = mouse
