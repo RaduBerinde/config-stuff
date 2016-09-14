@@ -9,16 +9,15 @@ fi
 
 
 if [ ! -d $BASE/bin -o ! -d $BASE/src -o ! -d $BASE/pkg ]; then
-    echo "$BASE doesn't look like a go path!"
-    exit 1
-fi
+  echo "$BASE doesn't look like a go path!"
+else
+  # remove $GOPATH/BIN if it's there
+  if [ -n "$GOPATH" ]; then
+      PATH=$(echo "$PATH" | sed "s#:$GOPATH/bin##g")
+  fi
 
-# remove $GOPATH/BIN if it's there
-if [ -n "$GOPATH" ]; then
-    PATH=$(echo "$PATH" | sed "s#:$GOPATH/bin##g")
+  echo "Setting GOPATH to $BASE"
+  export GOPATH=$BASE
+  export PATH=$PATH:$GOPATH/bin
+  echo "Path updated to $PATH"
 fi
-
-echo "Setting GOPATH to $BASE"
-export GOPATH=$BASE
-export PATH=$PATH:$GOPATH/bin
-echo "Path updated to $PATH"
