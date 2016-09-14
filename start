@@ -2,4 +2,4 @@
 
 # terminator -l combined &
 
-/work/gtk3-terminator/terminator -g ~/gtk3-terminator-config -u -l combined2 &
+DISPLAY=10.0.2.2:0 /work/gtk3-terminator/terminator -g ~/gtk3-terminator-config -u -l combined2 &

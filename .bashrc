@@ -41,7 +41,8 @@ bind '"\e[A":history-search-backward' 2>/dev/null
 bind '"\e[B":history-search-forward' 2>/dev/null
 
 if grep --help 2>&1 | grep -q color; then
-    export GREP_OPTIONS='-a --color'
+  alias grep='grep -a --color'
+#    export GREP_OPTIONS='-a --color'
 fi
 
 

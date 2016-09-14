@@ -204,7 +204,7 @@ autocmd Filetype markdown set tw=80 spell ai
 autocmd Filetype markdown nmap <F2> :!git amend; git push-current<CR>
 autocmd Filetype proto setlocal shiftwidth=2 nospell
 
-let g:vimshell_vimshrc_path = '/root/.bashrc'
+let g:vimshell_vimshrc_path = '~/.bashrc'
 " TERM=linux fixes
 "set <F2>=OQ
 "set <F3>=OR
