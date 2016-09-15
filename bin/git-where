@@ -2,7 +2,8 @@
 
 . git-common-stuff.sh
 
-base_branch=`get_base_branch`
+#base_branch=`get_base_branch`
+base_branch=`get_upstream_branch`
 base=`git merge-base $base_branch HEAD 2>/dev/null`
 
 echo Branches:
@@ -19,8 +20,11 @@ echo -e "Upstream branch: ${COLGR}`get_upstream_branch`${COLn}"
 # Show commits on top of master
 echo
 echo Commits:
-git --no-pager log --color --graph --oneline --decorate $base..HEAD
-echo '*' `git log --color --oneline --decorate -1 $base`
+git tag -f up $base
+# We want to include the commits since (and including the base). So we exclude
+# all commits reachable from all parents of the base.
+git --no-pager log --color --graph --oneline --decorate $base^! HEAD
+#git tag -d up >/dev/null
 
 echo
 echo Status:

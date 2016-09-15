@@ -26,3 +26,5 @@
 	keepBackup = false
 [rerere]
 	enabled = true
+[pull]
+	rebase = preserve
