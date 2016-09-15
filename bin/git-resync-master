@@ -4,7 +4,7 @@
 
 base_branch=`get_base_branch`
 
-git fetch upstream
+git fetch origin
 git branch -f master $base_branch
 
 echo '*' `git log --color --oneline --decorate -1 master`

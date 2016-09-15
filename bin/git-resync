@@ -24,10 +24,10 @@ commit="$1"
 if [ "$commit" == "" ]; then
    commit=`get_base_branch`
 elif [ "$commit" == "master" ]; then
-   commit=upstream/master
+   commit=origin/master
    set_upstream=1
 elif [ "$commit" == "develop" ]; then
-   commit=upstream/develop
+   commit=origin/develop
    set_upstream=1
 fi
 
