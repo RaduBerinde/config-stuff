@@ -16,7 +16,7 @@
  <Int varName="TabWidth">8</Int>
  <PropertyList varName="Windows" IsManaged="TRUE">
   <PropertyList varName="CompareDialog" IsManaged="TRUE">
-   <ByteArray varName="WindowGeometry">AdnQywACAAAAAAW3AAACMgAAB6QAAAMdAAAFtwAAAjIAAAekAAADHQAAAAAAAAAADXA=</ByteArray>
+   <ByteArray varName="WindowGeometry">AdnQywACAAAAAALIAAABkgAABKMAAAJVAAACyAAAAZIAAASjAAACVQAAAAAAAAAAB4A=</ByteArray>
   </PropertyList>
   <PropertyList varName="Diff" IsManaged="TRUE">
    <Bool varName="DiffCombined">false</Bool>
