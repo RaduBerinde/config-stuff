@@ -9,7 +9,7 @@ if [[ "$1" == "--help" || "$1" == "" ]]; then
 fi
 
 UPSTREAM="$2"
-[ "$UPSTREAM" == "" ] && UPSTREAM=`origin/master`
+[ "$UPSTREAM" == "" ] && UPSTREAM="origin/master"
 
 set -ex
 git checkout -b $1 --track $UPSTREAM
