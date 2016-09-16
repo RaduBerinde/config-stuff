@@ -1,0 +1,6 @@
+#!/bin/bash
+
+UP="$1"
+[ -z "$1" ] && UP="origin/master"
+
+git branch --set-upstream-to=$UP

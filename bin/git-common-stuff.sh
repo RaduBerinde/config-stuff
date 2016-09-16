@@ -24,7 +24,7 @@ get_upstream_branch() {
    local REF UPSTREAM
    REF=`git symbolic-ref -q HEAD`
    UPSTREAM=`git for-each-ref --format='%(upstream:short)' "$REF"`
-   [ "$UPSTREAM" == "" ] && UPSTREAM="master"
+   [ "$UPSTREAM" == "" ] && UPSTREAM="HEAD"
    echo "$UPSTREAM"
 }
 

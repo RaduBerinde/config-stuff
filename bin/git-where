@@ -20,7 +20,7 @@ echo -e "Upstream branch: ${COLGR}`get_upstream_branch`${COLn}"
 # Show commits on top of master
 echo
 echo Commits:
-git tag -f up $base
+git tag -f up $base >/dev/null
 # We want to include the commits since (and including the base). So we exclude
 # all commits reachable from all parents of the base.
 git --no-pager log --color --graph --oneline --decorate $base^! HEAD
