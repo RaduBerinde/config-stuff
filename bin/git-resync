@@ -19,39 +19,41 @@ if [[ `git status --porcelain --untracked-files=no | wc -l` != 0 ]]; then
 fi
 
 git fetch --all -p || echo "WARNING: could not fetch!"
+git pull --rebase=preserve
 
-commit="$1"
-if [ "$commit" == "" ]; then
-   commit=`get_base_branch`
-elif [ "$commit" == "master" ]; then
-   commit=origin/master
-   set_upstream=1
-elif [ "$commit" == "develop" ]; then
-   commit=origin/develop
-   set_upstream=1
-fi
-
-if [[ `git rev-parse master` == `git rev-parse $commit` ]]; then
-   echo Nothing to do.
-   exit 0
-fi
-
-if [[ "$ORIG_BRANCH" != "master" ]]; then
-   git checkout master
-   trap "git checkout $ORIG_BRANCH" ERR
-fi
-
-echo "Setting master to $commit"
-git reset --hard $commit
-
-if [ "$set_upstream" == "1" ]; then
-   git branch --set-upstream-to=$commit
-fi
-
-
-if [[ "$ORIG_BRANCH" != "master" ]]; then
-   git checkout "$ORIG_BRANCH"
-   echo "Rebasing branch $ORIG_BRANCH onto master."
-   # git rebase master
-   git rebase --ignore-date master
-fi
+#
+# commit="$1"
+# if [ "$commit" == "" ]; then
+#    commit=`get_base_branch`
+# elif [ "$commit" == "master" ]; then
+#    commit=origin/master
+#    set_upstream=1
+# elif [ "$commit" == "develop" ]; then
+#    commit=origin/develop
+#    set_upstream=1
+# fi
+# 
+# if [[ `git rev-parse master` == `git rev-parse $commit` ]]; then
+#    echo Nothing to do.
+#    exit 0
+# fi
+# 
+# if [[ "$ORIG_BRANCH" != "master" ]]; then
+#    git checkout master
+#    trap "git checkout $ORIG_BRANCH" ERR
+# fi
+# 
+# echo "Setting master to $commit"
+# git reset --hard $commit
+# 
+# if [ "$set_upstream" == "1" ]; then
+#    git branch --set-upstream-to=$commit
+# fi
+# 
+# 
+# if [[ "$ORIG_BRANCH" != "master" ]]; then
+#    git checkout "$ORIG_BRANCH"
+#    echo "Rebasing branch $ORIG_BRANCH onto master."
+#    # git rebase master
+#    git rebase --ignore-date master
+# fi
