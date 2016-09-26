@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -x
+make build
+rm -rf cockroach-data
+roachdemo -n 3
+
