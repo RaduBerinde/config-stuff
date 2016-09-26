@@ -50,7 +50,6 @@ fi
 # alias view='view -T linux'
 alias view='vim -R -M'
 alias gw='git where'
-alias agnotest='ag --ignore "*_test.go"'
 
 
 # You may uncomment the following lines if you want `ls' to be colorized:

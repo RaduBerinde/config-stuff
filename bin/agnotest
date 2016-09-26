@@ -1,0 +1,2 @@
+#!/bin/bash
+ag --ignore "*_test.go" $*

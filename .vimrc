@@ -50,10 +50,10 @@ map <F2> :w<CR>:make<CR>
 nmap <F3> :TagbarToggle<CR>
 "nmap <F7> :let @/ = "<C-R><C-W>"<CR>:grep <C-R><C-W> *<CR>:cope<CR>
 nmap <F6> :cd %:p:h<CR>
-nmap <F7> :let @/ = "<C-R><C-W>"<CR>:Ag -s -w <C-R><C-W> *<CR>
+nmap <F7> :let @/ = "<C-R><C-W>"<CR>:Ag -s -w <C-R><C-W><CR>
 "nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!grep <C-R><C-W> *<CR>
-nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!ag -s -w <C-R><C-W> *<CR>
-nmap <S-F8> :let @/ = "<C-R><C-W>"<CR>:!ag --ignore "*_test.go" -s -w <C-R><C-W> *<CR>
+nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!ag -s -w <C-R><C-W><CR>
+nmap <S-F8> :let @/ = "<C-R><C-W>"<CR>:!ag --ignore "*_test.go" -s -w <C-R><C-W><CR>
 nmap <F9> :GoReferrers<CR>
 nmap <F10> :qa<CR>
 nmap <C-N> :cn<CR>
