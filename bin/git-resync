@@ -19,7 +19,7 @@ if [[ `git status --porcelain --untracked-files=no | wc -l` != 0 ]]; then
 fi
 
 git fetch --all -p || echo "WARNING: could not fetch!"
-git pull --rebase=preserve
+git rebase -p
 
 #
 # commit="$1"
