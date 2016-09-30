@@ -1,7 +1,8 @@
 #!/bin/bash
 
 set -x
-make build
+make build || exit 1
 rm -rf cockroach-data
-roachdemo -n 3
+COCKROACH_LIGHTSTEP_TOKEN=4d334b606818ed1a62d0c045fca222cc roachdemo -n 3
+#COCKROACH_TRACE_SQL="1ns" roachdemo -n 3
 

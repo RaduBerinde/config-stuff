@@ -1,0 +1,8 @@
+#!/bin/bash
+
+BW="/go/src/github.com/cockroachdb/examples-go/block_writer/block_writer"
+
+$BW -duration 10s postgres://root@localhost:26257?sslmode=disable &
+$BW -duration 10s postgres://root@localhost:26259?sslmode=disable &
+$BW -duration 10s postgres://root@localhost:26261?sslmode=disable &
+wait

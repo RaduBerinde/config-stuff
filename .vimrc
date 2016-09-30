@@ -183,7 +183,7 @@ let g:tagbar_width = 50
 set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 
 autocmd Filetype sql set makeprg=runsql\ %\ 2>&1
-autocmd Filetype sql nmap <F2> :!cat % \| ~/roach2/cockroach sql --insecure<CR>
+autocmd Filetype sql nmap <F2> :!cat % \| ~/roach/cockroach sql --insecure<CR>
 
 autocmd Filetype go set makeprg=go\ build\ .
 autocmd Filetype go nmap <C-]> :exec("stselect ".expand("<cword>"))<CR>
