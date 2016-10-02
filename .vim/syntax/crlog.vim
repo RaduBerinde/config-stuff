@@ -27,11 +27,21 @@ hi def link messageBeginI Identifier
 hi def link messageBeginW Special
 hi def link messageBeginE ErrorMsg
 hi def link messageBeginF ErrorMsg
-hi def link messageDate Constant
-hi def link messageTime Type
-hi def link messageFile Comment
-hi def link messageTags Keyword
-hi def link messageGoID Keyword
+hi def link messageDate   Constant
+hi def link messageTime   Type
+hi def link messageFile   Comment
+hi def link messageTags   Keyword
+hi def link messageGoID   Keyword
 hi def link messageNumber Number
+
+
+syn match   gotestRun           display '^=== RUN .*$'
+syn match   gotestPass          display '^--- PASS: .*$'
+syn match   gotestFail          display '^--- FAIL: .*$'
+syn match   gotestFail          display '^WARNING: DATA RACE'
+
+hi def link gotestRun  Keyword
+hi def link gotestPass Type
+hi def link gotestFail ErrorMsg
 
 let b:current_syntax = "crlog"
