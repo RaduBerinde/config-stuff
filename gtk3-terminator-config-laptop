@@ -57,11 +57,11 @@
       order = 0
       parent = ""
       position = 0:23
-      size = 1829, 976
+      size = 1920, 1027
       title = 1
       type = Window
     [[[child1]]]
-      active_page = 2
+      active_page = 1
       labels = 1. src, 2. build1, 3. misc1, sql
       last_active_term = e070911e-26a0-4c55-a9b8-af141f1ab6b3, 98dc435a-f239-4c3a-bfca-8f36dd4fc369, 52944705-43a3-4d3f-b2c5-49b5eb913f7b, 217e0747-872e-469e-8379-16b1065ea041
       order = 0
@@ -74,11 +74,11 @@
       order = 0
       parent = ""
       position = 0:23
-      size = 1829, 976
+      size = 1920, 1027
       title = 2
       type = Window
     [[[child11]]]
-      active_page = 2
+      active_page = 0
       labels = 1. src2, 2. build2, 3. misc2
       last_active_term = 8d83508d-0784-4a2d-95e8-192e9474e1f4, ff78341e-e35f-4d6a-b4a0-ca7f345a831a, a0e2bccc-4deb-492f-a453-6c6fc36362bd
       order = 0
@@ -87,20 +87,20 @@
     [[[child13]]]
       order = 1
       parent = child11
-      position = 913
-      ratio = 0.499726626572
+      position = 1390
+      ratio = 0.724479166667
       type = HPaned
     [[[child3]]]
       order = 1
       parent = child1
       position = 0
-      ratio = 0.00104821802935
+      ratio = 0.000992063492063
       type = VPaned
     [[[child5]]]
       order = 1
       parent = child3
-      position = 913
-      ratio = 0.499726626572
+      position = 1346
+      ratio = 0.7015625
       type = HPaned
     [[[terminal12]]]
       order = 0
