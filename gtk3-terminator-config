@@ -48,182 +48,150 @@
     [[[window0]]]
       parent = ""
       type = Window
-  [[combined]]
-    [[[child0]]]
-      order = 0
-      parent = ""
-      position = 1218:36
-      size = 2213, 1395
-      type = Window
-    [[[child1]]]
-      labels = 1. roach, 2. roach2, 3. view, 4. sql, 5. misc
-      order = 0
-      parent = child0
-      type = Notebook
-    [[[child10]]]
-      labels = 1. roach, 2. roach2
-      order = 0
-      parent = child9
-      type = Notebook
-    [[[child11]]]
-      order = 0
-      parent = child10
-      position = 686
-      type = VPaned
-    [[[child14]]]
-      order = 1
-      parent = child10
-      position = 686
-      type = VPaned
-    [[[child5]]]
-      order = 3
-      parent = child1
-      position = 1108
-      type = HPaned
-    [[[child9]]]
-      order = 0
-      parent = ""
-      position = 102:36
-      size = 1098, 1395
-      type = Window
-    [[[terminal12]]]
-      order = 0
-      parent = child11
-      profile = default
-      type = Terminal
-    [[[terminal13]]]
-      order = 1
-      parent = child11
-      profile = default
-      type = Terminal
-    [[[terminal15]]]
-      order = 0
-      parent = child14
-      profile = default
-      type = Terminal
-    [[[terminal16]]]
-      order = 1
-      parent = child14
-      profile = default
-      type = Terminal
-    [[[terminal2]]]
-      order = 0
-      parent = child1
-      profile = default
-      type = Terminal
-    [[[terminal3]]]
-      order = 1
-      parent = child1
-      profile = default
-      type = Terminal
-    [[[terminal4]]]
-      order = 2
-      parent = child1
-      profile = default
-      type = Terminal
-    [[[terminal6]]]
-      order = 0
-      parent = child5
-      profile = default
-      type = Terminal
-    [[[terminal7]]]
-      order = 1
-      parent = child5
-      profile = default
-      type = Terminal
-    [[[terminal8]]]
-      order = 4
-      parent = child1
-      profile = default
-      type = Terminal
   [[combined2]]
     [[[child0]]]
+      fullscreen = False
+      last_active_window = True
+      maximised = False
       order = 0
       parent = ""
-      position = 1218:36
-      size = 2213, 1395
+      position = 93:27
+      size = 3347, 1413
+      title = term
       type = Window
     [[[child1]]]
+      active_page = 1
       labels = 1. roach, 2. roach2, 3. view, 4. sql, 5. misc
+      last_active_term = 561995db-86f6-409f-b6fb-7e0a5dab6b12, 5bd00996-8991-493a-8d6f-8a9e2801a6dc, ffaed060-f1c3-49e5-9950-e6ae862eea69, d369cb3a-1b7c-4a71-891b-fa5d99606ce6, f090766a-da8f-4bba-8c76-20d34632cb73
       order = 0
       parent = child0
       type = Notebook
-    [[[child10]]]
-      labels = 1. roach, 2. roach2
-      order = 0
-      parent = child9
-      type = Notebook
-    [[[child11]]]
-      order = 0
-      parent = child10
-      position = 686
-      type = VPaned
-    [[[child14]]]
-      order = 1
-      parent = child10
-      position = 686
-      type = VPaned
-    [[[child5]]]
-      order = 3
-      parent = child1
-      position = 1109
-      type = HPaned
-    [[[child9]]]
-      order = 0
-      parent = ""
-      position = 102:36
-      size = 1098, 1395
-      type = Window
-    [[[terminal12]]]
-      order = 0
-      parent = child11
-      profile = default
-      type = Terminal
-    [[[terminal13]]]
-      order = 1
-      parent = child11
-      profile = default
-      type = Terminal
-    [[[terminal15]]]
-      order = 0
-      parent = child14
-      profile = default
-      type = Terminal
-    [[[terminal16]]]
-      order = 1
-      parent = child14
-      profile = default
-      type = Terminal
-    [[[terminal2]]]
-      order = 0
-      parent = child1
-      profile = default
-      type = Terminal
-    [[[terminal3]]]
-      order = 1
-      parent = child1
-      profile = default
-      type = Terminal
-    [[[terminal4]]]
+    [[[child12]]]
       order = 2
       parent = child1
-      profile = default
-      type = Terminal
-    [[[terminal6]]]
-      order = 0
-      parent = child5
-      profile = default
-      type = Terminal
-    [[[terminal7]]]
+      position = 1672
+      ratio = 0.499850612489
+      type = HPaned
+    [[[child15]]]
+      order = 3
+      parent = child1
+      position = 0
+      ratio = 0.000298775022408
+      type = HPaned
+    [[[child17]]]
       order = 1
-      parent = child5
-      profile = default
-      type = Terminal
-    [[[terminal8]]]
+      parent = child15
+      position = 0
+      ratio = 0.000298953662182
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 871
+      ratio = 0.26053181954
+      type = HPaned
+    [[[child20]]]
       order = 4
       parent = child1
+      position = 1672
+      ratio = 0.499850612489
+      type = HPaned
+    [[[child3]]]
+      order = 0
+      parent = child2
+      position = 488
+      ratio = 0.350789096126
+      type = VPaned
+    [[[child7]]]
+      order = 1
+      parent = child1
+      position = 871
+      ratio = 0.26053181954
+      type = HPaned
+    [[[child8]]]
+      order = 0
+      parent = child7
+      position = 488
+      ratio = 0.350789096126
+      type = VPaned
+    [[[terminal10]]]
+      order = 1
+      parent = child8
       profile = default
       type = Terminal
+      uuid = d410fdcd-6288-4f15-ab20-7d9af9691bdd
+    [[[terminal11]]]
+      order = 1
+      parent = child7
+      profile = default
+      type = Terminal
+      uuid = 5bd00996-8991-493a-8d6f-8a9e2801a6dc
+    [[[terminal13]]]
+      order = 0
+      parent = child12
+      profile = default
+      type = Terminal
+      uuid = d078b6df-4073-4520-8fd2-af3d5dc66f65
+    [[[terminal14]]]
+      order = 1
+      parent = child12
+      profile = default
+      type = Terminal
+      uuid = ffaed060-f1c3-49e5-9950-e6ae862eea69
+    [[[terminal16]]]
+      order = 0
+      parent = child15
+      profile = default
+      type = Terminal
+      uuid = 417abf4f-f9fc-4aad-87a5-108a756dab00
+    [[[terminal18]]]
+      order = 0
+      parent = child17
+      profile = default
+      type = Terminal
+      uuid = 17dad97c-ba3d-472d-8207-44814ae5c2a0
+    [[[terminal19]]]
+      order = 1
+      parent = child17
+      profile = default
+      type = Terminal
+      uuid = d369cb3a-1b7c-4a71-891b-fa5d99606ce6
+    [[[terminal21]]]
+      order = 0
+      parent = child20
+      profile = default
+      type = Terminal
+      uuid = 9f823b44-64df-4ee4-9b63-9c6f0d2837c6
+    [[[terminal22]]]
+      order = 1
+      parent = child20
+      profile = default
+      type = Terminal
+      uuid = f090766a-da8f-4bba-8c76-20d34632cb73
+    [[[terminal4]]]
+      order = 0
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = 561995db-86f6-409f-b6fb-7e0a5dab6b12
+    [[[terminal5]]]
+      order = 1
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = 32e8e898-9119-46de-b1d9-8e9a0024da50
+    [[[terminal6]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 3dddd6a3-0c97-4e12-9f2f-d898f4e48e2a
+    [[[terminal9]]]
+      order = 0
+      parent = child8
+      profile = default
+      type = Terminal
+      uuid = ae991855-6711-442b-9dd3-55696e3e064c
   [[main]]
     [[[child0]]]
       order = 0
@@ -281,7 +249,7 @@
   [[default]]
     allow_bold = False
     cursor_color = "#aaaaaa"
-    font = Classic Console 12
+    font = Classic Console 15
     icon_bell = False
     palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
     scrollback_lines = 10000
