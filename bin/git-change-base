@@ -4,7 +4,7 @@
  set -e
 
 UP="$1"
-[ -z "$1" ] && UP="master"
+[ -z "$1" ] && UP="origin/master"
 
 BASE=`get_upstream_branch`
 
