@@ -1,6 +1,7 @@
 [user]
 	name = Radu Berinde
-	email = radu.berinde@gmail.com
+  #email = radu.berinde@gmail.com
+	email = radu@cockroachlabs.com
 [color]
   status = always
 [push]
@@ -16,12 +17,13 @@
   difftxt = diff --no-ext-diff
 [merge]
   conflictstyle = diff3
-	tool = p4merge
+  tool = p4merge
+  #tool = vimdiff
 [pager]
 	diff = 
    
 [http]
-	cookiefile = /root/.gitcookies
+	cookiefile = /home/radu/.gitcookies
 [mergetool]
 	keepBackup = false
 [rerere]
