@@ -3,7 +3,8 @@
 . git-common-stuff.sh
 
 #base_branch=`get_base_branch`
-base_branch=`get_upstream_branch`
+#base_branch=`get_upstream_branch`
+base_branch="origin/master"
 base=`git merge-base $base_branch HEAD 2>/dev/null`
 
 echo Branches:
@@ -14,8 +15,8 @@ echo
 echo Changes:
 git diff --stat $base..HEAD --color
 
-echo
-echo -e "Upstream branch: ${COLGR}`get_upstream_branch`${COLn}"
+#echo
+#echo -e "Upstream branch: ${COLGR}`get_upstream_branch`${COLn}"
 
 # Show commits on top of master
 echo

@@ -55,64 +55,76 @@
       maximised = False
       order = 0
       parent = ""
-      position = 93:27
-      size = 3347, 1413
+      position = 104:38
+      size = 3327, 1393
       title = term
       type = Window
     [[[child1]]]
-      active_page = 1
-      labels = 1. roach, 2. roach2, 3. view, 4. sql, 5. misc
-      last_active_term = 561995db-86f6-409f-b6fb-7e0a5dab6b12, 5bd00996-8991-493a-8d6f-8a9e2801a6dc, ffaed060-f1c3-49e5-9950-e6ae862eea69, d369cb3a-1b7c-4a71-891b-fa5d99606ce6, f090766a-da8f-4bba-8c76-20d34632cb73
+      active_page = 5
+      labels = 1. roach, 2. roach2, 3. view, 4. sql, 5. cluster, 6.misc
+      last_active_term = 3dddd6a3-0c97-4e12-9f2f-d898f4e48e2a, 22e6e660-60b2-4976-9ee6-820d09cebe97, ffaed060-f1c3-49e5-9950-e6ae862eea69, f7400bce-8fee-49f8-b081-23afd0c941c6, f090766a-da8f-4bba-8c76-20d34632cb73, 8863f96c-27a6-485b-a9d0-eca96ac0a5a3
       order = 0
       parent = child0
       type = Notebook
     [[[child12]]]
       order = 2
       parent = child1
-      position = 1672
-      ratio = 0.499850612489
+      position = 1662
+      ratio = 0.499849714457
       type = HPaned
     [[[child15]]]
       order = 3
       parent = child1
       position = 0
-      ratio = 0.000298775022408
+      ratio = 0.000300571085062
       type = HPaned
     [[[child17]]]
       order = 1
       parent = child15
       position = 0
-      ratio = 0.000298953662182
+      ratio = 0.000300751879699
+      type = HPaned
+    [[[child19]]]
+      order = 1
+      parent = child17
+      position = 1030
+      ratio = 0.310261811616
       type = HPaned
     [[[child2]]]
       order = 0
       parent = child1
-      position = 871
-      ratio = 0.26053181954
+      position = 866
+      ratio = 0.260595130748
       type = HPaned
-    [[[child20]]]
+    [[[child21]]]
+      order = 1
+      parent = child19
+      position = 1140
+      ratio = 0.49803579223
+      type = HPaned
+    [[[child24]]]
       order = 4
       parent = child1
-      position = 1672
-      ratio = 0.499850612489
+      position = 1662
+      ratio = 0.499849714457
       type = HPaned
     [[[child3]]]
       order = 0
       parent = child2
-      position = 488
-      ratio = 0.350789096126
+      position = 481
+      ratio = 0.350800582242
       type = VPaned
     [[[child7]]]
       order = 1
       parent = child1
-      position = 871
-      ratio = 0.26053181954
+      position = 866
+      ratio = 0.260595130748
       type = HPaned
     [[[child8]]]
       order = 0
       parent = child7
-      position = 488
-      ratio = 0.350789096126
+      position = 481
+      ratio = 0.350800582242
       type = VPaned
     [[[terminal10]]]
       order = 1
@@ -125,7 +137,7 @@
       parent = child7
       profile = default
       type = Terminal
-      uuid = 5bd00996-8991-493a-8d6f-8a9e2801a6dc
+      uuid = 22e6e660-60b2-4976-9ee6-820d09cebe97
     [[[terminal13]]]
       order = 0
       parent = child12
@@ -150,24 +162,42 @@
       profile = default
       type = Terminal
       uuid = 17dad97c-ba3d-472d-8207-44814ae5c2a0
-    [[[terminal19]]]
-      order = 1
-      parent = child17
+    [[[terminal20]]]
+      order = 0
+      parent = child19
       profile = default
       type = Terminal
       uuid = d369cb3a-1b7c-4a71-891b-fa5d99606ce6
-    [[[terminal21]]]
+    [[[terminal22]]]
       order = 0
-      parent = child20
+      parent = child21
+      profile = default
+      type = Terminal
+      uuid = cb80a273-353b-4fa2-b447-b8dfbd0f1c2d
+    [[[terminal23]]]
+      order = 1
+      parent = child21
+      profile = default
+      type = Terminal
+      uuid = f7400bce-8fee-49f8-b081-23afd0c941c6
+    [[[terminal25]]]
+      order = 0
+      parent = child24
       profile = default
       type = Terminal
       uuid = 9f823b44-64df-4ee4-9b63-9c6f0d2837c6
-    [[[terminal22]]]
+    [[[terminal26]]]
       order = 1
-      parent = child20
+      parent = child24
       profile = default
       type = Terminal
       uuid = f090766a-da8f-4bba-8c76-20d34632cb73
+    [[[terminal27]]]
+      order = 5
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = 8863f96c-27a6-485b-a9d0-eca96ac0a5a3
     [[[terminal4]]]
       order = 0
       parent = child3

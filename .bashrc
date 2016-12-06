@@ -138,3 +138,5 @@ fi
 if [ -f /home/radu/google-cloud-sdk/completion.bash.inc ]; then
   source '/home/radu/google-cloud-sdk/completion.bash.inc'
 fi
+
+alias buildtests='go test -run "-" ./pkg/...'

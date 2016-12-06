@@ -185,7 +185,8 @@ set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,./../.
 autocmd Filetype sql set makeprg=runsql\ %\ 2>&1
 autocmd Filetype sql nmap <F2> :!cat % \| ~/roach/cockroach sql --insecure<CR>
 
-autocmd Filetype go set makeprg=go\ build\ .
+"autocmd Filetype go set makeprg=go\ build\ .
+autocmd Filetype go set makeprg=go\ test\ -v\ -run\ -\ .
 autocmd Filetype go nmap <C-]> :exec("stselect ".expand("<cword>"))<CR>
 "autocmd Filetype go nmap gd <Plug>(go-def)
 autocmd FileType go nmap gd :YcmCompleter GoTo<CR>
