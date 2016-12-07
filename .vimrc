@@ -93,8 +93,8 @@ autocmd BufNewFile,BufRead *.h.BASE set filetype=cpp
 autocmd BufNewFile,BufRead *.java.BASE set filetype=java
 autocmd BufNewFile,BufRead NOTES_EDITMSG set tw=80 ai spell
 
-autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sh
-autocmd BufNewFile,BufRead */sql/partestdata/* set filetype=sh
+autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sh tw=0
+autocmd BufNewFile,BufRead */sql/partestdata/* set filetype=sh tw=0
 
 autocmd FileType c,cpp syn keyword cType vmk_uint8 vmk_int8 vmk_uint16 vmk_int16 vmk_uint32 vmk_int32 vmk_uint64 vmk_int64 vmk_uintptr_t vmk_Bool VMK_ReturnStatus vmk_ListLinks vmk_atomic64
 autocmd FileType c,cpp syn keyword cType uint8 int8 uint16 int16 uint32 int32 uint64 int64 uintptr_t Bool 
