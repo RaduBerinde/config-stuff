@@ -112,7 +112,7 @@ autocmd FileType sh,python set nocindent cindent fo+=croq number
 autocmd FileType conf set smartindent fo=croqt number
 autocmd FileType messages set nowrap
 
-autocmd BufNewFile,BufRead /tmp/log set filetype=crlog nonumber
+autocmd BufNewFile,BufRead /tmp/log* set filetype=crlog nonumber
 
 
 " This fixes the full-pathed files opened by tags
