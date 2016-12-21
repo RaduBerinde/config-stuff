@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -x
+make build || exit 1
+
+#COCKROACH_LIGHTSTEP_TOKEN=4d334b606818ed1a62d0c045fca222cc 
+COCKROACH_DISTSQL_LOG_PLAN=1 ./cockroach start --insecure --store=type=mem,size=1G --logtostderr
