@@ -7,6 +7,8 @@ call pathogen#helptags()
 "set runtimepath-=~/.vim/bundle/vim-go
 "
 
+let g:ctrlp_custom_ignore = "vendor\|jspm_packages\|node_modules"
+
 set completeopt-=preview
 
 syntax on
