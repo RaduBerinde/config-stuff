@@ -113,6 +113,9 @@ autocmd FileType conf set smartindent fo=croqt number
 autocmd FileType messages set nowrap
 
 autocmd BufNewFile,BufRead /tmp/log* set filetype=crlog nonumber
+autocmd BufNewFile,BufRead *ERROR* set filetype=crlog nonumber
+autocmd BufNewFile,BufRead *INFO* set filetype=crlog nonumber
+autocmd BufNewFile,BufRead *WARNING* set filetype=crlog nonumber
 
 
 " This fixes the full-pathed files opened by tags
@@ -203,7 +206,7 @@ autocmd Filetype go highlight Pmenu ctermbg=black ctermfg=red
 autocmd Filetype gitcommit set tw=80 spell
 autocmd Filetype markdown set tw=80 spell ai
 autocmd Filetype markdown nmap <F2> :!git amend; git push-current<CR>
-autocmd Filetype proto setlocal shiftwidth=2 nospell
+autocmd Filetype proto setlocal shiftwidth=2 spell
 
 let g:vimshell_vimshrc_path = '~/.bashrc'
 " TERM=linux fixes
