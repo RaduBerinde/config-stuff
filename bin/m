@@ -3,14 +3,13 @@
 tmpfile=`mktemp`
 trap "rm -f $tmpfile" EXIT
 
-dir=`dirname $0`
-$dir/mc > $tmpfile 2>&1 &
+make checkshort >$tmpfile 2>&1 &
 pid1=$!
 
 make testshort &
 pid2=$!
 
-
+# Wait for make checkshort which completes faster
 wait $pid1
 rc1=$?
 
@@ -19,7 +18,7 @@ if [ $rc1 -ne 0 ]; then
   cat $tmpfile
   echo ""
 else
-  echo -e "\nmc PASSED\n"
+  echo -e "\nmake checkshort PASSED\n"
 fi
 
 wait $pid2
