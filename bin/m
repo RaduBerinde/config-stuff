@@ -7,7 +7,7 @@ dir=`dirname $0`
 $dir/mc > $tmpfile 2>&1 &
 pid1=$!
 
-make test &
+make testshort &
 pid2=$!
 
 
