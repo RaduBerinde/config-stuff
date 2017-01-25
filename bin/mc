@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Exclute TestMetacheck and TestUnconvert
+make check 'TESTS=Test([^MU]|M[^e]|Me[^t]|Met[^a]|U[^n]|Un[^c]|Unc[^o]).*'
