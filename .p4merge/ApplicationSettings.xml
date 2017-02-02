@@ -36,8 +36,8 @@
   </PropertyList>
   <PropertyList IsManaged="TRUE" varName="Merge">
    <Bool varName="ShowBase">true</Bool>
-   <ByteArray varName="WindowGeometry">AdnQywACAAAAAABdAAAAJAAADW8AAAWiAAAAXQAAACQAAA1vAAAFogAAAAAAAAAADXA=</ByteArray>
-   <ByteArray varName="WindowState">AAAA/wAAAAD9AAAAAAAADRMAAAU7AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAiAE0AYQBpAG4AVwBpAG4AZABvAHcAVABvAG8AbABiAGEAcgEAAAAA/////wAAAAAAAAAA</ByteArray>
+   <ByteArray varName="WindowGeometry">AdnQywACAAAAAABdAAAAJgAADW8AAAWiAAAAXQAAACYAAA1vAAAFogAAAAAAAAAADXA=</ByteArray>
+   <ByteArray varName="WindowState">AAAA/wAAAAD9AAAAAAAADRMAAAU5AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAiAE0AYQBpAG4AVwBpAG4AZABvAHcAVABvAG8AbABiAGEAcgEAAAAA/////wAAAAAAAAAA</ByteArray>
   </PropertyList>
   <PropertyList IsManaged="TRUE" varName="MergeDiff">
    <Bool varName="ShowLineNumbers">false</Bool>

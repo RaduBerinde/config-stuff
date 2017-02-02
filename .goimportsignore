@@ -1,3 +1,8 @@
-github.com/prometheus/common/log
+# This file should be put in $GOPATH/src
+
 google.golang.org/appengine/log
+github.com/prometheus/common/log
 github.com/cloudflare/cfssl/log
+github.com/cockroachdb/cockroach/vendor/google.golang.org/appengine/log
+github.com/cockroachdb/cockroach/vendor/github.com/prometheus/common/log
+github.com/cockroachdb/cockroach/vendor/github.com/cloudflare/cfssl/log

@@ -6,5 +6,5 @@ while true; do
   git where > $tmpfile
   clear
   cat $tmpfile
-  sleep 10s
+  sleep 30s
 done
