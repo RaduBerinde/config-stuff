@@ -9,12 +9,12 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn match	Comment display '#.*$' contains=Todo
+syn match Comment display '#.*$' contains=Todo
 
-syn match stmt    display '^statement' skipwhite nextgroup=stmtOk,stmtErr
-syn match stmtOk  contained display 'ok'
-syn match stmtErr contained display 'error' skipwhite nextgroup=errorStr
-syn match errorStr     contained display '.*$'
+syn match stmt     display '^statement' skipwhite nextgroup=stmtOk,stmtErr
+syn match stmtOk   contained display 'ok'
+syn match stmtErr  contained display 'error' skipwhite nextgroup=errorStr
+syn match errorStr contained display '.*$'
 
 syn match query           display '^query' skipwhite nextgroup=stmtErr,queryCols
 syn match queryCols       contained display '[A-Z]\+' skipwhite nextgroup=queryKeyword
@@ -34,20 +34,23 @@ syn match badWhitespace display '\t'
 syn match parens display '[()]'
 syn match braces display '[{}]'
 
-hi def link parens Identifier
-hi def link braces Special
-
-hi def link separator Special
-hi def link stmt Special
-hi def link stmtOk Identifier
-hi def link stmtErr Identifier
-hi def link errorStr Constant
-hi def link query Special
-hi def link queryCols Type
-hi def link queryKeyword Special
+hi def link parens        Identifier
+hi def link braces        Special
+hi def link separator     Special
+hi def link stmt          Special
+hi def link stmtOk        Identifier
+hi def link stmtErr       Identifier
+hi def link errorStr      Constant
+hi def link query         Special
+hi def link queryCols     Type
+hi def link queryKeyword  Special
 hi def link badWhitespace ErrorMsg
 
-syn keyword valueKeyword false true null FALSE TRUE NULL
+syn keyword Todo TODO XXX
+
+syn case ignore
+
+syn keyword valueKeyword FALSE TRUE NULL
 
 syn keyword sqlKeyword ACTION ADD ALTER AT BACKUP BEGIN BLOB BY CASCADE COLUMNS COMMIT COMMITTED CONFLICT CONSTRAINTS COPY COVERING CUBE CURRENT CYCLE
 syn keyword sqlKeyword DATA DATABASE DATABASES DAY DEALLOCATE DELETE DOUBLE DROP ENCODING EXECUTE EXPLAIN FILTER FIRST FOLLOWING FORCE_INDEX GRANTS
@@ -74,7 +77,6 @@ syn keyword sqlKeyword COLLATION CROSS FULL INNER ILIKE IS JOIN LEFT LIKE NATURA
 
 syn keyword sqlFunc MIN MAX COUNT SUM_INT AVG SUM STDDEV VARIANCE BOOL_AND BOOL_OR ARRAY_AGG
 
-syn keyword Todo TODO XXX
 
 hi def link valueKeyword Constant
 hi def link sqlFunc	     Function
