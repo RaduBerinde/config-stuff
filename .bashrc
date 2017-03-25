@@ -140,3 +140,4 @@ if [ -f /home/radu/google-cloud-sdk/completion.bash.inc ]; then
 fi
 
 alias buildtests='go test -run "-" ./pkg/...'
+ulimit -m 2048
