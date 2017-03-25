@@ -103,18 +103,21 @@
       ratio = 0.7015625
       type = HPaned
     [[[terminal12]]]
+      directory = ~/roach
       order = 0
       parent = child11
       profile = default
       type = Terminal
       uuid = 8d83508d-0784-4a2d-95e8-192e9474e1f4
     [[[terminal14]]]
+      directory = ~/roach
       order = 0
       parent = child13
       profile = default
       type = Terminal
       uuid = ff78341e-e35f-4d6a-b4a0-ca7f345a831a
     [[[terminal15]]]
+      directory = ~/roach
       order = 1
       parent = child13
       profile = default
@@ -139,24 +142,28 @@
       type = Terminal
       uuid = 9d602bc8-c89b-49ab-a1f0-c7e1b0d51f31
     [[[terminal6]]]
+      directory = ~/roach2
       order = 0
       parent = child5
       profile = default
       type = Terminal
       uuid = 98dc435a-f239-4c3a-bfca-8f36dd4fc369
     [[[terminal7]]]
+      directory = ~/roach2
       order = 1
       parent = child5
       profile = default
       type = Terminal
       uuid = 5ffee08a-bd47-4110-a349-4ed07455197b
     [[[terminal8]]]
+      directory = ~/roach2
       order = 2
       parent = child1
       profile = default
       type = Terminal
       uuid = 52944705-43a3-4d3f-b2c5-49b5eb913f7b
     [[[terminal9]]]
+      directory = ~/roach2
       order = 3
       parent = child1
       profile = default
