@@ -12,7 +12,7 @@ endif
 syn match Comment display '#.*$' contains=Todo
 
 syn match stmt     display '^statement' skipwhite nextgroup=stmtOk,stmtErr
-syn match stmtOk   contained display 'ok'
+syn match stmtOk   contained display 'ok\|OK'
 syn match stmtErr  contained display 'error' skipwhite nextgroup=errorStr
 syn match errorStr contained display '.*$'
 

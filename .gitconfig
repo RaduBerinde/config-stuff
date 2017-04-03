@@ -10,8 +10,8 @@
 	tool = vimdiff
 	external = git-diff-wrapper.sh
 [alias]
+  co = checkout
 	amend = commit -a --amend --no-edit
-	amendmsg = commit --amend
 	reword = commit --amend
 	pushall = push radu --all -f
   difftxt = diff --no-ext-diff
@@ -26,7 +26,7 @@
 	cookiefile = /home/radu/.gitcookies
 [mergetool]
 	keepBackup = false
-[rerere]
-	enabled = true
+#[rerere]
+#	enabled = true
 [pull]
 	rebase = preserve

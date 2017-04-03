@@ -1,0 +1,8 @@
+#!/bin/bash
+if [[ "$1" == *\/* ]]; then
+  t="Logic/$1"
+else
+  t="Logic//$1"
+fi
+shift
+make test PKG=./pkg/sql TESTS="$t" TESTFLAGS="-v --show-logs --show-sql --max-errors 4 $*" |& tee /tmp/log
