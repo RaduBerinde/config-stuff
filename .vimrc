@@ -49,7 +49,9 @@ highlight SpellCap ctermbg=Black ctermfg=Yellow guibg=Black guifg=Red cterm=unde
 let spell_auto_type = "tex,mail,text,html"
 "map <F2> :w<CR>:!latex %<CR>
 map <F2> :w<CR>:make<CR>
+"map <F2> :w<CR>:!gofmt % >/dev/null<CR>
 nmap <F3> :TagbarToggle<CR>
+nmap <F4> :call TimeLapse()<CR>
 nmap <F5> :%s/  *$//g<CR>
 "nmap <F7> :let @/ = "<C-R><C-W>"<CR>:grep <C-R><C-W> *<CR>:cope<CR>
 nmap <F6> :cd %:p:h<CR>
@@ -97,7 +99,7 @@ autocmd BufNewFile,BufRead *.java.BASE set filetype=java
 autocmd BufNewFile,BufRead NOTES_EDITMSG set tw=80 ai spell
 
 "autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sh tw=0
-autocmd BufNewFile,BufRead */sql/testdata/* set filetype=crlogictest tw=0
+autocmd BufNewFile,BufRead */sql/testdata/* set filetype=crlogictest tw=0 ai number
 
 autocmd FileType c,cpp syn keyword cType vmk_uint8 vmk_int8 vmk_uint16 vmk_int16 vmk_uint32 vmk_int32 vmk_uint64 vmk_int64 vmk_uintptr_t vmk_Bool VMK_ReturnStatus vmk_ListLinks vmk_atomic64
 autocmd FileType c,cpp syn keyword cType uint8 int8 uint16 int16 uint32 int32 uint64 int64 uintptr_t Bool 
@@ -193,7 +195,8 @@ autocmd Filetype sql nmap <F2> :!cat % \| ~/roach/cockroach sql --insecure<CR>
 autocmd Filetype markdown nmap <F2> :!git amend && git push-current<CR>
 
 "autocmd Filetype go set makeprg=go\ build\ .
-autocmd Filetype go set makeprg=go\ test\ -v\ -run\ -\ .
+"autocmd Filetype go set makeprg=go\ test\ -v\ -run\ -\ .
+autocmd Filetype go set makeprg=build\ %
 autocmd Filetype go nmap <C-]> :exec("stselect ".expand("<cword>"))<CR>
 "autocmd Filetype go nmap gd <Plug>(go-def)
 autocmd FileType go nmap gd :YcmCompleter GoTo<CR>

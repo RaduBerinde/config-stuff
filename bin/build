@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -n "$1" ]; then
+  if ! go fmt "$1" >/dev/null; then
+    exit 1
+  fi
+fi
+
+echo go test -v -run - .
+go test -v -run - .

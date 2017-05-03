@@ -285,3 +285,4 @@
     scrollback_lines = 10000
     scrollbar_position = hidden
     use_system_font = False
+    word_chars = "-,./?%&#:_="
