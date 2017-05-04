@@ -5,4 +5,7 @@ else
   t="Logic//$1"
 fi
 shift
+set -x
+
+export COCKROACH_DISTSQL_LOG_PLAN=1
 make test PKG=./pkg/sql TESTS="$t" TESTFLAGS="-v --show-logs --show-sql $*" |& tee /tmp/log

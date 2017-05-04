@@ -37,6 +37,7 @@ shopt -s histappend
 set -o ignoreeof
 # PROMPT_COMMAND="history -a; history -n"
 
+# set -o vi
 bind '"\e[A":history-search-backward' 2>/dev/null
 bind '"\e[B":history-search-forward' 2>/dev/null
 
@@ -140,4 +141,4 @@ if [ -f /home/radu/google-cloud-sdk/completion.bash.inc ]; then
 fi
 
 alias buildtests='go test -run "-" ./pkg/...'
-ulimit -m 2048
+ulimit -Sv 4194304

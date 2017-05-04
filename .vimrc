@@ -137,8 +137,10 @@ let g:go_highlight_build_constraints = 1
 let g:go_def_mapping_enabled = 0
 
 
+let g:go_def_mode = 'godef'
+
 " Enable goimports to automatically insert import paths instead of gofmt:
-"let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "goimports"
 
 " By default vim-go shows errors for the fmt command, to disable it:
 let g:go_fmt_fail_silently = 1
@@ -152,11 +154,6 @@ let g:go_asmfmt_autosave = 0
 
 "Show type info under cursor.
 "let g:go_auto_type_info = 1
-
-" Enable goimports to automatically insert import paths instead of gofmt:
-let g:go_fmt_command = "goimports"
-
-
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
@@ -191,18 +188,20 @@ let g:tagbar_width = 50
 set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 
 autocmd Filetype sql set makeprg=runsql\ %\ 2>&1
-autocmd Filetype sql nmap <F2> :!cat % \| ~/roach/cockroach sql --insecure<CR>
-autocmd Filetype markdown nmap <F2> :!git amend && git push-current<CR>
+autocmd Filetype sql nmap <buffer> <F2> :!cat % \| ~/roach/cockroach sql --insecure<CR>
+autocmd Filetype markdown nmap <buffer> <F2> :!git amend && git push-current<CR>
 
 "autocmd Filetype go set makeprg=go\ build\ .
 "autocmd Filetype go set makeprg=go\ test\ -v\ -run\ -\ .
 autocmd Filetype go set makeprg=build\ %
 autocmd Filetype go nmap <C-]> :exec("stselect ".expand("<cword>"))<CR>
+
 "autocmd Filetype go nmap gd <Plug>(go-def)
-autocmd FileType go nmap gd :YcmCompleter GoTo<CR>
 "autocmd Filetype go nmap gD <Plug>(go-doc)
 "autocmd Filetype go nmap <C-\> <Plug>(go-def-split)
+autocmd FileType go nmap gd :YcmCompleter GoTo<CR>
 autocmd Filetype go nmap <C-\> :split<CR>:YcmCompleter GoTo<CR>
+
 autocmd Filetype go nmap <Space> <Plug>(go-info)
 autocmd Filetype go nmap <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>
 autocmd Filetype go setlocal spell
@@ -212,7 +211,6 @@ autocmd Filetype go highlight Pmenu ctermbg=black ctermfg=red
 
 autocmd Filetype gitcommit set tw=80 spell
 autocmd Filetype markdown set tw=80 spell ai
-autocmd Filetype markdown nmap <F2> :!git amend; git push-current<CR>
 autocmd Filetype proto setlocal shiftwidth=2 spell
 
 let g:vimshell_vimshrc_path = '~/.bashrc'
