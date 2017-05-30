@@ -6,6 +6,8 @@ make build || exit 1
 #COCKROACH_ENABLE_TRACING=1 \
 #COCKROACH_LIGHTSTEP_TOKEN=4d334b606818ed1a62d0c045fca222cc \
 
+( sleep 5s; echo "SET CLUSTER SETTING server.remote_debugging.mode = 'any';" | ./cockroach sql --insecure ) &
+
 COCKROACH_ENABLE_TRACING=1 \
 COCKROACH_LIGHTSTEP_TOKEN=4d334b606818ed1a62d0c045fca222cc \
 roachdemo -n 5
