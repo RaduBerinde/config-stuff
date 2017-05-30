@@ -30,3 +30,7 @@ git --no-pager log --color --graph --oneline --decorate $base^! HEAD
 echo
 echo Status:
 git status -s
+
+git diff --no-ext-diff up | ag '^\+.*(MEH|fmt.Printf).*$'
+
+exit 0

@@ -12,3 +12,8 @@ aggregators
 aggregator
 berinde
 distsqlrun
+opentracing
+SpanContext
+lightstep
+basictracer
+lightstep's

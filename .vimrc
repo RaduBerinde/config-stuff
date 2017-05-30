@@ -209,7 +209,7 @@ autocmd Filetype go setlocal spell
 autocmd Filetype go highlight Comment cterm=italic
 autocmd Filetype go highlight Pmenu ctermbg=black ctermfg=red
 
-autocmd Filetype gitcommit set tw=80 spell
+autocmd Filetype gitcommit set tw=80 spell ai
 autocmd Filetype markdown set tw=80 spell ai
 autocmd Filetype proto setlocal shiftwidth=2 spell
 

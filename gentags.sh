@@ -1,7 +1,15 @@
 #!/bin/sh
 
 GOSRC_DIRS=/go*/src
-REL_PATHS="github.com/cockroachdb golang.org/x github.com/opentracing github.com/lightstep"
+
+REL_PATHS="
+github.com/cockroachdb
+"
+
+#golang.org/x
+#github.com/opentracing
+#github.com/lightstep
+
 LOGFILE=~/gentags.log
 
 set -e
