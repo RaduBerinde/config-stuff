@@ -1,0 +1,7 @@
+enable tracing:
+SET CLUSTER SETTING sql.trace.txn.enable_threshold = '1ns';
+
+disable tracing:
+SET CLUSTER SETTING sql.trace.txn.enable_threshold = '0';
+
+SET CLUSTER SETTING server.remote_debugging.mode = 'any';
