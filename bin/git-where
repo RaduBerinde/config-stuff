@@ -31,6 +31,6 @@ echo
 echo Status:
 git status -s
 
-git diff --no-ext-diff up | ag '^\+.*(MEH|fmt.Printf).*$'
+git diff --no-ext-diff up | ag '^\+.*(MEH|fmt.Print|debug.PrintStack).*$'
 
 exit 0

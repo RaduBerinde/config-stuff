@@ -1,7 +1,17 @@
-enable tracing:
+ -- enable tracing:
 SET CLUSTER SETTING sql.trace.txn.enable_threshold = '1ns';
 
-disable tracing:
+ -- disable tracing:
 SET CLUSTER SETTING sql.trace.txn.enable_threshold = '0';
 
 SET CLUSTER SETTING server.remote_debugging.mode = 'any';
+
+SET CLUSTER SETTING trace.lightstep.token = '4d334b606818ed1a62d0c045fca222cc';
+
+
+
+ -- restore TPC-H data:
+SET CLUSTER SETTING enterprise.enabled = true;
+CREATE DATABASE tpch;
+restore tpch.* from 'azure://backup-test/benchmarks/tpch/scalefactor-1?AZURE_ACCOUNT_NAME=cockroachbackuptest&AZURE_ACCOUNT_KEY=FzWMkVNcHorQ2IPG5il987GEmEzSxmV8WxXOZHzKV4XfvNTXHEDdBrsAIMB2/UutSPhhNQwVt9zs4dVXD/6w/w==';
+restore tpch.* from 'azure://backup-test/benchmarks/tpch/scalefactor-10?AZURE_ACCOUNT_NAME=cockroachbackuptest&AZURE_ACCOUNT_KEY=FzWMkVNcHorQ2IPG5il987GEmEzSxmV8WxXOZHzKV4XfvNTXHEDdBrsAIMB2/UutSPhhNQwVt9zs4dVXD/6w/w==';

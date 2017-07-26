@@ -1,0 +1,3 @@
+#!/bin/bash
+
+$GOPATH/bin/pprof -pdf $GOPATH/src/github.com/cockroachdb/cockroach/cockroach "$1" > "$1.pdf"

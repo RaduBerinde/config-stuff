@@ -6,4 +6,4 @@ else
 fi
 shift
 set -x
-make testrace PKG=./pkg/sql TESTS="$t" TESTFLAGS="-v --show-logs --show-sql --max-errors 4 $*" |& tee /tmp/log
+make testrace PKG=./pkg/sql/logictest TESTS="$t" TESTFLAGS="-v --show-logs --show-sql $*" |& tee /tmp/log

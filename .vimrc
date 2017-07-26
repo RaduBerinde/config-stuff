@@ -7,7 +7,12 @@ call pathogen#helptags()
 "set runtimepath-=~/.vim/bundle/vim-go
 "
 
-let g:ctrlp_custom_ignore = "vendor\|jspm_packages\|node_modules"
+"let g:ctrlp_custom_ignore = "vendor\|jspm_packages\|node_modules\|c-deps"
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|node_modules$\|jspm_packages$\|vendor$\|c-deps$',
+    \ 'file': '\.so$\|\.pyc$' }
+let g:ctrlp_max_files = 0
+let g:ctrlp_max_depth = 40
 
 set completeopt-=preview
 
@@ -99,7 +104,7 @@ autocmd BufNewFile,BufRead *.java.BASE set filetype=java
 autocmd BufNewFile,BufRead NOTES_EDITMSG set tw=80 ai spell
 
 "autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sh tw=0
-autocmd BufNewFile,BufRead */sql/testdata/* set filetype=crlogictest tw=0 ai number
+autocmd BufNewFile,BufRead */sql/logictest/testdata/* set filetype=crlogictest tw=0 ai number
 
 autocmd FileType c,cpp syn keyword cType vmk_uint8 vmk_int8 vmk_uint16 vmk_int16 vmk_uint32 vmk_int32 vmk_uint64 vmk_int64 vmk_uintptr_t vmk_Bool VMK_ReturnStatus vmk_ListLinks vmk_atomic64
 autocmd FileType c,cpp syn keyword cType uint8 int8 uint16 int16 uint32 int32 uint64 int64 uintptr_t Bool 

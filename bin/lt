@@ -1,11 +1,15 @@
 #!/bin/bash
-if [[ "$1" == *\/* ]]; then
-  t="Logic/$1"
+if [[ "$1" = -* ]]; then
+  t="Logic"
 else
-  t="Logic//$1"
+  if [[ "$1" == *\/* ]]; then
+    t="Logic/$1"
+  else
+    t="Logic//$1"
+  fi
+  shift
 fi
-shift
 set -x
 
 export COCKROACH_DISTSQL_LOG_PLAN=1
-make test PKG=./pkg/sql TESTS="$t" TESTFLAGS="-v --show-logs --show-sql $*" |& tee /tmp/log
+make test PKG=./pkg/sql/logictest TESTS="$t" TESTFLAGS="-v --show-logs --show-sql $*" |& tee /tmp/log
