@@ -1,0 +1,4 @@
+#!/bin/bash
+
+git log up..HEAD --reverse --pretty='format:#### %s%n%n%b'
+

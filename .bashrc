@@ -141,4 +141,5 @@ if [ -f /home/radu/google-cloud-sdk/completion.bash.inc ]; then
 fi
 
 alias buildtests='go test -run "-" ./pkg/...'
-ulimit -Sv 4194304
+# 5GB virtual memory limit (for runaway gocode processes).
+ulimit -Sv 5000000
