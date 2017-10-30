@@ -38,7 +38,7 @@
   switch_to_tab_8 = <Alt>8
   switch_to_tab_9 = <Alt>9
   toggle_scrollbar = None
-  toggle_zoom = F11
+  toggle_zoom = <Alt>Return
   ungroup_all = None
   ungroup_tab = None
   zoom_in = <Primary>equal

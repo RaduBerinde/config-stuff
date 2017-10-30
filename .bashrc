@@ -116,7 +116,7 @@ function devask() {
    dev $name
 }
 
-export PATH=$PATH:/usr/local/go/bin:~/bin
+export PATH=$PATH:/usr/local/go/bin:~/bin:~/.cargo/bin
 alias gopath=". ~/bin/gopath.sh"
 
 source ~/liquidprompt/liquidprompt
@@ -143,3 +143,7 @@ fi
 alias buildtests='go test -run "-" ./pkg/...'
 # 5GB virtual memory limit (for runaway gocode processes).
 ulimit -Sv 5000000
+export PATH="/usr/lib/ccache:$PATH"
+
+alias r1="cd ~/roach; gopath"
+alias r2="cd ~/roach2; gopath"
