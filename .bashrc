@@ -50,7 +50,6 @@ fi
 # alias vim='vim -T linux'
 # alias view='view -T linux'
 alias view='vim -R -M'
-alias gw='git where'
 
 
 # You may uncomment the following lines if you want `ls' to be colorized:
@@ -145,5 +144,8 @@ alias buildtests='go test -run "-" ./pkg/...'
 ulimit -Sv 5000000
 export PATH="/usr/lib/ccache:$PATH"
 
+alias gw='git where'
+alias gd="git diff"
+alias gdt="git diff --no-ext-diff"
 alias r1="cd ~/roach; gopath"
 alias r2="cd ~/roach2; gopath"

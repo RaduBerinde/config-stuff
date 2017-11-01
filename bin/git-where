@@ -4,7 +4,11 @@
 
 #base_branch=`get_base_branch`
 #base_branch=`get_upstream_branch`
-base_branch="origin/master"
+if [ `get_upstream_branch` = 'origin/release-1.1' ]; then
+  base_branch="origin/release-1.1"
+else
+  base_branch="origin/master"
+fi
 base=`git merge-base $base_branch HEAD 2>/dev/null`
 
 echo Branches:
