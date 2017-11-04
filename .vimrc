@@ -154,6 +154,8 @@ let g:go_fmt_fail_silently = 1
 "let g:go_fmt_autosave = 0
 let g:go_asmfmt_autosave = 0
 
+let g:crlfmt_autosave = 1
+
 " Disable opening browser after posting your snippet to play.golang.org:
 "let g:go_play_open_browser = 0
 
