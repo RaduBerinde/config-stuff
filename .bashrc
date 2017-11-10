@@ -145,6 +145,7 @@ ulimit -Sv 5000000
 export PATH="/usr/lib/ccache:$PATH"
 
 alias gw='git where'
+alias gwr='git-where-repeat'
 alias gd="git diff"
 alias gdt="git diff --no-ext-diff"
 alias r1="cd ~/roach; gopath"
