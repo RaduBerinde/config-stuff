@@ -30,5 +30,3 @@
 #	enabled = true
 [pull]
 	rebase = preserve
-[commit]
-	template = ~/.gitmessage
