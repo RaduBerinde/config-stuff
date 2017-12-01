@@ -29,3 +29,5 @@ restore tpch.* from 'azure://backup-test/benchmarks/tpch/scalefactor-10?AZURE_AC
 MACHINE_SIZE=Standard_D3_v2 AZWORKER_NAME=n1 scripts/azworker.sh create
 MACHINE_SIZE=Standard_D3_v2 AZWORKER_NAME=n2 scripts/azworker.sh create
 MACHINE_SIZE=Standard_D3_v2 AZWORKER_NAME=n3 scripts/azworker.sh create
+
+COCKROACH_TEST_LIGHTSTEP_TOKEN=4d334b606818ed1a62d0c045fca222cc make test PKG=./pkg/ccl/sqlccl TESTFLAGS='-v'
