@@ -9,7 +9,7 @@ call pathogen#helptags()
 
 "let g:ctrlp_custom_ignore = "vendor\|jspm_packages\|node_modules\|c-deps"
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|node_modules$\|jspm_packages$\|vendor$\|c-deps$',
+    \ 'dir':  '\.git$\|node_modules$\|jspm_packages$\|vendor$\|c-deps\|sql/parser/gen$',
     \ 'file': '\.so$\|\.pyc$' }
 let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth = 40
@@ -143,6 +143,8 @@ let g:go_def_mapping_enabled = 0
 
 
 let g:go_def_mode = 'godef'
+" let g:go_info_mode = 'guru'
+
 
 " Enable goimports to automatically insert import paths instead of gofmt:
 let g:go_fmt_command = "goimports"

@@ -14,7 +14,7 @@
 	amend = commit -a --amend --no-edit
 	reword = commit --amend
 	pushall = push radu --all -f
-  difftxt = diff --no-ext-diff
+  difftxt = diff --no-ext-diff --color-moved=zebra
 [merge]
   conflictstyle = diff3
   tool = p4merge
