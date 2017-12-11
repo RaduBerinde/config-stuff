@@ -71,10 +71,15 @@ nmap <C-S-P> :cp<CR>
 nmap <C-]> :exec("stselect ".expand("<cword>"))<CR>
 "nmap gt :exec("tselect ".expand("<cword>"))<CR>
 
-highlight DiffAdd term=reverse cterm=bold ctermbg=green ctermfg=black guibg=LightGreen
-highlight DiffChange term=reverse cterm=bold ctermbg=cyan ctermfg=black guibg=#FFFF80
-highlight DiffText term=reverse cterm=bold ctermbg=gray ctermfg=black gui=NONE guibg=#FFFF20
-highlight DiffDelete term=reverse cterm=bold ctermbg=red ctermfg=black gui=NONE guifg=Blue guibg=LightRed
+"highlight DiffAdd term=reverse cterm=bold ctermbg=green ctermfg=black guibg=LightGreen
+"highlight DiffChange term=reverse cterm=bold ctermbg=cyan ctermfg=black guibg=#FFFF80
+"highlight DiffText term=reverse cterm=bold ctermbg=gray ctermfg=black gui=NONE guibg=#FFFF20
+"highlight DiffDelete term=reverse cterm=bold ctermbg=red ctermfg=black gui=NONE guifg=Blue guibg=LightRed
+
+highlight DiffAdd ctermbg=22 ctermfg=white guibg=LightGreen
+highlight DiffChange ctermbg=58 ctermfg=white guibg=#FFFF80
+highlight DiffText ctermbg=59 ctermfg=white gui=NONE guibg=#FFFF20
+highlight DiffDelete ctermbg=88 ctermfg=white gui=NONE guifg=Blue guibg=LightRed
 
 hi MatchParen cterm=none ctermbg=none ctermfg=white
 
@@ -105,6 +110,7 @@ autocmd BufNewFile,BufRead NOTES_EDITMSG set tw=80 ai spell
 
 "autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sh tw=0
 autocmd BufNewFile,BufRead */sql/logictest/testdata/* set filetype=crlogictest tw=0 ai number
+autocmd BufNewFile,BufRead */sql/opt/testdata/* set filetype=cropttest tw=0 ai number
 
 autocmd FileType c,cpp syn keyword cType vmk_uint8 vmk_int8 vmk_uint16 vmk_int16 vmk_uint32 vmk_int32 vmk_uint64 vmk_int64 vmk_uintptr_t vmk_Bool VMK_ReturnStatus vmk_ListLinks vmk_atomic64
 autocmd FileType c,cpp syn keyword cType uint8 int8 uint16 int16 uint32 int32 uint64 int64 uintptr_t Bool 

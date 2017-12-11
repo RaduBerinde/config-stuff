@@ -141,7 +141,7 @@ fi
 
 alias buildtests='go test -run "-" ./pkg/...'
 # 5GB virtual memory limit (for runaway gocode processes).
-ulimit -Sv 5000000
+#ulimit -Sv 5000000
 export PATH="/usr/lib/ccache:$PATH"
 
 alias gw='git where'
