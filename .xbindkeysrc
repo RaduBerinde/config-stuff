@@ -1,0 +1,13 @@
+# Previous desktop
+"dbus-send --session --type=method_call --dest=org.Cinnamon /org/Cinnamon org.Cinnamon.switchWorkspaceLeft"
+  b:6
+
+# Next desktop
+"dbus-send --session --type=method_call --dest=org.Cinnamon /org/Cinnamon org.Cinnamon.switchWorkspaceRight"
+  b:7
+
+"/usr/bin/xte 'mouseup 10' 'mouseclick 4' 'mouseclick 4' 'mouseclick 4' 'mouseclick 4' &"
+b:10
+
+"/usr/bin/xte 'mouseup 11' 'mouseclick 5' 'mouseclick 5' 'mouseclick 5' 'mouseclick 5' &"
+b:11

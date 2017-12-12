@@ -106,7 +106,7 @@ autocmd BufNewFile,BufRead *.c.BASE set filetype=c
 autocmd BufNewFile,BufRead *.cpp.BASE set filetype=cpp
 autocmd BufNewFile,BufRead *.h.BASE set filetype=cpp
 autocmd BufNewFile,BufRead *.java.BASE set filetype=java
-autocmd BufNewFile,BufRead NOTES_EDITMSG set tw=80 ai spell
+autocmd BufNewFile,BufRead NOTES_EDITMSG set tw=70 ai spell
 
 "autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sh tw=0
 autocmd BufNewFile,BufRead */sql/logictest/testdata/* set filetype=crlogictest tw=0 ai number
