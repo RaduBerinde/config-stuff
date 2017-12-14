@@ -11,6 +11,9 @@ endif
 
 syn match Comment display '#.*$' contains=Todo
 
+syn match let     display '^let' skipwhite nextgroup=letVar
+syn match letVar  display '\$[a-zA-Z][a-zA-Z0-9_]*'
+
 syn match stmt     display '^statement' skipwhite nextgroup=stmtOk,stmtErr
 syn match stmtOk   contained display 'ok\|OK'
 syn match stmtErr  contained display 'error' skipwhite nextgroup=errorStr
@@ -41,10 +44,12 @@ hi def link stmt          Special
 hi def link stmtOk        Identifier
 hi def link stmtErr       Identifier
 hi def link errorStr      Constant
+hi def link let           Special
 hi def link query         Special
 hi def link queryCols     Type
 hi def link queryKeyword  Special
 hi def link badWhitespace ErrorMsg
+hi letVar ctermFg=Red
 
 syn keyword Todo TODO XXX
 
