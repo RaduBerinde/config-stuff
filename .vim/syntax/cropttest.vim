@@ -17,7 +17,6 @@ syn match stmtErr  contained display 'error' skipwhite nextgroup=errorStr
 syn match errorStr contained display '.*$'
 
 syn match query           display '^build-scalar[^ ]*' skipwhite nextgroup=stmtErr,queryCols
-syn match query           display '^index-constraints[^ ]*' skipwhite nextgroup=stmtErr,queryCols
 syn match queryCols       contained display '[A-Z]\+' skipwhite nextgroup=queryKeyword
 syn keyword queryKeyword  contained nosort partialsort rowsort valuesort colnames trimdecimals
 
@@ -85,5 +84,5 @@ hi def link sqlType	     Type
 hi def link sqlReserved  Keyword
 hi def link sqlKeyword	 Keyword
 
-let b:current_syntax = "crlogictest"
+let b:current_syntax = "cropttest"
 

@@ -2,6 +2,7 @@
 " Language:         CockroachDB logic tests
 " Maintainer:       Radu Berinde <radu@cockroachlabs.com>
 "
+" To use, copy the file to ~/.vim/syntax/
 " Recommended in .vimrc:
 "    autocmd BufNewFile,BufRead */sql/testdata/* set filetype=crlogictest tw=0
 
