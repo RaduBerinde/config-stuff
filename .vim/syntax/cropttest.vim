@@ -11,14 +11,9 @@ endif
 
 syn match Comment display '#.*$' contains=Todo
 
-syn match stmt     display '^statement' skipwhite nextgroup=stmtOk,stmtErr
-syn match stmtOk   contained display 'ok\|OK'
-syn match stmtErr  contained display 'error' skipwhite nextgroup=errorStr
-syn match errorStr contained display '.*$'
-
-syn match query           display '^build-scalar[^ ]*' skipwhite nextgroup=stmtErr,queryCols
-syn match queryCols       contained display '[A-Z]\+' skipwhite nextgroup=queryKeyword
-syn keyword queryKeyword  contained nosort partialsort rowsort valuesort colnames trimdecimals
+syn match directive       display '[^ ]*build-scalar[^ ]*' skipwhite nextgroup=vars,index
+syn match vars            contained display 'vars' nextgroup=index
+syn match index           contained display 'index'  
 
 syn match Number	'\<\d\+\>#\='
 
@@ -41,9 +36,9 @@ hi def link stmt          Special
 hi def link stmtOk        Identifier
 hi def link stmtErr       Identifier
 hi def link errorStr      Constant
-hi def link query         Special
-hi def link queryCols     Type
-hi def link queryKeyword  Special
+hi def link directive     Special
+hi def link vars          Keyword
+hi def link index         Keyword
 hi def link badWhitespace ErrorMsg
 
 syn keyword Todo TODO XXX
