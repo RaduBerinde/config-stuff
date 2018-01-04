@@ -71,6 +71,11 @@ nmap <C-S-P> :cp<CR>
 nmap <C-]> :exec("stselect ".expand("<cword>"))<CR>
 "nmap gt :exec("tselect ".expand("<cword>"))<CR>
 
+"map <C-h> <C-W>h
+"map <C-j> <C-W>j
+"map <C-k> <C-W>k
+"map <C-l> <C-W>l
+
 "highlight DiffAdd term=reverse cterm=bold ctermbg=green ctermfg=black guibg=LightGreen
 "highlight DiffChange term=reverse cterm=bold ctermbg=cyan ctermfg=black guibg=#FFFF80
 "highlight DiffText term=reverse cterm=bold ctermbg=gray ctermfg=black gui=NONE guibg=#FFFF20
@@ -234,3 +239,10 @@ let g:vimshell_vimshrc_path = '~/.bashrc'
 "set <F3>=OR
 "set <Home>=[H
 "set <End>=[F
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+

@@ -31,3 +31,9 @@ MACHINE_SIZE=Standard_D3_v2 AZWORKER_NAME=n2 scripts/azworker.sh create
 MACHINE_SIZE=Standard_D3_v2 AZWORKER_NAME=n3 scripts/azworker.sh create
 
 COCKROACH_TEST_LIGHTSTEP_TOKEN=4d334b606818ed1a62d0c045fca222cc make test PKG=./pkg/ccl/sqlccl TESTFLAGS='-v'
+
+
+GOGC=off make bench PKG=./pkg/bench/ BENCHES='Planning/b = 5$$' TESTFLAGS='-benchmem -memprofile memprof'
+go tool pprof --alloc_space memprof
+
+~/crscripts/bench BENCHES=Planning PKG=./pkg/benches master <branch>
