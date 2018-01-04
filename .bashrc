@@ -152,3 +152,5 @@ alias r1="cd ~/roach; gopath"
 alias r2="cd ~/roach2; gopath"
 
 xset r rate 220 48
+
+export EDITOR=vim
