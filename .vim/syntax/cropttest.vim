@@ -11,9 +11,10 @@ endif
 
 syn match Comment display '#.*$' contains=Todo
 
-syn match directive       display '[^ ]*build-scalar[^ ]*' skipwhite nextgroup=vars,index
-syn match vars            contained display 'vars' nextgroup=index
-syn match index           contained display 'index'  
+syn match directive       display '[^ ]*\(build\|exec\)[^ ]*' skipwhite nextgroup=vars,index
+syn match vars            contained display 'vars' nextgroup=varVals
+syn match varVals         contained display '=([^)]*)' skipwhite nextgroup=index
+syn match index           contained display 'inverted-index'
 
 syn match Number	'\<\d\+\>#\='
 
@@ -64,7 +65,7 @@ syn keyword sqlReserved ORDER PLACING PRIMARY REFERENCES RETURNING SELECT SESSIO
 syn keyword sqlReserved UNION UNIQUE USER USING VARIADIC VIEW WHEN WHERE WINDOW WITH
 
 syn keyword sqlType ANNOTATE_TYPE BETWEEN BIGINT BIGSERIAL BIT BOOL BOOLEAN BYTEA BYTES CHAR CHARACTER CHARACTERISTICS COALESCE DATE
-syn keyword sqlType DEC DECIMAL EXISTS EXTRACT EXTRACT_DURATION FLOAT GREATEST GROUPING HISTOGRAM IF IFNULL INT INT8 INT64 INTEGER INTERVAL LEAST
+syn keyword sqlType DEC DECIMAL EXISTS EXTRACT EXTRACT_DURATION FLOAT GREATEST GROUPING HISTOGRAM IF IFNULL INT INT8 INT64 INTEGER INTERVAL JSON JSONB LEAST
 syn keyword sqlType NAME NULLIF NUMERIC OUT OVERLAY POSITION PRECISION REAL ROW SEQUENCE SERIAL SMALLINT SMALLSERIAL STATISTICS STRING SUBSTRING TIME TIMESTAMP
 syn keyword sqlType TIMESTAMPTZ TREAT TRIM VALUES VARCHAR
 
