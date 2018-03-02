@@ -157,7 +157,8 @@ let g:go_highlight_build_constraints = 1
 let g:go_def_mapping_enabled = 0
 
 
-let g:go_def_mode = 'godef'
+"let g:go_def_mode = 'godef'
+let g:go_def_mode = 'guru'
 " let g:go_info_mode = 'guru'
 
 
@@ -220,10 +221,10 @@ autocmd Filetype markdown nmap <buffer> <F2> :!git amend && git push-current<CR>
 autocmd Filetype go set makeprg=build\ %
 autocmd Filetype go nmap <C-]> :exec("stselect ".expand("<cword>"))<CR>
 
-"autocmd Filetype go nmap gd <Plug>(go-def)
+autocmd Filetype go nmap gd <Plug>(go-def)
 "autocmd Filetype go nmap gD <Plug>(go-doc)
 "autocmd Filetype go nmap <C-\> <Plug>(go-def-split)
-autocmd FileType go nmap gd :YcmCompleter GoTo<CR>
+"autocmd FileType go nmap gd :YcmCompleter GoTo<CR>
 autocmd Filetype go nmap <C-\> :split<CR>:YcmCompleter GoTo<CR>
 
 autocmd Filetype go nmap <Space> <Plug>(go-info)

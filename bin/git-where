@@ -4,8 +4,8 @@
 
 #base_branch=`get_base_branch`
 #base_branch=`get_upstream_branch`
-if [ `get_upstream_branch` = 'origin/release-1.1' ]; then
-  base_branch="origin/release-1.1"
+if [ `get_upstream_branch` = 'origin/release-2.0' ]; then
+  base_branch="origin/release-2.0"
 else
   base_branch="origin/master"
 fi
