@@ -210,7 +210,7 @@ let g:tagbar_type_go = {
 
 let g:tagbar_width = 50
 
-set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
+set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags,./../../../../../../tags,
 
 autocmd Filetype sql set makeprg=runsql\ %\ 2>&1
 autocmd Filetype sql nmap <buffer> <F2> :!cat % \| ~/roach/cockroach sql --insecure<CR>
