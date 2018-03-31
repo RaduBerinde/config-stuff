@@ -8,4 +8,4 @@ else
 fi
 set -x
 
-make test PKG=./pkg/sql/opt TESTS="$t" TESTFLAGS="-v $*" TESTTIMEOUT=5s |& tee /tmp/log
+make test PKG=./pkg/sql/opt/... TESTS="$t" TESTFLAGS="-v $*" TESTTIMEOUT=5s |& tee /tmp/log
