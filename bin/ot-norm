@@ -1,0 +1,11 @@
+#!/bin/bash
+timeout=10m
+if [[ "$1" = -* || "$1" = "" ]]; then
+  t=""
+else
+  t="$1"
+  shift
+fi
+set -x
+
+make test PKG=./pkg/sql/opt/norm TESTS="$t" TESTFLAGS="-v $*" TESTTIMEOUT=5s |& tee /tmp/log
