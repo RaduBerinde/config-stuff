@@ -5,4 +5,4 @@
 #
 # "<path_to_diff_executable>" "$2" "$5" | cat
 
-vimdiff -R "$2" "$5"
+vimdiff "$2" "$5"

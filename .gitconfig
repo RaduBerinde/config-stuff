@@ -28,7 +28,7 @@
 	keepBackup = false
 [pull]
 	rebase = preserve
-[rerere]
-	enabled = false
+[core]
+	excludesfile = /home/radu/.gitignore_global
 [rebase]
-  autosquash = true
+	autosquash = true

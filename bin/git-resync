@@ -5,10 +5,9 @@
 set -e
 
 if [ "$1" == "--help" ]; then
-   echo "Usage: git resync [<commit>]"
-   echo "Resyncs master to the given commit (or the latest)"
-   echo "    warning: throws away any commits in master, including old cherry-picks"
-   exit 1
+   echo "Usage: git resync [<base>]"
+   echo "Resyncs master to the latest and rebases"
+   echo "the changes since <base>"
 fi
 
 ORIG_BRANCH=`get_current_branch`
@@ -19,7 +18,20 @@ if [[ `git status --porcelain --untracked-files=no | wc -l` != 0 ]]; then
 fi
 
 git fetch --all -p || echo "WARNING: could not fetch!"
-git rebase -p origin/master
+
+if [ "$(get_current_branch)" != master ]; then
+  git branch -f master origin/master
+fi
+
+git diff --stat $(git merge-base HEAD origin/master) origin/master
+
+if [ "$1" == "" ]; then
+  echo Rebasing on origin/master
+  git rebase -p origin/master
+else
+  echo Rebasing on origin/master with base "$1"
+  git rebase -p --onto origin/master "$1"
+fi
 
 #
 # commit="$1"

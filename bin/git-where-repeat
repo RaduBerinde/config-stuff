@@ -1,5 +1,8 @@
 #!/bin/bash
 
+setterm -linewrap off
+trap "setterm -linewrap on" EXIT
+
 tmpfile=`mktemp`
 trap "rm -f $tmpfile" EXIT
 while true; do

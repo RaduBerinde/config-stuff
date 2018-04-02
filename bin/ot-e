@@ -1,0 +1,3 @@
+#!/bin/bash
+
+make test PKG=./pkg/sql/opt/exec/execbuilder TESTFLAGS="$*"

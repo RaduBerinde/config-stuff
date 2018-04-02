@@ -37,3 +37,16 @@ GOGC=off make bench PKG=./pkg/bench/ BENCHES='Planning/b = 5$$' TESTFLAGS='-benc
 go tool pprof --alloc_space memprof
 
 ~/crscripts/bench BENCHES=Planning PKG=./pkg/benches master <branch>
+
+
+-- disas
+
+Capture a cpu profile and then use `go tool pprof` and the `disasm` command.
+Also, `weblist` will show you the code in a browser and you can click to expand
+lines into their assembly.
+
+# disassemble functions matching a regexp
+go tool objdump -s regexp cockroach
+
+
+go build -gcflags '-m -l'

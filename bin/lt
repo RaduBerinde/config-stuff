@@ -14,4 +14,4 @@ fi
 set -x
 
 export COCKROACH_DISTSQL_LOG_PLAN=1
-make test PKG=./pkg/sql/logictest TESTS="$t" TESTFLAGS="-v --show-logs --show-sql $*" TESTTIMEOUT=$timeout |& tee /tmp/log
+make test PKG=./pkg/sql/logictest TESTS="$t" TESTFLAGS="-v --logtostderr NONE --show-logs --show-sql $*" TESTTIMEOUT=$timeout |& tee /tmp/log

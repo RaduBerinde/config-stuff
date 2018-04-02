@@ -24,8 +24,8 @@ syn match	separator display '^----$'
 syn region results matchgroup=separator start='^----$' end='^$' contains=badWhitespace,number,parens,braces,constant,valueKeyword
 
 " Highlight trailing whitespace and tabs.
-syn match badWhitespace display '\s\+$'
-syn match badWhitespace display '\t'
+"syn match badWhitespace display '\s\+$'
+"syn match badWhitespace display '\t'
 
 syn match parens display '[()]'
 syn match braces display '[{}]'

@@ -39,7 +39,7 @@ set showmatch
 set ruler
 set ignorecase
 set smartcase
-set winheight=30
+set winheight=40
 set wildmode=longest,list
 "set noincsearch
 set incsearch
@@ -119,7 +119,7 @@ autocmd BufNewFile,BufRead */sql/opt/testdata/* set filetype=cropttest tw=0 ai n
 autocmd BufNewFile,BufRead */sql/opt/*/testdata/* set filetype=cropttest tw=0 ai number
 autocmd BufNewFile,BufRead */sql/exec/*/testdata/* set filetype=cropttest tw=0 ai number
 
-autocmd BufNewFile,BufRead *.opt set filetype=cropt tw=0 ai number
+autocmd BufNewFile,BufRead *.opt setlocal filetype=cropt tw=80 ai number shiftwidth=4
 
 autocmd FileType c,cpp syn keyword cType vmk_uint8 vmk_int8 vmk_uint16 vmk_int16 vmk_uint32 vmk_int32 vmk_uint64 vmk_int64 vmk_uintptr_t vmk_Bool VMK_ReturnStatus vmk_ListLinks vmk_atomic64
 autocmd FileType c,cpp syn keyword cType uint8 int8 uint16 int16 uint32 int32 uint64 int64 uintptr_t Bool 
@@ -160,7 +160,7 @@ let g:go_def_mapping_enabled = 0
 
 "let g:go_def_mode = 'godef'
 let g:go_def_mode = 'guru'
-" let g:go_info_mode = 'guru'
+let g:go_info_mode = 'guru'
 
 
 " Enable goimports to automatically insert import paths instead of gofmt:
@@ -211,7 +211,7 @@ let g:tagbar_type_go = {
 
 let g:tagbar_width = 50
 
-set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags,./../../../../../../tags,
+set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags,./../../../../../../tags,./../../../../../../../tags
 
 autocmd Filetype sql set makeprg=runsql\ %\ 2>&1
 autocmd Filetype sql nmap <buffer> <F2> :!cat % \| ~/roach/cockroach sql --insecure<CR>
@@ -224,15 +224,15 @@ autocmd Filetype go nmap <C-]> :exec("stselect ".expand("<cword>"))<CR>
 
 autocmd Filetype go nmap gd <Plug>(go-def)
 "autocmd Filetype go nmap gD <Plug>(go-doc)
-"autocmd Filetype go nmap <C-\> <Plug>(go-def-split)
+autocmd Filetype go nmap <C-\> :split<CR><Plug>(go-def)
 "autocmd FileType go nmap gd :YcmCompleter GoTo<CR>
-autocmd Filetype go nmap <C-\> :split<CR>:YcmCompleter GoTo<CR>
+"autocmd Filetype go nmap <C-\> :split<CR>:YcmCompleter GoTo<CR>
 
 autocmd Filetype go nmap <Space> <Plug>(go-info)
 autocmd Filetype go nmap <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>
 autocmd Filetype go setlocal spell
 
-autocmd Filetype go highlight Comment cterm=italic
+"autocmd Filetype go highlight Comment cterm=italic
 autocmd Filetype go highlight Pmenu ctermbg=black ctermfg=red
 
 autocmd Filetype gitcommit set tw=70 spell ai
@@ -252,4 +252,3 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 20
-
