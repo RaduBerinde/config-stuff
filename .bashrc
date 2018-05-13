@@ -151,6 +151,8 @@ alias gd="git diff"
 alias gdt="git diff --no-ext-diff"
 alias r1="cd ~/roach; gopath"
 alias r2="cd ~/roach2; gopath"
+alias grbi="git rebase --interactive up"
+alias grbc="git rebase --continue"
 
 xset r rate 220 48
 

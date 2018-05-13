@@ -8,5 +8,5 @@ else
 fi
 set -x
 
-make test PKG=./pkg/sql/opt/exec/execbuilder TESTS="$t" TESTFLAGS="$*" TESTTIMEOUT=5s |& tee /tmp/log
-
+cd -P .
+cpulimit -l 600 -q -- make test PKG=./pkg/sql/opt/exec/execbuilder TESTS="$t" TESTFLAGS="$*" TESTTIMEOUT=5s |& tee /tmp/log

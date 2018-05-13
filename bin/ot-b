@@ -1,3 +1,0 @@
-#!/bin/bash
-
-make test PKG=./pkg/sql/opt/optbuilder TESTFLAGS="$*"

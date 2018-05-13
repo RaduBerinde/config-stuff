@@ -1,2 +1,3 @@
 #!/bin/bash
+#cpulimit -l 600 -q -- make buildshort
 make buildshort

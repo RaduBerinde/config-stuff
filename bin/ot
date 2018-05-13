@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#cpulimit -l 600 -q -- make test PKG=./pkg/sql/opt/... TESTFLAGS="$*"
 make test PKG=./pkg/sql/opt/... TESTFLAGS="$*"
 
 #timeout=10m
