@@ -8,5 +8,17 @@ else
 fi
 set -x
 
+if [[ "$1" = -* || "$1" = "" ]]; then
+  t="TestExecBuild"
+else
+  if [[ "$1" == *\/* ]]; then
+    t="TestExecBuild/$1"
+  else
+    t="TestExecBuild//$1"
+  fi
+  shift
+fi
+set -x
+
 cd -P .
-cpulimit -l 600 -q -- make test PKG=./pkg/sql/opt/exec/execbuilder TESTS="$t" TESTFLAGS="$*" TESTTIMEOUT=5s |& tee /tmp/log
+cpulimit -l 600 -q -- make test PKG=./pkg/sql/opt/exec/execbuilder TESTS="$t" TESTFLAGS="$*" TESTTIMEOUT=30s |& tee /tmp/log

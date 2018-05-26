@@ -9,7 +9,6 @@ else
 fi
 
 packages="\
-./pkg/sql/opt/exec/execbuilder \
 ./pkg/sql/opt/idxconstraint \
 ./pkg/sql/opt/memo \
 ./pkg/sql/opt/norm \
@@ -19,5 +18,5 @@ packages="\
 
 set -x
 
-make test PKG="$packages" TESTS="$t" TESTFLAGS="$*" TESTTIMEOUT=5s |& tee /tmp/log
-
+make test PKG="$packages" TESTS="$t" TESTFLAGS="-rewrite $*" TESTTIMEOUT=15s |& tee /tmp/log
+make test PKG="$./pkg/sql/opt/exec/execbuilder" TESTFLAGS="--rewrite-results-in-testfiles $*" TESTTIMEOUT=15s |& tee -a /tmp/log
