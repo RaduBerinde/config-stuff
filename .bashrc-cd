@@ -1,0 +1,28 @@
+function cdr() {
+  while [ $(basename $(pwd -P)) != "cockroach" ]; do
+    if [ $(pwd) == "/" ]; then
+      return 1
+    fi
+    cd ..
+  done
+}
+
+function cdsql() {
+  cdr && cd pkg/sql
+}
+
+function cdsemtree() {
+  cdr && cd pkg/sql/sem/tree
+}
+
+function cdlt() {
+  cdr && cd pkg/sql/logictest/testdata/logic_test
+}
+
+function cdob() {
+  cdr && cd pkg/sql/opt/optbuilder
+}
+
+function cdoe() {
+  cdr && cd pkg/sql/opt/exec/execbuilder
+}

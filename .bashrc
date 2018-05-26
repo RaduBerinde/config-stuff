@@ -154,6 +154,8 @@ alias r2="cd ~/roach2; gopath"
 alias grbi="git rebase --interactive up"
 alias grbc="git rebase --continue"
 
-xset r rate 220 48
+xset r rate 220 68
 
 export EDITOR=vim
+
+. bashrc-cd
