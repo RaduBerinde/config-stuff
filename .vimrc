@@ -114,9 +114,9 @@ autocmd BufNewFile,BufRead *.java.BASE set filetype=java
 autocmd BufNewFile,BufRead NOTES_EDITMSG set tw=70 ai spell
 
 "autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sh tw=0
-autocmd BufNewFile,BufRead */sql/logictest/testdata/* set filetype=crlogictest tw=0 ai number
-autocmd BufNewFile,BufRead */sql/opt/*/testdata/* set filetype=cropttest tw=0 ai number
-autocmd BufNewFile,BufRead */sql/opt/exec/*/testdata/* set filetype=crlogictest tw=0 ai number
+autocmd BufNewFile,BufRead */sql/logictest/testdata/* set filetype=crlogictest tw=0 ai "number
+autocmd BufNewFile,BufRead */sql/opt/*/testdata/* set filetype=cropttest tw=0 ai "number
+autocmd BufNewFile,BufRead */sql/opt/exec/*/testdata/* set filetype=crlogictest tw=0 ai "number
 
 autocmd BufNewFile,BufRead *.opt setlocal filetype=cropt tw=80 ai number shiftwidth=4
 
