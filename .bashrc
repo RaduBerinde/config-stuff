@@ -158,4 +158,4 @@ xset r rate 220 68
 
 export EDITOR=vim
 
-. bashrc-cd
+. .bashrc-cd

@@ -14,3 +14,8 @@ set -x
 
 export COCKROACH_DISTSQL_LOG_PLAN=1
 make test PKG=./pkg/sql/logictest TESTS="$t" TESTFLAGS="-v --logtostderr NONE --show-logs --show-sql $*" TESTTIMEOUT=$timeout |& tee /tmp/log
+
+set +x
+echo ""
+echo "** Summary **"
+cat /tmp/log | grep -E --color=never 'PASS|FAIL'
