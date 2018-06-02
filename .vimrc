@@ -254,3 +254,4 @@ let g:netrw_winsize = 20
 
 "Always show status line.
 set laststatus=2
+set clipboard=autoselectplus,exclude:cons\|linux

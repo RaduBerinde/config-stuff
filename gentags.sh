@@ -23,9 +23,9 @@ for gosrc in $GOSRC_DIRS; do
     /go/bin/gotags -R . > tags 2>>$LOGFILE
   done
 
-  # Also leave a "root" tags file. This file is consulted if an identifier is
-  # not found in a tags file inside a more specific subdir.
-  cd $gosrc
-  echo "Running in `pwd -P`" >> $LOGFILE
-  /go/bin/gotags -R $REL_PATHS > tags 2>>$LOGFILE
+  ## Also leave a "root" tags file. This file is consulted if an identifier is
+  ## not found in a tags file inside a more specific subdir.
+  #cd $gosrc
+  #echo "Running in `pwd -P`" >> $LOGFILE
+  #/go/bin/gotags -R $REL_PATHS > tags 2>>$LOGFILE
 done
