@@ -13,4 +13,4 @@ fi
 set -x
 
 cd -P .
-make test PKG=./pkg/sql/opt/exec/execbuilder TESTS="$t" TESTFLAGS="$*" TESTTIMEOUT=30s |& tee /tmp/log
+make test PKG=./pkg/sql/opt/exec/execbuilder TESTS="$t" TESTFLAGS="$* --show-logs" TESTTIMEOUT=30s |& tee /tmp/log
