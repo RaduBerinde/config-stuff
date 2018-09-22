@@ -28,7 +28,7 @@ syn match Number	'\<\d\+\>#\='
 
 syn region Constant start=+'+ end=+'+
 
-syn match	separator display '^----$'
+syn match	separator '^----$'
 syn region results matchgroup=separator start='^----$' end='^$' contains=badWhitespace,number,parens,braces,constant,valueKeyword
 
 " Highlight trailing whitespace and tabs.

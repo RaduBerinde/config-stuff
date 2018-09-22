@@ -13,6 +13,8 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\.so$\|\.pyc$' }
 let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth = 40
+let g:ctrlp_root_markers = ['pkg']
+let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*' " MacOSX/Linux
 
 set completeopt-=preview
 
@@ -39,7 +41,7 @@ set showmatch
 set ruler
 set ignorecase
 set smartcase
-set winheight=40
+set winheight=35
 set wildmode=longest,list
 "set noincsearch
 set incsearch
@@ -49,8 +51,14 @@ set dir=~/.vimbak
 set backupdir=~/.vimbak
 "set mouse=ir
 set mouse=
+
 highlight SpellBad ctermbg=Black ctermfg=Red guibg=Black guifg=Red cterm=underline gui=underline term=underline
 highlight SpellCap ctermbg=Black ctermfg=Yellow guibg=Black guifg=Red cterm=underline gui=underline term=underline
+highlight VertSplit cterm=NONE
+highlight LineNr ctermfg=darkgray
+
+set fillchars+=vert:│
+
 let spell_auto_type = "tex,mail,text,html"
 "map <F2> :w<CR>:!latex %<CR>
 map <F2> :w<CR>:make<CR>
@@ -116,6 +124,7 @@ autocmd BufNewFile,BufRead NOTES_EDITMSG set tw=70 ai spell
 "autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sh tw=0
 autocmd BufNewFile,BufRead */sql/logictest/testdata/* set filetype=crlogictest tw=0 ai "number
 autocmd BufNewFile,BufRead */sql/opt/*/testdata/* set filetype=cropttest tw=0 ai "number
+autocmd BufNewFile,BufRead */opt-private-tests/xform/* set filetype=cropttest tw=0 ai "number
 autocmd BufNewFile,BufRead */sql/opt/exec/*/testdata/* set filetype=crlogictest tw=0 ai "number
 
 autocmd BufNewFile,BufRead *.opt setlocal filetype=cropt tw=80 ai number shiftwidth=4
@@ -173,6 +182,7 @@ let g:go_fmt_fail_silently = 1
 let g:go_asmfmt_autosave = 0
 
 let g:crlfmt_autosave = 1
+let g:crlfmt_options = ' -ignore ".*.pb(.gw)?.go" -tab 2 -fast'
 
 " Disable opening browser after posting your snippet to play.golang.org:
 "let g:go_play_open_browser = 0
@@ -235,6 +245,8 @@ autocmd Filetype go setlocal spell
 autocmd Filetype go highlight Pmenu ctermbg=black ctermfg=red
 
 autocmd Filetype gitcommit set tw=70 spell ai
+"Always start on the first line.
+autocmd Filetype gitcommit 1
 autocmd Filetype gitcommit let g:ycm_auto_trigger=0
 autocmd Filetype markdown set tw=80 spell ai
 autocmd Filetype proto setlocal shiftwidth=2 spell
@@ -255,3 +267,15 @@ let g:netrw_winsize = 20
 "Always show status line.
 set laststatus=2
 set clipboard=autoselectplus,exclude:cons\|linux
+
+noremap ,s :!/home/radu/roach/cockroach sqlfmt --print-width 110 --use-spaces --tab-width 2<cr><cr>
+
+let g:airline_powerline_fonts = 1
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme="minimalist"
+
+let g:deoplete#enable_at_startup = 1
+
+
+let g:deoplete#sources#go#gocode_binary="/go/bin/gocode"

@@ -1,5 +1,5 @@
 #!/bin/bash
-timeout=10m
+timeout=15m
 t='Test(Planner|)Logic$$'
 if ! [[ "$1" = -* || "$1" = "" ]]; then
   if [[ "$1" == *\/* ]]; then
@@ -12,8 +12,17 @@ if ! [[ "$1" = -* || "$1" = "" ]]; then
 fi
 set -x
 
+extraflags="$*"
+for i in $extraflags; do
+  if [ "$i" == "-v" ]; then
+    extraflags="$extraflags --show-logs --show-sql"
+    break
+  fi
+done
+
 export COCKROACH_DISTSQL_LOG_PLAN=1
-nice -n 19 make test PKG=./pkg/sql/logictest TESTS="$t" TESTFLAGS="-test.short -v --logtostderr NONE --show-logs --show-sql $*" TESTTIMEOUT=$timeout |& tee /tmp/log
+#nice -n 19 make test PKG=./pkg/sql/logictest TESTS="$t" TESTFLAGS="-test.short -v --logtostderr NONE --show-logs --show-sql $*" TESTTIMEOUT=$timeout |& tee /tmp/log
+nice -n 19 make test PKG=./pkg/sql/logictest TESTS="$t" TESTFLAGS="--logtostderr NONE $extraflags" TESTTIMEOUT=$timeout |& tee /tmp/log
 
 set +x
 echo ""

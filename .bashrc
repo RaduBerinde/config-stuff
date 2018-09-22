@@ -127,7 +127,7 @@ if [ -z "$DISPLAY" ]; then
 fi
 export CHROMIUM_FLAGS="--no-sandbox --user-data-dir"
 #export TERM=linux
-export CLOUDSDK_CORE_PROJECT=cockroach-radu
+#export CLOUDSDK_CORE_PROJECT=cockroach-radu
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /home/radu/google-cloud-sdk/path.bash.inc ]; then
@@ -160,4 +160,7 @@ xset r rate 220 68
 
 export EDITOR=vim
 
+export COCKROACH_DEV_LICENSE='crl-0-EJL04ukFGAEiI0NvY2tyb2FjaCBMYWJzIC0gUHJvZHVjdGlvbiBUZXN0aW5n'
+
 . $HOME/.bashrc-cd
+
