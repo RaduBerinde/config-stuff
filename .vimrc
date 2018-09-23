@@ -68,9 +68,9 @@ nmap <F4> :call TimeLapse()<CR>
 nmap <F5> :%s/  *$//g<CR>
 "nmap <F7> :let @/ = "<C-R><C-W>"<CR>:grep <C-R><C-W> *<CR>:cope<CR>
 nmap <F6> :cd %:p:h<CR>
-nmap <F7> :let @/ = "<C-R><C-W>"<CR>:Ag -U -s -w <C-R><C-W><CR>
+nmap <F7> :let @/ = "<C-R><C-W>"<CR>:Ag -U -a -s -w <C-R><C-W><CR>
 "nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!grep <C-R><C-W> *<CR>
-nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!ag -U -s -w <C-R><C-W><CR>
+nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!ag -U -a -s -w <C-R><C-W><CR>
 nmap <S-F8> :let @/ = "<C-R><C-W>"<CR>:!ag --ignore "*_test.go" -s -w <C-R><C-W><CR>
 nmap <F9> :GoReferrers<CR>
 nmap <F10> :qa<CR>

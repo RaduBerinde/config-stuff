@@ -21,10 +21,12 @@ for i in $extraflags; do
 done
 
 export COCKROACH_DISTSQL_LOG_PLAN=1
-#nice -n 19 make test PKG=./pkg/sql/logictest TESTS="$t" TESTFLAGS="-test.short -v --logtostderr NONE --show-logs --show-sql $*" TESTTIMEOUT=$timeout |& tee /tmp/log
-nice -n 19 make test PKG=./pkg/sql/logictest TESTS="$t" TESTFLAGS="--logtostderr NONE $extraflags" TESTTIMEOUT=$timeout |& tee /tmp/log
+nice -n 19 make test PKG=./pkg/sql/logictest TESTS="$t" TESTFLAGS="-v --logtostderr NONE --show-logs --show-sql $*" TESTTIMEOUT=$timeout |& tee /tmp/log
+ret=$?
 
 set +x
 echo ""
 echo "** Summary **"
 cat /tmp/log | grep -E --color=never -- '--- PASS|--- FAIL|--- SKIP'
+
+exit $ret
