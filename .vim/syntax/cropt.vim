@@ -24,7 +24,7 @@ syn match var '\$[A-Za-z0-9_]*'
 
 syn match Special '^=>$'
 
-syn region def start='^define [A-Za-z0-9_]\+ {' end='}' contains=define,operator
+syn region def start='^define [A-Za-z0-9_]\+ {' end='}' contains=define,operator,comment
 
 hi def link ruletag Identifier
 hi def link func Type

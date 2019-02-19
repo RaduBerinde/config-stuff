@@ -127,10 +127,14 @@ autocmd BufNewFile,BufRead */sql/opt/*/testdata/* set filetype=cropttest tw=0 ai
 autocmd BufNewFile,BufRead */opt-private-tests/xform/* set filetype=cropttest tw=0 ai "number
 autocmd BufNewFile,BufRead */sql/opt/exec/*/testdata/* set filetype=crlogictest tw=0 ai "number
 
-autocmd BufNewFile,BufRead *.opt setlocal filetype=cropt tw=80 ai number shiftwidth=4
+autocmd BufNewFile,BufRead *.opt setlocal filetype=cropt tw=80 ai number shiftwidth=4 expandtab
+autocmd BufNewFile,BufRead *.opt highlight Tabs ctermbg=darkred ctermfg=white
+autocmd BufNewFile,BufRead *.opt match Tabs /\t/
+
+autocmd BufNewFile,BufRead sql.y nmap gd /^<C-R><C-W>:<C-M>
 
 autocmd FileType c,cpp syn keyword cType vmk_uint8 vmk_int8 vmk_uint16 vmk_int16 vmk_uint32 vmk_int32 vmk_uint64 vmk_int64 vmk_uintptr_t vmk_Bool VMK_ReturnStatus vmk_ListLinks vmk_atomic64
-autocmd FileType c,cpp syn keyword cType uint8 int8 uint16 int16 uint32 int32 uint64 int64 uintptr_t Bool 
+autocmd FileType c,cpp syn keyword cType uint8 int8 uint16 int16 uint32 int32 uint64 int64 uintptr_t Bool
 autocmd FileType c,cpp syn keyword cConstant VMK_TRUE VMK_FALSE TRUE FALSE
 
 autocmd FileType go set number fo+=croq tw=80
@@ -178,11 +182,12 @@ let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
 
 " Disable auto fmt on save:
-"let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 0
+let g:go_fmt_autofmt = 0
 let g:go_asmfmt_autosave = 0
 
 let g:crlfmt_autosave = 1
-let g:crlfmt_options = ' -ignore ".*.pb(.gw)?.go" -tab 2 -fast'
+"let g:crlfmt_options = ' -ignore ".*.pb(.gw)?.go" -tab 2 -fast'
 
 " Disable opening browser after posting your snippet to play.golang.org:
 "let g:go_play_open_browser = 0
@@ -250,6 +255,7 @@ autocmd Filetype gitcommit 1
 autocmd Filetype gitcommit let g:ycm_auto_trigger=0
 autocmd Filetype markdown set tw=80 spell ai
 autocmd Filetype proto setlocal shiftwidth=2 spell
+autocmd Filetype yacc set ai
 
 let g:vimshell_vimshrc_path = '~/.bashrc'
 " TERM=linux fixes
@@ -266,16 +272,54 @@ let g:netrw_winsize = 20
 
 "Always show status line.
 set laststatus=2
-set clipboard=autoselectplus,exclude:cons\|linux
+
+if !has('nvim')
+  set clipboard=autoselectplus,exclude:cons\|linux
+endif
 
 noremap ,s :!/home/radu/roach/cockroach sqlfmt --print-width 110 --use-spaces --tab-width 2<cr><cr>
 
 let g:airline_powerline_fonts = 1
 
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme="minimalist"
 
+let g:airline_section_a = airline#section#create(['mode', 'crypt', 'paste', 'iminsert'])
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+
+" or copy paste the following into your vimrc for shortform text
+let g:airline_mode_map = {
+    \ '__' : '-',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V',
+    \ '' : 'V',
+    \ 's'  : 'S',
+    \ 'S'  : 'S',
+    \ '' : 'S',
+    \ 't'  : 'T',
+    \ }
+
+let g:airline#extensions#default#section_truncate_width = {
+    \ 'b': 110,
+    \ 'x': 90,
+    \ 'y': 100,
+    \ 'z': 80,
+    \ 'warning': 80,
+    \ 'error': 80,
+    \ }
+
 let g:deoplete#enable_at_startup = 1
-
-
 let g:deoplete#sources#go#gocode_binary="/go/bin/gocode"
+
+" Restore last position for nvim.
+if has('nvim')
+  autocmd BufReadPost *
+              \ if line("'\"") > 0 && line("'\"") <= line("$") |
+              \   exe "normal g`\"" |
+              \ endif
+endif
+

@@ -6,7 +6,7 @@ if ! [[ "$1" = -* || "$1" = "" ]]; then
     t="$t/$1"
   else
     t="$t//$1"
-    timeout=30s
+    timeout=2m
   fi
   shift
 fi

@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# To install gotags:
+#   go get -u github.com/jstemmer/gotags
+
 GOSRC_DIRS=/go*/src
 
 REL_PATHS="

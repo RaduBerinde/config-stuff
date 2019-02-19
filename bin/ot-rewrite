@@ -20,4 +20,4 @@ packages="\
 set -x
 
 make test PKG="$packages" TESTS="$t" TESTFLAGS="-rewrite $*" TESTTIMEOUT=15s |& tee /tmp/log
-make test PKG="./pkg/sql/opt/exec/execbuilder" TESTFLAGS="--rewrite-results-in-testfiles $*" TESTTIMEOUT=1m |& tee -a /tmp/log
+make test PKG="./pkg/sql/opt/exec/execbuilder" TESTFLAGS="--rewrite $*" TESTTIMEOUT=1m |& tee -a /tmp/log

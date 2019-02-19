@@ -146,7 +146,7 @@ export PATH="/usr/lib/ccache:$PATH"
 
 alias gw='git where'
 alias gwr='git-where-repeat'
-alias gf='git fetch --all -p'
+alias gf='git fetch --all -p; git fetch origin --tags'
 alias gd="git diff"
 alias gd1="git diff HEAD^"
 alias gdu="git diff up"

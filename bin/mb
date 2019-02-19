@@ -1,3 +1,4 @@
 #!/bin/bash
 #cpulimit -l 600 -q -- make buildshort
+cd -P .
 nice -n 19 make buildshort
