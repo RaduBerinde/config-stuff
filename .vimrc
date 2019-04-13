@@ -171,8 +171,11 @@ let g:go_def_mapping_enabled = 0
 
 
 "let g:go_def_mode = 'godef'
-let g:go_def_mode = 'guru'
-let g:go_info_mode = 'guru'
+"let g:go_def_mode = 'godef'
+"let g:go_info_mode = 'godef'
+
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
 
 
 " Enable goimports to automatically insert import paths instead of gofmt:

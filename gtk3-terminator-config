@@ -278,10 +278,12 @@
 [profiles]
   [[default]]
     allow_bold = False
+    background_color = "#050505"
     cursor_color = "#aaaaaa"
     font = Classic Console 15
+    foreground_color = "#d3d7cf"
     icon_bell = False
-    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    palette = "#050505:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#888a85:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
     scrollback_lines = 10000
     scrollbar_position = hidden
     use_system_font = False

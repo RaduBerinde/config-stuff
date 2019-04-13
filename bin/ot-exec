@@ -12,4 +12,5 @@ else
   shift
 fi
 set -x
-cd -P .  make test PKG=./pkg/sql/opt/exec/execbuilder TESTS="$t" TESTFLAGS="$* --show-logs" TESTTIMEOUT=2m |& tee /tmp/log
+cd -P .
+make test PKG=./pkg/sql/opt/exec/execbuilder TESTS="$t" TESTFLAGS="$* --show-logs" TESTTIMEOUT=2m |& tee /tmp/log
