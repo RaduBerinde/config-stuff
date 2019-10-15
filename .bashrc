@@ -115,7 +115,7 @@ function devask() {
    dev $name
 }
 
-export PATH=$PATH:/usr/local/go/bin:~/bin:~/.cargo/bin
+export PATH=$PATH:/usr/local/go/bin:~/bin:~/.cargo/bin:/go/src/github.com/cockroachlabs/production/crl-prod
 alias gopath=". ~/bin/gopath.sh"
 
 source ~/liquidprompt/liquidprompt
@@ -151,6 +151,7 @@ alias gd="git diff"
 alias gd1="git diff HEAD^"
 alias gdu="git diff up"
 alias gdt="git diff --no-ext-diff"
+alias gdt1="git diff --no-ext-diff HEAD^"
 alias r1="cd ~/roach; gopath"
 alias r2="cd ~/roach2; gopath"
 alias grbi="git rebase --interactive up"
@@ -164,3 +165,6 @@ export COCKROACH_DEV_LICENSE='crl-0-EJL04ukFGAEiI0NvY2tyb2FjaCBMYWJzIC0gUHJvZHVj
 
 . $HOME/.bashrc-cd
 
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"

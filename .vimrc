@@ -21,6 +21,8 @@ set completeopt-=preview
 syntax on
 filetype plugin indent on
 
+set nonumber
+
 set notitle
 
 set scrolloff=5
@@ -123,36 +125,41 @@ autocmd BufNewFile,BufRead NOTES_EDITMSG set tw=70 ai spell
 
 "autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sh tw=0
 autocmd BufNewFile,BufRead */sql/logictest/testdata/* set filetype=crlogictest tw=0 ai "number
-autocmd BufNewFile,BufRead */sql/opt/*/testdata/* set filetype=cropttest tw=0 ai "number
-autocmd BufNewFile,BufRead */opt-private-tests/xform/* set filetype=cropttest tw=0 ai "number
+autocmd BufNewFile,BufRead */ccl/logictestccl/testdata/* set filetype=crlogictest tw=0 ai "number
+autocmd BufNewFile,BufRead */sql/opt/*/testdata/* set filetype=cropttest foldmethod=syntax tw=0 ai "number
+autocmd BufNewFile,BufRead */opt-private-tests/xform/* set filetype=cropttest foldmethod=syntax tw=0 ai "number
 autocmd BufNewFile,BufRead */sql/opt/exec/*/testdata/* set filetype=crlogictest tw=0 ai "number
 
 autocmd BufNewFile,BufRead *.opt setlocal filetype=cropt tw=80 ai number shiftwidth=4 expandtab
-autocmd BufNewFile,BufRead *.opt highlight Tabs ctermbg=darkred ctermfg=white
-autocmd BufNewFile,BufRead *.opt match Tabs /\t/
+
+autocmd FileType cropttest,crlogictest,cropt highlight Tabs ctermbg=darkred ctermfg=white
+autocmd FileType cropttest,crlogictest,cropt match Tabs /\t/
 
 autocmd BufNewFile,BufRead sql.y nmap gd /^<C-R><C-W>:<C-M>
+autocmd BufNewFile,BufRead sql.y highlight Tabs ctermbg=darkred ctermfg=white
+autocmd BufNewFile,BufRead sql.y match Tabs /\t/
 
 autocmd FileType c,cpp syn keyword cType vmk_uint8 vmk_int8 vmk_uint16 vmk_int16 vmk_uint32 vmk_int32 vmk_uint64 vmk_int64 vmk_uintptr_t vmk_Bool VMK_ReturnStatus vmk_ListLinks vmk_atomic64
 autocmd FileType c,cpp syn keyword cType uint8 int8 uint16 int16 uint32 int32 uint64 int64 uintptr_t Bool
 autocmd FileType c,cpp syn keyword cConstant VMK_TRUE VMK_FALSE TRUE FALSE
 
-autocmd FileType go set number fo+=croq tw=80
-autocmd FileType c,cpp,java,asm,make,proto set cindent tw=80 fo+=croq number
+autocmd FileType go setlocal number fo+=croq tw=80
+autocmd FileType go DefineTagFinder Typ t,type
+autocmd FileType c,cpp,java,asm,make,proto,javascript setlocal cindent tw=80 fo+=croq number
 autocmd FileType c,cpp,java,sh,python,make,go highlight OverLength ctermbg=darkred ctermfg=white
 autocmd FileType c,cpp,java,sh,python,make,go match OverLength /\%101v.\+/
 "autocmd FileType c,cpp,java,sh,python,make,go highlight ExtraWhitespace ctermbg=darkred ctermfg=white
 "autocmd FileType c,cpp,java,sh,python,make,go 2match ExtraWhitespace /\s\+$/
 "autocmd FileType c,cpp,java call matchadd('ExtraWhitespace', '\s\+$')
 "autocmd FileType c,cpp,java match ExtraWhitespace /\s\+$/
-autocmd FileType sh,python set nocindent cindent fo+=croq number
-autocmd FileType conf set smartindent fo=croqt number
+autocmd FileType sh,python setlocal nocindent cindent fo+=croq number
+autocmd FileType conf setlocal smartindent fo=croqt number
 autocmd FileType messages set nowrap
 
-autocmd BufNewFile,BufRead /tmp/log* set filetype=crlog nonumber
-autocmd BufNewFile,BufRead *ERROR* set filetype=crlog nonumber
-autocmd BufNewFile,BufRead *INFO* set filetype=crlog nonumber
-autocmd BufNewFile,BufRead *WARNING* set filetype=crlog nonumber
+autocmd BufNewFile,BufRead /tmp/log* setlocal filetype=crlog nonumber
+autocmd BufNewFile,BufRead *ERROR* setlocal filetype=crlog nonumber
+autocmd BufNewFile,BufRead *INFO* setlocal filetype=crlog nonumber
+autocmd BufNewFile,BufRead *WARNING* setlocal filetype=crlog nonumber
 
 
 " This fixes the full-pathed files opened by tags
@@ -170,7 +177,6 @@ let g:go_highlight_build_constraints = 1
 let g:go_def_mapping_enabled = 0
 
 
-"let g:go_def_mode = 'godef'
 "let g:go_def_mode = 'godef'
 "let g:go_info_mode = 'godef'
 
@@ -326,3 +332,7 @@ if has('nvim')
               \ endif
 endif
 
+let g:gh_open_command = 'xdg-open '
+let g:gh_git_remote = 'origin'
+
+set maxmempattern=5000

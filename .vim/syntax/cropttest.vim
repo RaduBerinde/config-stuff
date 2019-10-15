@@ -9,6 +9,8 @@ if exists("b:current_syntax")
   finish
 endif
 
+syn sync fromstart
+
 syn match Comment display '#.*$' contains=Todo
 
 syn match directive       display '[^ ]*\(build\|exec\|opt\|memo\)[^ ]*' skipwhite nextgroup=vars,index
@@ -18,10 +20,10 @@ syn match index           contained display 'inverted-index'
 
 syn match Number	'\<\d\+\>#\='
 
-syn region Constant start=+'+ end=+'+
+"syn region Constant start=+'+ end=+'+
 
 syn match	separator '^----$'
-syn region results matchgroup=separator start='^----$' end='^$' contains=badWhitespace,number,parens,braces,constant,valueKeyword
+syn region results matchgroup=separator start='^----$' end='^$' contains=badWhitespace,number,parens,braces,constant,valueKeyword fold
 
 " Highlight trailing whitespace and tabs.
 "syn match badWhitespace display '\s\+$'

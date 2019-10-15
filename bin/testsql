@@ -1,0 +1,2 @@
+#!/bin/bash
+nice -n 19 make test PKG=./pkg/sql |& tee /tmp/log

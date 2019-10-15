@@ -3,17 +3,15 @@
 . git-common-stuff.sh
 
 #base_branch=`get_base_branch`
-#base_branch=`get_upstream_branch`
-if [ `get_upstream_branch` = 'origin/release-2.1' ]; then
-  base_branch="origin/release-2.1"
-else
+base_branch=`get_upstream_branch`
+if [[ ! "$base_branch" = origin/release-* ]]; then
   base_branch="origin/master"
 fi
 base=`git merge-base $base_branch HEAD 2>/dev/null`
 
 echo Branches:
 #git branch -v -a
-git branch -v --color
+git branch -v --color --sort=committerdate
 
 echo
 echo Changes:

@@ -1,2 +1,2 @@
 #!/bin/bash
-ag --ignore "*_test.go" $*
+ag --ignore "*_test.go" "$*"
