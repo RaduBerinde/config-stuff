@@ -11,11 +11,12 @@ fi
 
 packages="\
 ./pkg/sql/opt/idxconstraint \
+./pkg/sql/opt/optbuilder \
 ./pkg/sql/opt/memo \
 ./pkg/sql/opt/norm \
-./pkg/sql/opt/optbuilder \
+./pkg/sql/opt/xform \
 ./pkg/sql/opt/optgen/... \
-./pkg/sql/opt/xform"
+./pkg/sql/opt/testutils/..."
 
 set -x
 

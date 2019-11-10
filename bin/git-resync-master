@@ -2,9 +2,7 @@
 
 . git-common-stuff.sh
 
-base_branch=`get_base_branch`
-
 git fetch origin
-git branch -f master $base_branch
+git branch -f master origin/master
 
 echo '*' `git log --color --oneline --decorate -1 master`

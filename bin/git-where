@@ -2,23 +2,20 @@
 
 . git-common-stuff.sh
 
-#base_branch=`get_base_branch`
-base_branch=`get_upstream_branch`
-if [[ ! "$base_branch" = origin/release-* ]]; then
-  base_branch="origin/master"
-fi
-base=`git merge-base $base_branch HEAD 2>/dev/null`
+upstream_branch=`get_upstream_branch`
+base=`git merge-base $upstream_branch HEAD 2>/dev/null`
 
 echo Branches:
 #git branch -v -a
 git branch -v --color --sort=committerdate
 
 echo
+echo -e "Upstream branch: ${COLGR}$upstream_branch${COLn}"
+
+echo
 echo Changes:
 git diff --stat $base..HEAD --color
 
-#echo
-#echo -e "Upstream branch: ${COLGR}`get_upstream_branch`${COLn}"
 
 # Show commits on top of master
 echo
