@@ -13,4 +13,4 @@ set -x
 
 #export COCKROACH_DISTSQL_LOG_PLAN=1
 # make stress PKG=./pkg/sql/logictest TESTS="$t" STRESSFLAGS='-p 8' |& tee /tmp/log
-make stress PKG=./pkg/sql/logictest TESTS="$t" |& tee /tmp/log
+make stress PKG=./pkg/sql/logictest STRESSFLAGS='-p 4' TESTS="$t" |& tee /tmp/log

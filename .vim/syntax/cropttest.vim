@@ -13,7 +13,7 @@ syn sync fromstart
 
 syn match Comment display '#.*$' contains=Todo
 
-syn match directive       display '[^ ]*\(build\|exec\|opt\|memo\)[^ ]*' skipwhite nextgroup=vars,index
+syn match directive       display '[^ ]*\(build\|exec\|opt\|memo\|norm\|optsteps\|exploretrace\)[^ ]*' skipwhite nextgroup=vars,index
 syn match vars            contained display 'vars' nextgroup=varVals
 syn match varVals         contained display '=([^)]*)' skipwhite nextgroup=index
 syn match index           contained display 'inverted-index'

@@ -22,7 +22,7 @@ SET CLUSTER SETTING enterprise.license = 'crl-0-EJL04ukFGAEiI0NvY2tyb2FjaCBMYWJz
 SET CLUSTER SETTING kv.bulk_io_write.max_rate = '30MB';
 
 CREATE DATABASE tpch;
-RESTORE workload.* FROM 'gs://cockroach-fixtures/workload/tpch/scalefactor=1/backup' WITH into_db = 'tpch';
+RESTORE tpch.* FROM 'gs://cockroach-fixtures/workload/tpch/scalefactor=1/backup' WITH into_db = 'tpch';
 
 # Old
 # restore tpch.* from 'azure://backup-test/benchmarks/tpch/scalefactor-1?AZURE_ACCOUNT_NAME=cockroachbackuptest&AZURE_ACCOUNT_KEY=FzWMkVNcHorQ2IPG5il987GEmEzSxmV8WxXOZHzKV4XfvNTXHEDdBrsAIMB2/UutSPhhNQwVt9zs4dVXD/6w/w==';
@@ -91,6 +91,9 @@ http://localhost:16686
 
 set cluster setting trace.zipkin.collector = '127.0.0.1:9411';
 
-- TPCC
+- TPCC bench
 
-roachtest run 'tpccbench/nodes=3/cpu=16$$' --cloud=aws
+roachtest run 'tpccbench/nodes=3/cpu=16$$' --cloud=aws --cockroach ./cockroach-linux-2.6.32-gnu-amd64 |& tee tpccbench.log
+
+# Second one
+roachtest run 'tpccbench/nodes=3/cpu=16$$' --cloud=aws --port=8081 --cockroach ./cockroach-linux-2.6.32-gnu-amd64 |& tee tpccbench-4.log

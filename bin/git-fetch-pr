@@ -1,2 +1,2 @@
 #!/bin/bash
-git fetch origin -f pull/$1/head:pr/$1
+git fetch origin -f pull/$1/head:pr/$1 && git checkout pr/$1

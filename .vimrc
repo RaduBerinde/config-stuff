@@ -7,6 +7,8 @@ call pathogen#helptags()
 "set runtimepath-=~/.vim/bundle/vim-go
 "
 
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 "let g:ctrlp_custom_ignore = "vendor\|jspm_packages\|node_modules\|c-deps"
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|node_modules$\|jspm_packages$\|vendor$\|c-deps\|sql/parser/gen$',
@@ -70,9 +72,11 @@ nmap <F4> :call TimeLapse()<CR>
 nmap <F5> :%s/  *$//g<CR>
 "nmap <F7> :let @/ = "<C-R><C-W>"<CR>:grep <C-R><C-W> *<CR>:cope<CR>
 nmap <F6> :cd %:p:h<CR>
-nmap <F7> :let @/ = "<C-R><C-W>"<CR>:Ag -U -a -s -w <C-R><C-W><CR>
+"nmap <F7> :let @/ = "<C-R><C-W>"<CR>:Ag -U -a -s -w <C-R><C-W><CR>
+nmap <F7> :let @/ = "<C-R><C-W>"<CR>:Ag -s -w <C-R><C-W><CR>
 "nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!grep <C-R><C-W> *<CR>
-nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!ag -U -a -s -w <C-R><C-W><CR>
+"nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!ag -U -a -s -w <C-R><C-W><CR>
+nmap <F8> :let @/ = "<C-R><C-W>"<CR>:!ag -s -w <C-R><C-W><CR>
 nmap <S-F8> :let @/ = "<C-R><C-W>"<CR>:!ag --ignore "*_test.go" -s -w <C-R><C-W><CR>
 nmap <F9> :GoReferrers<CR>
 nmap <F10> :qa<CR>
@@ -263,7 +267,7 @@ autocmd Filetype gitcommit set tw=70 spell ai
 autocmd Filetype gitcommit 1
 autocmd Filetype gitcommit let g:ycm_auto_trigger=0
 autocmd Filetype markdown set tw=80 spell ai
-autocmd Filetype proto setlocal shiftwidth=2 spell
+autocmd Filetype proto setlocal shiftwidth=2 nospell
 autocmd Filetype yacc set ai
 
 let g:vimshell_vimshrc_path = '~/.bashrc'

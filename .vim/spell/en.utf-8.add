@@ -31,3 +31,8 @@ annotatable
 resumable
 timestamp
 pri
+unexported
+INT8
+rowid
+deduplication
+deduplicated
