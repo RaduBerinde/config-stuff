@@ -2,4 +2,6 @@
 
 # terminator -l combined &
 
-DISPLAY=10.0.2.2:0 /work/gtk3-terminator/terminator -g ~/gtk3-terminator-config -u -l combined2 &
+DISPLAY=10.0.2.2:0 terminator -g ~/gtk3-terminator-config -u -l combined2 &
+
+echo To update: sudo mintupdate

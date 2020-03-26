@@ -115,7 +115,7 @@ function devask() {
    dev $name
 }
 
-export PATH=$PATH:/usr/local/go/bin:~/bin:~/.cargo/bin:/go/src/github.com/cockroachlabs/production/crl-prod
+export PATH=$PATH:/usr/local/go/bin:~/bin:~/.cargo/bin
 alias gopath=". ~/bin/gopath.sh"
 
 source ~/liquidprompt/liquidprompt
@@ -125,6 +125,8 @@ source ~/liquidprompt/liquidprompt
 if [ -z "$DISPLAY" ]; then
     export DISPLAY=10.0.2.2:0
 fi
+xset r rate 220 68
+
 export CHROMIUM_FLAGS="--no-sandbox --user-data-dir"
 #export TERM=linux
 #export CLOUDSDK_CORE_PROJECT=cockroach-radu
@@ -157,8 +159,6 @@ alias r2="cd ~/roach2; gopath"
 alias grbi="git rebase --interactive up"
 alias grbc="git rebase --continue"
 
-xset r rate 220 68
-
 export EDITOR=vim
 
 export COCKROACH_DEV_LICENSE='crl-0-EJL04ukFGAEiI0NvY2tyb2FjaCBMYWJzIC0gUHJvZHVjdGlvbiBUZXN0aW5n'
@@ -171,3 +171,5 @@ export PATH="$HOME/gems/bin:$PATH"
 
 export NVM_DIR="/home/radu/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export GOMAXPROCS=12

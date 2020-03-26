@@ -11,13 +11,14 @@ fi
 if [ ! -d $BASE/bin -o ! -d $BASE/src -o ! -d $BASE/pkg ]; then
   echo "$BASE doesn't look like a go path!"
 else
-  # remove $GOPATH/BIN if it's there
+  # remove $GOPATH/bin if it's there
   if [ -n "$GOPATH" ]; then
       PATH=$(echo "$PATH" | sed "s#:$GOPATH/bin##g")
+      PATH=$(echo "$PATH" | sed "s#:$GOPATH/src/github.com/cockroachdb/cockroach/bin##g")
   fi
 
   echo "Setting GOPATH to $BASE"
   export GOPATH=$BASE
-  export PATH=$PATH:$GOPATH/bin
+  export PATH=$PATH:$GOPATH/bin:$GOPATH/src/github.com/cockroachdb/cockroach/bin
   echo "Path updated to $PATH"
 fi

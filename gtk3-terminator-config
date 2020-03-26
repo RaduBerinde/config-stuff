@@ -3,7 +3,7 @@
   dbus = False
   enabled_plugins = ,
   focus = mouse
-  handle_size = 2
+  handle_size = 1
   homogeneous_tabbar = False
   inactive_color_offset = 0.92
   scroll_tabbar = True
@@ -19,6 +19,7 @@
   go_prev = None
   group_all = None
   group_tab = None
+  help = None
   hide_window = None
   new_terminator = <Primary><Shift>n
   scaled_zoom = <Shift>F11
@@ -35,7 +36,7 @@
   switch_to_tab_8 = <Alt>8
   switch_to_tab_9 = <Alt>9
   toggle_scrollbar = None
-  toggle_zoom = F11
+  toggle_zoom = <Alt>Return
   ungroup_all = None
   ungroup_tab = None
   zoom_in = <Primary>equal

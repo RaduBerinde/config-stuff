@@ -26,8 +26,6 @@
 	cookiefile = /home/radu/.gitcookies
 [mergetool]
 	keepBackup = false
-[pull]
-	rebase = preserve
 [core]
 	excludesfile = /home/radu/.gitignore_global
 [rebase]
@@ -36,3 +34,7 @@
 	insteadOf = https://github.com/
 [cockroachdb]
 	disable-commit-template = true
+[prmaster]
+	githubToken = 23533f1a136eda9fc0d3c56fe3dac6ceae7e8152
+[cockroach]
+	githubToken = 23533f1a136eda9fc0d3c56fe3dac6ceae7e8152
