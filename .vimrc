@@ -1,6 +1,8 @@
 colorscheme torte
 set t_ti= t_te=
 
+autocmd BufNewFile,BufReadPost *.og.go let b:tagbar_ignore = 1
+
 execute pathogen#infect()
 call pathogen#helptags()
 "set runtimepath-=~/.vim/bundle/tagbar
@@ -28,6 +30,8 @@ set nonumber
 set notitle
 
 set scrolloff=5
+
+set showbreak=>\ 
 
 autocmd BufNewFile,BufRead *.tex set filetype=tex
 autocmd FileType c,cpp set cindent tw=0
@@ -126,20 +130,26 @@ autocmd BufNewFile,BufRead *.cpp.BASE set filetype=cpp
 autocmd BufNewFile,BufRead *.h.BASE set filetype=cpp
 autocmd BufNewFile,BufRead *.java.BASE set filetype=java
 autocmd BufNewFile,BufRead NOTES_EDITMSG set tw=70 ai spell
+autocmd BufNewFile,BufRead COMMIT_EDITMSG set tw=80 ai spell
+autocmd BufNewFile,BufRead COMMIT_EDITMSG go 1
+autocmd BufNewFile,BufRead COMMIT_EDITMSG call deoplete#custom#buffer_option('auto_complete', v:false)
+
 
 "autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sh tw=0
 autocmd BufNewFile,BufRead */sql/logictest/testdata/* set filetype=crlogictest tw=0 ai "number
 autocmd BufNewFile,BufRead */ccl/logictestccl/testdata/* set filetype=crlogictest tw=0 ai "number
 autocmd BufNewFile,BufRead */sql/opt/*/testdata/* set filetype=cropttest foldmethod=syntax tw=0 ai "number
+autocmd BufNewFile,BufRead */sql/testdata/* set filetype=cropttest foldmethod=syntax tw=0 ai "number
 autocmd BufNewFile,BufRead */opt-private-tests/xform/* set filetype=cropttest foldmethod=syntax tw=0 ai "number
 autocmd BufNewFile,BufRead */sql/opt/exec/*/testdata/* set filetype=crlogictest tw=0 ai "number
 
 autocmd BufNewFile,BufRead *.opt setlocal filetype=cropt tw=80 ai number shiftwidth=4 expandtab
 
+
 autocmd FileType cropttest,crlogictest,cropt highlight Tabs ctermbg=darkred ctermfg=white
 autocmd FileType cropttest,crlogictest,cropt match Tabs /\t/
 
-autocmd BufNewFile,BufRead sql.y nmap gd /^<C-R><C-W>:<C-M>
+autocmd BufNewFile,BufRead sql.y nmap <buffer> gd /^<C-R><C-W>:<C-M>
 autocmd BufNewFile,BufRead sql.y highlight Tabs ctermbg=darkred ctermfg=white
 autocmd BufNewFile,BufRead sql.y match Tabs /\t/
 
@@ -340,3 +350,5 @@ let g:gh_open_command = 'xdg-open '
 let g:gh_git_remote = 'origin'
 
 set maxmempattern=5000
+
+let g:open_url_browser="xdg-open"

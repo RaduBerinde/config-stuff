@@ -1,0 +1,37 @@
+#!/bin/bash
+
+. git-common-stuff.sh
+
+branch=`get_current_branch`
+
+echo Pushing $branch to radu
+#git push radu $branch -f
+
+upstream_branch=`get_upstream_branch`
+base=`git merge-base $upstream_branch HEAD 2>/dev/null`
+
+# The title is always the title of the last commit.
+title=`git log -1 --pretty=format:%s HEAD`
+
+commits=`git log --pretty=format:%h $base..HEAD`
+num_commits=`echo $commits | wc -w`
+
+if [ "$num_commits" -eq 0 ]; then
+  echo No commits!
+  exit 1
+fi
+
+if [ "$num_commits" -eq 1 ]; then
+  body=`git log -1 --pretty=format:%b HEAD`
+else
+  body=`git --no-pager log up..HEAD --reverse --pretty='format:#### %s%n%n%b'`
+fi
+
+url=`curl -s -o /dev/null -w %{url_effective} --get \
+  --data-urlencode "expand=1" \
+  --data-urlencode "title=$title" \
+  --data-urlencode "body=$body" \
+	https://github.com/cockroachdb/cockroach/compare/master...RaduBerinde:$branch`
+
+echo "$url" | xclip -i
+xdg-open "$url"

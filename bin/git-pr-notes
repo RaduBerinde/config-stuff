@@ -1,3 +1,5 @@
 #!/bin/bash
 
 git --no-pager log up..HEAD --reverse --pretty='format:#### %s%n%n%b'
+
+git --no-pager log up..HEAD --reverse --pretty='format:#### %s%n%n%b' |& xclip -i
