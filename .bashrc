@@ -173,3 +173,6 @@ export NVM_DIR="/home/radu/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export GOMAXPROCS=12
+
+alias cdemo='./cockroach demo --empty'
+alias cdemomovr='./cockroach demo'

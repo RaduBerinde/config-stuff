@@ -12,6 +12,8 @@ SET CLUSTER SETTING trace.debug.enable = true;
 
 SET CLUSTER SETTING trace.lightstep.token = '4d334b606818ed1a62d0c045fca222cc';
 
+SET CLUSTER SETTING sql.stats.automatic_collection.enabled = false;
+
 
 
  -- restore TPC-H data:
