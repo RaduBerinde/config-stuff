@@ -6,5 +6,6 @@ if [ -n "$1" ]; then
   fi
 fi
 
-echo go test -v -run - .
-go test -v -run - .
+#echo go test -mod=vendor -v -run - .
+#go test -mod=vendor -v -run - .
+go build .

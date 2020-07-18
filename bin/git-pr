@@ -5,7 +5,7 @@
 branch=`get_current_branch`
 
 echo Pushing $branch to radu
-#git push radu $branch -f
+git push radu $branch -f
 
 upstream_branch=`get_upstream_branch`
 base=`git merge-base $upstream_branch HEAD 2>/dev/null`

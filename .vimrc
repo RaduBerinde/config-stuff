@@ -130,9 +130,9 @@ autocmd BufNewFile,BufRead *.cpp.BASE set filetype=cpp
 autocmd BufNewFile,BufRead *.h.BASE set filetype=cpp
 autocmd BufNewFile,BufRead *.java.BASE set filetype=java
 autocmd BufNewFile,BufRead NOTES_EDITMSG set tw=70 ai spell
-autocmd BufNewFile,BufRead COMMIT_EDITMSG set tw=80 ai spell
-autocmd BufNewFile,BufRead COMMIT_EDITMSG go 1
-autocmd BufNewFile,BufRead COMMIT_EDITMSG call deoplete#custom#buffer_option('auto_complete', v:false)
+"autocmd BufNewFile,BufRead COMMIT_EDITMSG set tw=70 ai spell
+"autocmd BufNewFile,BufRead COMMIT_EDITMSG go 1
+"autocmd BufNewFile,BufRead COMMIT_EDITMSG call deoplete#custom#buffer_option('auto_complete', v:false)
 
 
 "autocmd BufNewFile,BufRead */sql/testdata/* set filetype=sh tw=0
@@ -159,6 +159,7 @@ autocmd FileType c,cpp syn keyword cConstant VMK_TRUE VMK_FALSE TRUE FALSE
 
 autocmd FileType go setlocal number fo+=croq tw=80
 autocmd FileType go DefineTagFinder Typ t,type
+autocmd FileType go map \t :Typ <C-R><C-W><C-M>
 autocmd FileType c,cpp,java,asm,make,proto,javascript setlocal cindent tw=80 fo+=croq number
 autocmd FileType c,cpp,java,sh,python,make,go highlight OverLength ctermbg=darkred ctermfg=white
 autocmd FileType c,cpp,java,sh,python,make,go match OverLength /\%101v.\+/
@@ -191,11 +192,13 @@ let g:go_highlight_build_constraints = 1
 let g:go_def_mapping_enabled = 0
 
 
-"let g:go_def_mode = 'godef'
-"let g:go_info_mode = 'godef'
+let g:go_gopls_enabled = 0
+let g:go_def_mode = 'godef'
+let g:go_info_mode = 'godef'
+let g:go_referrers_mode = 'guru'
 
-let g:go_def_mode = 'gopls'
-let g:go_info_mode = 'gopls'
+"let g:go_def_mode = 'gopls'
+"let g:go_info_mode = 'gopls'
 
 
 " Enable goimports to automatically insert import paths instead of gofmt:

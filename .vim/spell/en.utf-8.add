@@ -36,3 +36,4 @@ INT8
 rowid
 deduplication
 deduplicated
+struct

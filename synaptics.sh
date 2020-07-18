@@ -14,6 +14,6 @@ synclient TapButton3=3
 synclient ClickFinger2=2
 synclient ClickFinger3=3
 synclient PalmDetect=1
-synclient PalmMinWidth=2
-synclient PalmMinZ=50
-syndaemon -i 0.3 -d -t
+#synclient PalmMinWidth=2
+#synclient PalmMinZ=50
+syndaemon -i 0.15 -d -R
