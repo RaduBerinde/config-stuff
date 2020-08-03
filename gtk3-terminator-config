@@ -1,32 +1,27 @@
 [global_config]
-  close_button_on_tab = False
   dbus = False
-  enabled_plugins = ,
   focus = mouse
   handle_size = 1
-  homogeneous_tabbar = False
-  inactive_color_offset = 0.92
-  scroll_tabbar = True
   tab_position = bottom
-  title_font = Classic Console 12
+  close_button_on_tab = False
+  scroll_tabbar = True
+  homogeneous_tabbar = False
   title_hide_sizetext = True
+  inactive_color_offset = 0.92
+  enabled_plugins = ,
   title_use_system_font = False
+  title_font = Classic Console 12
 [keybindings]
-  close_window = None
-  edit_window_title = F12
-  full_screen = None
+  zoom_in = <Primary>equal
   go_next = None
   go_prev = None
-  group_all = None
-  group_tab = None
-  help = None
-  hide_window = None
-  new_terminator = <Primary><Shift>n
-  scaled_zoom = <Shift>F11
   split_horiz = <Primary><Shift>j
   split_vert = <Primary><Shift>k
+  toggle_scrollbar = None
+  close_window = None
+  toggle_zoom = <Alt>Return
+  scaled_zoom = <Shift>F11
   switch_to_tab_1 = <Alt>1
-  switch_to_tab_10 = <Alt>0
   switch_to_tab_2 = <Alt>2
   switch_to_tab_3 = <Alt>3
   switch_to_tab_4 = <Alt>4
@@ -35,11 +30,29 @@
   switch_to_tab_7 = <Alt>7
   switch_to_tab_8 = <Alt>8
   switch_to_tab_9 = <Alt>9
-  toggle_scrollbar = None
-  toggle_zoom = <Alt>Return
+  switch_to_tab_10 = <Alt>0
+  full_screen = None
+  hide_window = None
+  group_all = None
   ungroup_all = None
+  group_tab = None
   ungroup_tab = None
-  zoom_in = <Primary>equal
+  new_terminator = <Primary><Shift>n
+  edit_window_title = F12
+  help = None
+[profiles]
+  [[default]]
+    allow_bold = False
+    icon_bell = False
+    background_color = "#222222"
+    cursor_color = "#aaaaaa"
+    font = Classic Console 15
+    foreground_color = "#d3d7cf"
+    scrollbar_position = hidden
+    scrollback_lines = 10000
+    palette = "#222222:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#888a85:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    word_chars = "-,./?%&#:_="
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
@@ -56,76 +69,76 @@
       maximised = False
       order = 0
       parent = ""
-      position = 104:38
-      size = 3327, 1393
+      position = 91:25
+      size = 3749, 1575
       title = term
       type = Window
     [[[child1]]]
-      active_page = 5
+      active_page = 0
       labels = 1. roach, 2. roach2, 3. view, 4. sql, 5. cluster, 6.misc
-      last_active_term = 3dddd6a3-0c97-4e12-9f2f-d898f4e48e2a, 22e6e660-60b2-4976-9ee6-820d09cebe97, ffaed060-f1c3-49e5-9950-e6ae862eea69, f7400bce-8fee-49f8-b081-23afd0c941c6, f090766a-da8f-4bba-8c76-20d34632cb73, 8863f96c-27a6-485b-a9d0-eca96ac0a5a3
+      last_active_term = 32e8e898-9119-46de-b1d9-8e9a0024da50, 22e6e660-60b2-4976-9ee6-820d09cebe97, ffaed060-f1c3-49e5-9950-e6ae862eea69, f7400bce-8fee-49f8-b081-23afd0c941c6, f090766a-da8f-4bba-8c76-20d34632cb73, 8863f96c-27a6-485b-a9d0-eca96ac0a5a3
       order = 0
       parent = child0
       type = Notebook
     [[[child12]]]
       order = 2
       parent = child1
-      position = 1662
-      ratio = 0.499849714457
+      position = 1873
+      ratio = 0.5
       type = HPaned
     [[[child15]]]
       order = 3
       parent = child1
-      position = 0
-      ratio = 0.000300571085062
+      position = 1
+      ratio = 0.000266951414842
       type = HPaned
     [[[child17]]]
       order = 1
       parent = child15
       position = 0
-      ratio = 0.000300751879699
+      ratio = 0.0
       type = HPaned
     [[[child19]]]
       order = 1
       parent = child17
-      position = 1030
-      ratio = 0.310261811616
+      position = 1160
+      ratio = 0.309911835426
       type = HPaned
     [[[child2]]]
       order = 0
       parent = child1
-      position = 866
-      ratio = 0.260595130748
+      position = 976
+      ratio = 0.260544580886
       type = HPaned
     [[[child21]]]
       order = 1
       parent = child19
-      position = 1140
-      ratio = 0.49803579223
+      position = 1294
+      ratio = 0.501161890008
       type = HPaned
     [[[child24]]]
       order = 4
       parent = child1
-      position = 1662
-      ratio = 0.499849714457
+      position = 1873
+      ratio = 0.5
       type = HPaned
     [[[child3]]]
       order = 0
       parent = child2
-      position = 481
-      ratio = 0.350800582242
+      position = 543
+      ratio = 0.351001939237
       type = VPaned
     [[[child7]]]
       order = 1
       parent = child1
-      position = 866
-      ratio = 0.260595130748
+      position = 976
+      ratio = 0.260544580886
       type = HPaned
     [[[child8]]]
       order = 0
       parent = child7
-      position = 481
-      ratio = 0.350800582242
+      position = 543
+      ratio = 0.351001939237
       type = VPaned
     [[[terminal10]]]
       order = 1
@@ -276,16 +289,3 @@
       command = /bin/bash
       enabled = True
       name = bash
-[profiles]
-  [[default]]
-    allow_bold = False
-    background_color = "#050505"
-    cursor_color = "#aaaaaa"
-    font = Classic Console 15
-    foreground_color = "#d3d7cf"
-    icon_bell = False
-    palette = "#050505:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#888a85:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
-    scrollback_lines = 10000
-    scrollbar_position = hidden
-    use_system_font = False
-    word_chars = "-,./?%&#:_="

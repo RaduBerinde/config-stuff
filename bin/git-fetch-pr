@@ -1,2 +1,5 @@
 #!/bin/bash
+git checkout master
+git branch -D pr/$1 2>/dev/null
+git fetch origin
 git fetch origin -f pull/$1/head:pr/$1 && git checkout pr/$1

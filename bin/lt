@@ -3,7 +3,13 @@ timeout=15m
 t='Test(Planner|)Logic$$'
 if ! [[ "$1" = -* || "$1" = "" ]]; then
   if [[ "$1" == *\/* ]]; then
-    t="$t/$1"
+    a=`echo "$1" | sed -e "s/\/.*$//"`
+    b=`echo "$1" | sed -e "s/^[^/]*\///"`
+    if [ -z "$a" ]; then
+      t="$t/$1"
+    else
+      t="$t/^^$a\$\$/$b"
+    fi
   else
     t="$t//$1"
     timeout=2m
